@@ -1,4 +1,6 @@
-export function Button({ param = "SUBMIT", id, onClick, size = "100%" }) {
+import { useEffect } from "react";
+
+export function Button({ children, id, onClick, size = "100%" }) {
   return (
     <div
       style={{
@@ -27,40 +29,9 @@ export function Button({ param = "SUBMIT", id, onClick, size = "100%" }) {
           onClick();
         }}
       >
-        {param}
+        {children}
       </button>
     </div>
-  );
-}
-
-export function ButtonFlex({ param = "SUBMIT", id, onClick, size = "100%" }) {
-  return (
-    <button
-      id={id}
-      style={{
-        backgroundColor: "transparent",
-        color: "#fff",
-        border: "0.1rem solid #fff",
-        borderRadius: "10px",
-        padding: "0.7rem 0",
-        margin: "0 2vw",
-        paddingTop: "calc(0.8rem + 0.3svh)",
-        width: size,
-        maxWidth: "250px",
-        fontSize: "1.8svh",
-        fontFamily: "HelveticaLTPro-Bold",
-        lineHeight: "0.9",
-      }}
-      onClick={() => {
-        try {
-          onClick();
-        } catch (err) {
-          new Error(err + "onClick is not a function");
-        }
-      }}
-    >
-      {param}
-    </button>
   );
 }
 
@@ -141,66 +112,6 @@ export function Terms({ terms, setInfo }) {
   );
 }
 
-export function Viber({ terms, setInfo }) {
-  return (
-    <section
-      style={{
-        display: "flex",
-        marginBottom: "1rem",
-      }}
-      className="terms"
-    >
-      <div
-        onClick={() => {
-          setInfo((prev) => {
-            return {
-              ...prev,
-              viber: !prev.viber,
-            };
-          });
-        }}
-      >
-        <div
-          id="terms"
-          style={{
-            width: "2svh",
-            height: "2svh",
-            backgroundColor: "#fff",
-            borderRadius: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginRight: "0.5rem",
-            border: "none",
-          }}
-        >
-          <div
-            style={{
-              width: "1.3svh",
-              height: "1.3svh",
-              backgroundColor: !terms ? "#fff" : "#a3a3a3",
-              borderRadius: 0,
-              border: "none",
-            }}
-          />
-        </div>
-      </div>
-
-      <div>
-        <p
-          style={{
-            color: "white",
-            fontSize: "1.2svh",
-            textAlign: "justify",
-            marginTop: "0.rem",
-          }}
-        >
-          I’VE VIBER ACCOUNT
-        </p>
-      </div>
-    </section>
-  );
-}
 export function Input({
   placeholder = "First Name",
   size = "100%",
