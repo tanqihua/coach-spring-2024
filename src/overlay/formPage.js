@@ -9,7 +9,7 @@ const FormPage = (props) => {
         padding: "0 3rem", // Adjust the padding as needed
         borderRadius: "10px", // Optional: Add border-radius for rounded corners
         width: "90%", // Adjust the width as needed
-        height: "85vh", // Adjust the height as needed
+        height: "85svh", // Adjust the height as needed
         position : "relative"
       }}>
 
@@ -57,7 +57,7 @@ const FormPage = (props) => {
           >
             <img src="/asset/activist1.png"/>
           </div>
-          <div className="block" style={{height:"1vh"}}></div>
+          <div className="block" style={{height:"1svh"}}></div>
           NEXT
         </ButtonRound>
       </div>
