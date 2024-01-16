@@ -4,7 +4,7 @@ import { Button, ButtonRound } from "./components";
 const Page14 = (props) => {
   return (
     <Wraper style={{}}>
-      <div className="block" style={{ height: "6svh" }}></div>
+      <div className="block" style={{ height: "4%" }}/>
       <div style={{
         display: "flex",
         justifyContent: "center"
@@ -17,13 +17,18 @@ const Page14 = (props) => {
           boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.4)", // Add box shadow
           padding: "0 3rem", // Adjust the padding as needed
           borderRadius: "4px", // Optional: Add border-radius for rounded corners
-          width: "90%", // Adjust the width as needed
-          height: "65svh", // Adjust the height as needed
+          width: "85%", // Adjust the width as needed
+          height: "60svh", // Adjust the height as needed
           position: "relative",
         }}>
         </div>
       </div>
-
+      <div className="block" style={{ height: "3%" }}/>
+      <h3>Tap the gift box to redeem <br /> your a treat!</h3>
+      <div className="block" style={{ height: "1%" }}/>
+      <Button backgroundColor="#6da5e2">REDEEM</Button>
+      <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
+      <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
     </Wraper>
   );
 };

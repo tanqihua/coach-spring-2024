@@ -13,6 +13,13 @@ h2 {
   font-family: 'HelveticaLTPro-Roman';
 }
 
+h3 {
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  font-family: 'HelveticaLTPro-Bold';
+}
+
 .imgContainer img{
   height: 100%;
 }
