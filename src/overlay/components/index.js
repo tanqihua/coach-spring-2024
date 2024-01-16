@@ -34,8 +34,43 @@ export function Button({ children, id, onClick, size = "100%" }) {
     </div>
   );
 }
+export function ButtonRound({ children, id, onClick, size = "100%" }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        margin: "0.8rem 0",
+      }}
+    >
+      <button
+        id={id}
+        style={{
+          backgroundColor: "rgba(255, 165, 0, 0.7)", // RGBA Orange with 0.7 transparency
+          color: "#fff",
+          border: "0.1rem solid #fff",
+          borderRadius: "50%", // Make the button round by setting border-radius to 50%
+          margin: "auto",
+          padding: "0.7rem 0",
+          paddingTop: "calc(0.8rem + 0.3svh)",
+          width: "15vh",
+          height: "15vh", // Set height equal to width to make a perfect circle
+          maxWidth: "250px",
+          fontSize: "1.8svh",
+          fontFamily: "HelveticaLTPro-Bold",
+          lineHeight: "1",
+        }}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    </div>
+  );
+}
 
-export function Terms({ terms, setInfo }) {
+
+
+export function Terms({ terms = false, setInfo = ()=>{} }) {
   return (
     <section
       style={{
@@ -97,9 +132,6 @@ export function Terms({ terms, setInfo }) {
             style={{
               textDecoration: "underline",
               fontSize: "1svh",
-            }}
-            onClick={() => {
-              window.open("/CoachHoliday2023.pdf");
             }}
           >
             {" "}

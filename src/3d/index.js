@@ -37,7 +37,8 @@ const THREESCENE = React.forwardRef((props, ref) => {
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: "10",
+          zIndex: "-10",
+          pointerEvents : "none"
         }}
         camera={{ position: [0, 0, 30], fov: 32.5, near: 0.1, far: 100 }}
         onCreated={({ gl }) => {
