@@ -34,7 +34,7 @@ export function Button({ children, id, onClick, size = "100%" }) {
     </div>
   );
 }
-export function ButtonRound({ children, id, onClick, size = "100%" }) {
+export function ButtonRound({ children, id, onClick, size = "100%" , width = "16svh" , height = "16svh"}) {
   return (
     <div
       style={{
@@ -46,15 +46,15 @@ export function ButtonRound({ children, id, onClick, size = "100%" }) {
       <button
         id={id}
         style={{
-          backgroundColor: "rgba(255, 165, 0, 0.7)", // RGBA Orange with 0.7 transparency
+          backgroundColor: "rgba(244, 180, 4, 0.8)", 
           color: "#fff",
           border: "0.1rem solid #fff",
           borderRadius: "50%", // Make the button round by setting border-radius to 50%
           margin: "auto",
           padding: "0.7rem 0",
           paddingTop: "calc(0.8rem + 0.3svh)",
-          width: "15vh",
-          height: "15vh", // Set height equal to width to make a perfect circle
+          width: width,
+          height: height, // Set height equal to width to make a perfect circle
           maxWidth: "250px",
           fontSize: "1.8svh",
           fontFamily: "HelveticaLTPro-Bold",
@@ -67,8 +67,6 @@ export function ButtonRound({ children, id, onClick, size = "100%" }) {
     </div>
   );
 }
-
-
 
 export function Terms({ terms = false, setInfo = ()=>{} }) {
   return (
@@ -91,16 +89,15 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
         <div
           id="terms"
           style={{
-            width: "1.2svh",
-            height: "1.2svh",
+            width: "1.2rem",
+            height: "1.2rem",
             backgroundColor: "#fff",
             borderRadius: 0,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginLeft: "1rem",
-            marginRight: "1rem",
             border: "none",
+            marginRight : "1.1rem"
           }}
         >
           <div
@@ -115,19 +112,16 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
         </div>
       </div>
 
+
       <div>
         <p
           style={{
             color: "white",
-            fontSize: "0.75svh",
+            fontSize: "0.51rem",
             textAlign: "left",
           }}
         >
-          BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED
-          PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART
-          REMINDERS) FROM CK AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT IS
-          NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO
-          CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW{" "}
+          BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW .{" "}
           <span
             style={{
               textDecoration: "underline",
@@ -145,7 +139,7 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
 }
 
 export function Input({
-  placeholder = "First Name",
+  placeholder = "FIRST NAME",
   size = "100%",
   type = "text",
   maxLength = 4,
@@ -158,7 +152,8 @@ export function Input({
       name={placeholder}
       style={{
         textAlign: "center",
-        fontSize: "0.8rem",
+        fontFamily:"HelveticaLTPro-Roman",
+        fontSize: "1rem",
         color: "black",
         border: "none",
         backgroundColor: "white",
