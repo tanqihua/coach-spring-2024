@@ -53,8 +53,8 @@ export function ButtonRound({ children, id, onClick, size = "100%" }) {
           margin: "auto",
           padding: "0.7rem 0",
           paddingTop: "calc(0.8rem + 0.3svh)",
-          width: "15vh",
-          height: "15vh", // Set height equal to width to make a perfect circle
+          width: "15svh",
+          height: "15svh", // Set height equal to width to make a perfect circle
           maxWidth: "250px",
           fontSize: "1.8svh",
           fontFamily: "HelveticaLTPro-Bold",
@@ -68,9 +68,7 @@ export function ButtonRound({ children, id, onClick, size = "100%" }) {
   );
 }
 
-
-
-export function Terms({ terms = false, setInfo = ()=>{} }) {
+export function Terms({ terms = false, setInfo = () => {} }) {
   return (
     <section
       style={{

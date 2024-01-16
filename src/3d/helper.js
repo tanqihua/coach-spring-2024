@@ -1,6 +1,6 @@
 export function GroundPlane() {
   return (
-    <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+    <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -10, 0]}>
       <planeGeometry attach="geometry" args={[500, 500]} />
       <meshStandardMaterial attach="material" color="white" />
     </mesh>
@@ -9,7 +9,7 @@ export function GroundPlane() {
 
 export function BackDrop() {
   return (
-    <mesh receiveShadow position={[0, -1, -5]}>
+    <mesh receiveShadow position={[0, -10, -5]}>
       <planeGeometry attach="geometry" args={[500, 500]} />
       <meshStandardMaterial attach="material" color="white" />
     </mesh>

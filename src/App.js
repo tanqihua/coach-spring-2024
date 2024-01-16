@@ -6,16 +6,14 @@ import { Routes, Route } from "react-router-dom";
 import { Page1, FormPage } from "./overlay";
 
 function App() {
-  const threeRef = useRef(null);
   const phaserRef = useRef(null);
   return (
     <div className="App">
-      <THREESCENE ref={threeRef} />
       <PhaserScene ref={phaserRef} />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Page1 />} />
         <Route path="/formpage" element={<FormPage />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }

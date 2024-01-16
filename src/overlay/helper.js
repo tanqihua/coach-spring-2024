@@ -11,7 +11,7 @@ export const Wraper = (props) => {
         maxWidth: "700px",
         transform: "translateX(-50%)",
         width: "100vw",
-        height: "100vh",
+        height: "100svh",
         ...style,
       }}
     >
