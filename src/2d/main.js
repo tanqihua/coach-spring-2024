@@ -80,16 +80,6 @@ export class Main extends Phaser.Scene {
         },
       });
     };
-
-    this.tweens.add({
-      targets: this.c,
-      y: "+=20", // move up by 20
-      duration: 2000, // in ms
-      angle: { start: -3, to: 8 }, // rotate 360 degrees
-      ease: "Linear", // 'Power1', 'Power2', 'Power3', 'Power4', 'Sine.easeInOut', 'Cubic.easeInOut' etc.
-      yoyo: true, // at the end of the tween, it will return to the original state
-      repeat: -1, // -1 means it will repeat indefinitely
-    });
   }
 
   update(time, delta) {
