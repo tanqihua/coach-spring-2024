@@ -13,8 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Quest />} />
         <Route path="/formpage" element={<FormPage />} />
-        <Route path="/page14" element={<Page14 />} />
-        <Route path="/page15" element={<Page15 />} />
       </Routes>
     </div>
   );
