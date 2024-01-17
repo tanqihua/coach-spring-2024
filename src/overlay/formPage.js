@@ -55,7 +55,7 @@ const FormPage = (props) => {
               margin : "auto"
             }}
           >
-            <img src="/asset/activist1.png"/>
+            <img src="/asset/activist.png"/>
           </div>
           <div className="block" style={{height:"1svh"}}></div>
           NEXT

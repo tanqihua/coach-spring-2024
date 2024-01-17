@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function Button({ children, id, onClick, size = "100%", width = "25svh", height = "6svh", backgroundColor = "transparent" }) {
+export function Button({ children, id, onClick, size = "100%", width = "25svh", height = "5.5svh", backgroundColor = "transparent",fontSize = "1.8svh", }) {
   return (
     <div
       style={{
@@ -22,7 +22,7 @@ export function Button({ children, id, onClick, size = "100%", width = "25svh", 
           width: width,
           height: height,
           maxWidth: "250px",
-          fontSize: "1.8svh",
+          fontSize: fontSize,
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
         }}
