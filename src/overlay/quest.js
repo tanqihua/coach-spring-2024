@@ -16,12 +16,4 @@ const Quest = () => {
   );
 };
 
-const Slider = () => {
-  return (
-    <div>
-      <input type="range" min="0" max="45" defaultValue="0" />
-    </div>
-  );
-};
-
 export default Quest;
