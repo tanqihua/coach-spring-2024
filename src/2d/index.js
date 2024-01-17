@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { Bootstrap } from "./bootstrap.js";
+import { Main } from "./main.js";
 import React, { useEffect } from "react";
 const config = {
   type: Phaser.AUTO,
@@ -21,7 +22,7 @@ const config = {
     },
   },
 
-  scene: [Bootstrap],
+  scene: [Bootstrap, Main],
 };
 
 const IoPhaser = React.forwardRef((props, ref) => {

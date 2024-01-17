@@ -37,8 +37,8 @@ const THREESCENE = React.forwardRef((props, ref) => {
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: "-10",
-          pointerEvents : "none"
+          zIndex: "10",
+          pointerEvents: "none",
         }}
         camera={{ position: [0, 0, 30], fov: 32.5, near: 0.1, far: 100 }}
         onCreated={({ gl }) => {
@@ -54,18 +54,33 @@ const THREESCENE = React.forwardRef((props, ref) => {
           </Physics>
         </Suspense>
         {/* <GroundPlane />
-        <BackDrop /> */}
+        <BackDrop />
 
         <KeyLight brightness={1.6} color={"#FFDF91"} />
         <FillLight brightness={2.6} color={"#FFDF91"} />
-        <RimLight brightness={10.6} color={"orange"} />
-
+        <RimLight brightness={10.6} color={"orange"} /> */}
+        {/* <RimLight brightness={10.6} color={"orange"} /> */}
         <Environment preset="studio" />
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={1} color={"white"} />
       </Canvas>
     </div>
   );
 });
+
+let LandingAnimation = [
+  {
+    name: "c",
+    initPos: [-8, -12, 5],
+    targetPos: [-4, 3, 0],
+    leavePos: [-4, 12, 7],
+  },
+  {
+    name: "o",
+    initPos: [-4, -15, 5],
+    targetPos: [-2, 2.5, 1],
+    leavePos: [3, 12, 7],
+  },
+];
 
 const Fonts = () => {
   let triggerUp = false;
@@ -85,9 +100,18 @@ const Fonts = () => {
 
   return (
     <>
-      <Font font={"c"} target={[-4, 3, 0]} getTriggerUp={getTriggerUp} />
-      <Font font={"o"} target={[-2, 2.5, 1]} getTriggerUp={getTriggerUp} />
-      <Font font={"a"} target={[-0, 2.2, 0.3]} getTriggerUp={getTriggerUp} />
+      {LandingAnimation.map((item, index) => {
+        return (
+          <Font
+            key={index}
+            font={item.name}
+            target={item.targetPos}
+            initPos={item.initPos}
+            getTriggerUp={getTriggerUp}
+            leavePos={item.leavePos}
+          />
+        );
+      })}
     </>
   );
 };
@@ -96,8 +120,9 @@ const Font = ({
   font,
   target = [0, 0, 0],
   r = THREE.MathUtils.randFloatSpread,
-  vec = new THREE.Vector3(),
   getTriggerUp,
+  initPos,
+  leavePos,
 }) => {
   // useTexute
   const obj1 = useLoader(OBJLoader, `/3d/coach/${font}/0.obj`);
@@ -175,20 +200,25 @@ const Font = ({
 
     if (api.current) {
       delta = Math.min(0.1, delta);
-      let targetPos = new THREE.Vector3(target[0], target[1], target[2]);
-      let bais = 0.4;
+      let targetPos;
+      let bais = 0.8;
 
       if (getTriggerUp()) {
-        targetPos.add(new THREE.Vector3(0, height, 0));
-        bais = 0.1;
+        targetPos = new THREE.Vector3(leavePos[0], leavePos[1], leavePos[2]);
+        bais = 0.4;
+      } else {
+        targetPos = new THREE.Vector3(target[0], target[1], target[2]);
       }
+
       let current = new THREE.Vector3().copy(api.current.translation());
       let direction = targetPos.sub(current).normalize();
+
       direction.multiply({
         x: 50 * delta * bais,
         y: 150 * delta * bais,
         z: 50 * delta * bais,
       });
+
       api.current.applyImpulse(direction);
     }
   });
@@ -199,7 +229,7 @@ const Font = ({
         linearDamping={0.75}
         angularDamping={0.15}
         friction={0.2}
-        position={[r(20), r(20) - 25, r(20) - 10]}
+        position={initPos}
         ref={api}
         colliders={false}
         dispose={null}
