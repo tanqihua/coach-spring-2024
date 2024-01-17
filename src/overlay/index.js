@@ -7,4 +7,3 @@ import _Page15 from "./page15";
 export const Page1 = _Page1;
 export const Page4 = _Page4;
 export const FormPage = _FormPage;
-export const Quest = _Quest;

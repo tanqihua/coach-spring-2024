@@ -3,7 +3,7 @@ import THREESCENE from "./3d";
 import PhaserScene from "./2d";
 import React, { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Page1, FormPage, Quest } from "./overlay";
+import { Page1, FormPage, Page4 } from "./overlay";
 
 function App() {
   const phaserRef = useRef(null);
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <PhaserScene ref={phaserRef} />
       <Routes>
-        <Route path="/" element={<Quest />} />
+        <Route path="/" element={<Page4 phaserRef={phaserRef} />} />
         <Route path="/formpage" element={<FormPage />} />
       </Routes>
     </div>
