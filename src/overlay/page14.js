@@ -4,9 +4,11 @@ import { Button } from "./components";
 
 const Page14 = (props) => {
   const [isPrizeContainerVisible, setPrizeContainerVisibility] = useState(false);
+  const [sellected, setSellected] = useState(null);
 
   const handleRedeemButtonClick = () => {
     // Add logic here to handle redeeming
+    setSellected(1);
     setPrizeContainerVisibility(true);
   };
 
@@ -52,6 +54,8 @@ const Page14 = (props) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
+          opacity: sellected === 1 ? 1 : 0,
+          transition: "opacity 0.5s ease-in-out",
           zIndex: 999,
         }}>
           <div className="block" style={{height:"5%"}}/>
