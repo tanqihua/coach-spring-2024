@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Wraper } from "./helper";
 import { Button } from "./components";
+import gsap from 'gsap';
 
 const Page14 = (props) => {
   const [isPrizeContainerVisible, setPrizeContainerVisibility] = useState(false);
-  const [sellected, setSellected] = useState(null);
+  const prizeContainerRef = useRef(null);
 
   const handleRedeemButtonClick = () => {
     // Add logic here to handle redeeming
-    setSellected(1);
     setPrizeContainerVisibility(true);
   };
+
+  useEffect(() => {
+    // GSAP animations setup
+    if (isPrizeContainerVisible) {
+      gsap.to(prizeContainerRef.current, { opacity: 1, duration: 0.5, ease: 'power2.inOut' });
+    } else {
+      gsap.to(prizeContainerRef.current, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+    }
+  }, [isPrizeContainerVisible]);
 
   return (
     <Wraper style={{ position: "relative" }}>
       <div className="block" style={{ height: "6svh" }} />
       <div className="redeemContainer" style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
         height: "90svh",
         width: "fit-content",
         margin: "auto",
-        position: "relative",
       }}>
         <div
           className="imgContainer"
@@ -32,7 +37,7 @@ const Page14 = (props) => {
             boxShadow: "0 0 2rem rgba(0,0,0,0.3)"
           }}
         >
-          <img src="/asset/test.jpg" />
+          <img src="/asset/test.jpg" alt="Gift" />
         </div>
         <div className="block" style={{ height: "4svh" }} />
         <h4>Tap the gift box to redeem <br /> your a treat!</h4>
@@ -43,21 +48,28 @@ const Page14 = (props) => {
       </div>
 
       {isPrizeContainerVisible && (
-        <div className="prizeContainer" style={{ 
-          backgroundColor: "#ff99a7",
-          padding: "0 3rem", 
-          borderRadius: "10px", 
-          width: "85%", 
-          height: "90svh", 
-          boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          opacity: sellected === 1 ? 1 : 0,
-          transition: "opacity 0.5s ease-in-out",
-          zIndex: 999,
-        }}>
+        <div
+          ref={prizeContainerRef}
+          className="prizeContainer"
+          style={{ 
+            backgroundImage:"url(/asset/bg.png)",
+            backgroundSize:"cover",
+            backgroundRepeat:"no-repeat",
+            // backgroundPosition:"center",
+            // backgroundColor: "#ff99a7",
+            padding: "0 3rem", 
+            borderRadius: "10px", 
+            width: "85%", 
+            height: "90svh", 
+            boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            opacity: 0,
+            zIndex: 999,
+          }}
+        >
           <div className="block" style={{height:"5%"}}/>
 
           <div
@@ -106,6 +118,7 @@ const Page14 = (props) => {
 };
 
 export default Page14;
+
 
 
 

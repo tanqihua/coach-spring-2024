@@ -1,9 +1,15 @@
+p{
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  font-family: 'HelveticaLTPro-Roman';
+}
 
 h1 {
   font-size: 2rem;
   color: white;
   text-align: center;
-  font-family: 'HelveticaLTPro-Roman';
+  font-family: 'HelveticaLTPro-Bold';
 }
 
 h2 {
@@ -50,3 +56,47 @@ h6 {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 } */
+
+.dottedLine {
+  content: '';
+  position: absolute;
+  width: 40%; /* Adjust based on your design */
+  height: 0;
+  border-top: 0.1rem dashed #fff;
+  top: 50%; /* Adjust to position above the range slider */
+  left: 49%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Page4.css */
+.custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 8px;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s;
+  z-index: 1;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}

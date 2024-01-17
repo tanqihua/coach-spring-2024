@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function Button({ children, id, onClick, size = "100%", width = "25svh", height = "5.5svh", backgroundColor = "transparent",fontSize = "1.8svh", }) {
+export function Button({ children, id, onClick, size = "100%", width = "25svh", height = "5.5svh", backgroundColor = "transparent",fontSize = "1.8svh", borderRadius = "4px", }) {
   return (
     <div
       style={{
@@ -15,7 +15,7 @@ export function Button({ children, id, onClick, size = "100%", width = "25svh", 
           backgroundColor: backgroundColor,
           color: "#fff",
           border: "0.1rem solid #fff",
-          borderRadius: "4px",
+          borderRadius: borderRadius,
           margin: "auto",
           padding: "0.7rem 0",
           paddingTop: "calc(0.8rem + 0.3svh)",
