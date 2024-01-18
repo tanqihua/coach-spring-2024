@@ -12,7 +12,8 @@ const Quest = () => {
         transform: "translateX(-50%)",
         opacity: 0.5,
       }}
-    ></div>
+    >
+    </div>
   );
 };
 

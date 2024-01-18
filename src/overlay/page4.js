@@ -38,7 +38,7 @@ const Page4 = (props) => {
 
           <div className="block" style={{ height: "5%" }} />
 
-          <div className="rangeSlider" style={{ display: "flex", justifyContent: "space-between", padding: "0 0%", alignItems: "center", position: "relative" }}>
+          <div className="rangeSlider" style={{ display: "flex", justifyContent: "space-between", padding: "0 0%", alignItems: "center", position: "relative", height:"5svh" }}>
             <p>Couldn't <br /> be me</p>
             <div className="dottedLine"></div>
             <input

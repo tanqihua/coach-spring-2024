@@ -25,18 +25,21 @@ h3 {
   text-align: center;
   font-family: 'HelveticaLTPro-Bold';
 }
+
 h4 {
   font-size: 1.8rem;
   color: white;
   text-align: center;
   font-family: 'HelveticaLTPro-Bold';
 }
+
 h5 {
   font-size: 1.2rem;
   color: white;
   text-align: center;
   font-family: 'HelveticaLTPro-Bold';
 }
+
 h6 {
   font-size: 1.2rem;
   color: white;
@@ -52,15 +55,10 @@ h6 {
   width: fit-content;
 }
 
-/* .prizeContainer {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-} */
-
 .dottedLine {
   content: '';
   position: absolute;
-  width: 40%; /* Adjust based on your design */
+  width: 60%; /* Adjust based on your design */
   height: 0;
   border-top: 0.1rem dashed #fff;
   top: 50%; /* Adjust to position above the range slider */
@@ -74,7 +72,8 @@ h6 {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
-  height: 8px;
+  width: 60%;
+  height: 100%;
   border-radius: 5px;
   outline: none;
   transition: background 0.3s;
@@ -84,8 +83,8 @@ h6 {
 .custom-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -100,3 +99,5 @@ h6 {
   cursor: pointer;
   z-index: 2;
 }
+
+

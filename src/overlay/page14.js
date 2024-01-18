@@ -41,7 +41,7 @@ const Page14 = (props) => {
         </div>
         <div className="block" style={{ height: "4svh" }} />
         <h4>Tap the gift box to redeem <br /> your a treat!</h4>
-        <div className="block" style={{ height: "1%" }} />
+        <div className="block" style={{ height: "2svh" }} />
         <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>REDEEM</Button>
         <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
         <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
@@ -55,8 +55,6 @@ const Page14 = (props) => {
             backgroundImage:"url(/asset/bg.png)",
             backgroundSize:"cover",
             backgroundRepeat:"no-repeat",
-            // backgroundPosition:"center",
-            // backgroundColor: "#ff99a7",
             padding: "0 3rem", 
             borderRadius: "10px", 
             width: "85%", 
