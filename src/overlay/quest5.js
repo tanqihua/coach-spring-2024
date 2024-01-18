@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Vibrant from "node-vibrant";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
@@ -8,12 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
-
-  useEffect(() => {
-    // Set the color of the browser's address bar
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '');
-  }, []); // Empty dependency array ensures that this effect runs only once, similar to componentDidMount
-
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
@@ -22,10 +15,6 @@ const Index = (props) => {
 
   return (
     <Quest>
-      <head>
-        <meta name="theme-color" content="#249ade" />
-      </head>
-
       <div
         className="block"
         style={{
