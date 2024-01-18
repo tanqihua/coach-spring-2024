@@ -34,7 +34,7 @@ export const SuperFanProvider = ({ children, value }) => {
   const init = (_preTimeSpen = 0, _replay = 1) => {
     let count20 = 20;
     let current = new Date().getTime();
-    let timeSpend = _preTimeSpen;
+    let timeSpent = _preTimeSpen;
 
     if (!_replay) _replay = 1;
 
@@ -51,11 +51,11 @@ export const SuperFanProvider = ({ children, value }) => {
               setDoc(
                 doc(db, collection, info.uid),
                 {
-                  createTime: new Date(),
+                  createTime: Date.now(),
                   uid: info.uid,
-                  oparationSystem: navigator.appVersion,
+                  userAgent: navigator.appVersion || navigator.userAgent,
                   replay: _replay,
-                  ...data,
+                  geoData: JSON.stringify(data),
                 },
                 {
                   merge: true,
@@ -66,9 +66,9 @@ export const SuperFanProvider = ({ children, value }) => {
               setDoc(
                 doc(db, collection, info.uid),
                 {
-                  createTime: new Date(),
+                  createTime: Date.now(),
                   uid: info.uid,
-                  oparationSystem: navigator.appVersion,
+                  userAgent: navigator.appVersion || navigator.userAgent,
                   replay: _replay,
                 },
                 {
@@ -81,9 +81,9 @@ export const SuperFanProvider = ({ children, value }) => {
           setDoc(
             doc(db, collection, info.uid),
             {
-              createTime: new Date(),
+              createTime: Date.now(),
               uid: info.uid,
-              oparationSystem: navigator.appVersion,
+              userAgent: navigator.appVersion || navigator.userAgent,
               replay: _replay,
             },
             {
@@ -96,7 +96,7 @@ export const SuperFanProvider = ({ children, value }) => {
         doc(db, collection, info.uid),
         {
           uid: info.uid,
-          oparationSystem: navigator.appVersion,
+          userAgent: navigator.appVersion || navigator.userAgent,
           replay: _replay,
         },
         {
@@ -113,11 +113,11 @@ export const SuperFanProvider = ({ children, value }) => {
         if (count20 <= 0) {
           count20 = 20;
 
-          timeSpend += count20;
+          timeSpent += count20;
           setDoc(
             doc(db, value.collection, info.uid),
             {
-              timeSpend,
+              timeSpent,
             },
             { merge: true }
           );
@@ -139,7 +139,7 @@ export const SuperFanProvider = ({ children, value }) => {
       }
       count++;
       let data = {
-        clicked: {
+        events: {
           [type]: {
             time: Date.now(),
             count: count,
@@ -181,29 +181,19 @@ export const SuperFanProvider = ({ children, value }) => {
     }
   };
 
-  const submit_temp = (props) => {
-    if (info.uid) {
-      setDoc(doc(db, "coach-holiday", Date.now().toString()), props, {
-        merge: true,
-      }).then((e) => {
-        console.log(e);
-      });
-    }
-  };
-
   const getCheckHistory = async () => {
     if (uid) {
       const docRef = doc(db, collection, uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         if (docSnap.data()) {
-          setClicked(docSnap.data()?.clicked);
+          setClicked(docSnap.data()?.events);
           setInfo({
             ...info,
             _name: docSnap.data()?.name ?? null,
           });
           console.log(docSnap.data());
-          init(docSnap.data()?.timeSpend, docSnap.data()["replay"] + 1);
+          init(docSnap.data()?.timeSpent, docSnap.data()["replay"] + 1);
         }
       }
     } else {

@@ -1,4 +1,4 @@
-const Quest = () => {
+const Quest = ({ children }) => {
   return (
     <div
       style={{
@@ -6,13 +6,13 @@ const Quest = () => {
         height:
           "calc(95svw * 1.965 + (100svh - 95svw * 1.965)/2 - 1.965 * 0.4 * 95vw)",
         width: 95 + "vw",
-        backgroundColor: "blue",
         bottom: 0,
         left: "50%",
         transform: "translateX(-50%)",
-        opacity: 0.5,
+        padding: "0 5%",
       }}
     >
+      {children}
     </div>
   );
 };

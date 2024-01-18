@@ -6,12 +6,57 @@ export class Main extends Phaser.Scene {
 
     this.video = null;
     this.totalFrames = 44;
-    this.targetFrame = 0;
+    this.targetFrame = 15;
     this.currentFrame = 0;
-    this.letters = ["c"];
+    this.letters = ["a", "c", "o", "h"];
+    this.currentLetter = "a";
   }
 
   init() {}
+
+  setNextQuestion(color, letter) {
+    this.currentFrame = 15;
+    this.targetFrame = 16;
+    this.letters.forEach((_letter) => {
+      if (_letter === letter) {
+        this.tweens.add({
+          targets: this[_letter],
+          alpha: 1,
+          duration: 500,
+          ease: "Linear",
+          delay: 0.3,
+        });
+      } else {
+        this.tweens.add({
+          targets: this[_letter],
+          alpha: 0,
+          duration: 500,
+          ease: "Linear",
+        });
+      }
+    });
+    // tween
+    this.tweens.add({
+      targets: this.bg,
+      alpha: 0,
+      duration: 500,
+      ease: "Linear",
+      onComplete: () => {
+        if (color === "blue") {
+          this.bg.setTexture("blueBroad");
+        } else if (color === "orange") {
+          this.bg.setTexture("orangeBroad");
+        }
+
+        this.tweens.add({
+          targets: this.bg,
+          alpha: 1,
+          duration: 500,
+          ease: "Linear",
+        });
+      },
+    });
+  }
 
   create() {
     window.loadVideo = this.loadVideo.bind(this);
@@ -36,13 +81,13 @@ export class Main extends Phaser.Scene {
         this.game.config.width * 0.8
       );
       this[letter].setDepth(2);
+
+      if (this.currentLetter !== letter) {
+        this[letter].alpha = 0;
+      }
     });
 
-    window.setTargetFrame = (frame) => {
-      if (frame > 0 && frame < 45) {
-        this.targetFrame = frame;
-      }
-    };
+    this.oriPos = this.game.config.height * 0.33;
 
     // load broad
     let broadWidth = this.game.config.width * 0.95;
@@ -57,29 +102,7 @@ export class Main extends Phaser.Scene {
 
     this.bg.setDisplaySize(broadWidth, broadHeight);
 
-    window.switchBroad = (color) => {
-      // tween
-      this.tweens.add({
-        targets: this.bg,
-        alpha: 0,
-        duration: 500,
-        ease: "Linear",
-        onComplete: () => {
-          if (color === "blue") {
-            this.bg.setTexture("blueBroad");
-          } else if (color === "orange") {
-            this.bg.setTexture("orangeBroad");
-          }
-
-          this.tweens.add({
-            targets: this.bg,
-            alpha: 1,
-            duration: 500,
-            ease: "Linear",
-          });
-        },
-      });
-    };
+    this.tick = false;
   }
 
   update(time, delta) {
@@ -99,6 +122,17 @@ export class Main extends Phaser.Scene {
           this[letter].setFrame(_);
         });
       }
+    }
+    if (this.currentFrame >= 15) {
+      // start floating
+      this.letters.forEach((letter) => {
+        this[letter].y -= Math.sin(time / 1000) * 0.03 * delta;
+      });
+    } else if (Math.abs(this[this.currentLetter].y - this.oriPos) > 1) {
+      let direction = this[this.currentLetter].y - this.oriPos > 0 ? -1 : 1;
+      this.letters.forEach((letter) => {
+        this[letter].y += direction * delta * 0.05;
+      });
     }
   }
   // load video after preload function
