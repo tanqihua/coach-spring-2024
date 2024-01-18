@@ -27,10 +27,11 @@ const Index = (props) => {
         }}
       >
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
-          Do you start your day <br />
-          with good habits and <br />
-          to-do lists, or leave it open <br />
-          to stay open to surprises?
+          Do you travel to the <br />
+          places everyone is <br />
+          posting, or are you the <br />
+          throw-your-dart-at-a- <br />
+          map type?
         </h1>
       </div>
 
@@ -56,8 +57,7 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Lists and <br /> 
-            habits
+            Follow the <br /> posts 
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -120,7 +120,7 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Surprises
+            Pass me a <br />dart
           </p>
         </div>
       </div>
@@ -132,8 +132,8 @@ const Index = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
-          phaserRef.current.scene.scenes[1].setNextQuestion("orange", "a");
-          nav("/quest3");
+          phaserRef.current.scene.scenes[1].setNextQuestion("blue", "c");
+          nav("/quest4");
         }}
       >
         NEXT QUESTION

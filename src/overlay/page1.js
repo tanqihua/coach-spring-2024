@@ -5,7 +5,7 @@ const Page1 = (props) => {
     <Wraper style={{}}>
       <div className="block" style={{height:"50svh"}}/>
 
-      <h1>WHAT'S YOUR COURAGE</h1>
+      <h1>WHAT’s YOUR COURAGE</h1>
       <div className="block" style={{height:"20svh"}}/>
       <ButtonRound
         onClick={() => {

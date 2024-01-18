@@ -30,7 +30,6 @@ const Page4 = (props) => {
           Instead of chatting <br /> one-on-one at parties, <br />
           you find a way to bring <br />
           everyone together. <br />
-          Couldn't be me
         </h1>
       </div>
 
@@ -53,10 +52,10 @@ const Page4 = (props) => {
         >
           <p
             style={{
-              textAlign: "left",
+              textAlign: "center",
             }}
           >
-            Couldn't <br /> be me
+            Couldn’t <br /> be me
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}

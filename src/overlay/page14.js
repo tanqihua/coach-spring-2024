@@ -12,6 +12,10 @@ const Page14 = (props) => {
     setPrizeContainerVisibility(true);
   };
 
+  useEffect(() =>{
+    
+  })
+
   useEffect(() => {
     // GSAP animations setup
     if (isPrizeContainerVisible) {
