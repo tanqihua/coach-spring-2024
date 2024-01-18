@@ -1,7 +1,7 @@
 import "./App.css";
 import THREESCENE from "./3d";
 import PhaserScene from "./2d";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   Page1,
@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
+      <NavBarColorHandler />
       <Routes>
         <Route path="/quest1" element={<Quest1 phaserRef={phaserRef} />} />
         <Route path="/quest2" element={<Quest2 phaserRef={phaserRef} />} />
@@ -38,6 +39,17 @@ function App() {
       <NavHanderler phaserRef={phaserRef} />
     </div>
   );
+}
+
+function NavBarColorHandler() {
+  useEffect(() => {
+    // Set the color of the browser's address bar
+    document
+      .querySelector('meta[name="theme-color"]')
+      .setAttribute("content", "red");
+  }, []); // Empty dependency array ensures that this effect runs only once, similar to componentDidMount
+
+  return null;
 }
 
 function NavHanderler({ phaserRef }) {

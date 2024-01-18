@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
