@@ -1,8 +1,8 @@
 import Phaser from "phaser";
 
-export class Main extends Phaser.Scene {
+export class Quests extends Phaser.Scene {
   constructor() {
-    super("main");
+    super("quests");
 
     this.video = null;
     this.totalFrames = 44;
@@ -10,6 +10,7 @@ export class Main extends Phaser.Scene {
     this.currentFrame = 0;
     this.letters = ["a", "c", "o", "h"];
     this.currentLetter = "c";
+    this.currentBroad = "orangeBroad";
   }
 
   init() {}
@@ -37,19 +38,19 @@ export class Main extends Phaser.Scene {
     });
     // tween
     this.tweens.add({
-      targets: this.bg,
+      targets: this.broad,
       alpha: 0,
       duration: 500,
       ease: "Linear",
       onComplete: () => {
         if (color === "blue") {
-          this.bg.setTexture("blueBroad");
+          this.broad.setTexture("blueBroad");
         } else if (color === "orange") {
-          this.bg.setTexture("orangeBroad");
+          this.broad.setTexture("orangeBroad");
         }
 
         this.tweens.add({
-          targets: this.bg,
+          targets: this.broad,
           alpha: 1,
           duration: 500,
           ease: "Linear",
@@ -92,15 +93,15 @@ export class Main extends Phaser.Scene {
     // load broad
     let broadWidth = this.game.config.width * 0.95;
     let broadHeight = broadWidth * 1.965;
-    this.bg = this.add
+    this.broad = this.add
       .image(
         this.game.config.width / 2,
         this.game.config.height / 2 + broadHeight * 0.4,
-        "orangeBroad"
+        this.currentBroad
       )
       .setOrigin(0.5);
 
-    this.bg.setDisplaySize(broadWidth, broadHeight);
+    this.broad.setDisplaySize(broadWidth, broadHeight);
 
     this.tick = false;
   }

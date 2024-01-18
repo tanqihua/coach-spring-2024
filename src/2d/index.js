@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import { Bootstrap } from "./bootstrap.js";
-import { Main } from "./main.js";
+import { Quests } from "./quests.js";
+import { Landing } from "./landing.js";
 import React, { useEffect } from "react";
 const config = {
   type: Phaser.AUTO,
@@ -22,7 +23,7 @@ const config = {
     },
   },
 
-  scene: [Bootstrap, Main],
+  scene: [Bootstrap, Quests, Landing],
 };
 
 const IoPhaser = React.forwardRef((props, ref) => {

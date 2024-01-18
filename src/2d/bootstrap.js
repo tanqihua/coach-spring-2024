@@ -31,6 +31,7 @@ export class Bootstrap extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("main");
+    window.setPhaser(true);
+    // this.scene.start("main");
   }
 }
