@@ -9,7 +9,7 @@ export class Main extends Phaser.Scene {
     this.targetFrame = 15;
     this.currentFrame = 0;
     this.letters = ["a", "c", "o", "h"];
-    this.currentLetter = "a";
+    this.currentLetter = "c";
   }
 
   init() {}

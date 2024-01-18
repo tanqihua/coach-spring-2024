@@ -4,7 +4,7 @@ import { Button } from "./components";
 import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
-const Page4 = (props) => {
+const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
   const handleSliderChange = (event) => {
@@ -26,12 +26,7 @@ const Page4 = (props) => {
           height: "20svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
-          Instead of chatting <br /> one-on-one at parties, <br />
-          you find a way to bring <br />
-          everyone together. <br />
-          Couldn't be me
-        </h1>
+        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>2</h1>
       </div>
 
       <div className="block" style={{ height: "8%" }} />
@@ -131,8 +126,8 @@ const Page4 = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
-          phaserRef.current.scene.scenes[1].setNextQuestion("blue", "o");
-          nav("/quest2");
+          phaserRef.current.scene.scenes[1].setNextQuestion("orange", "c");
+          nav("/quest1");
         }}
       >
         NEXT QUESTION
@@ -141,4 +136,4 @@ const Page4 = (props) => {
   );
 };
 
-export default Page4;
+export default Index;
