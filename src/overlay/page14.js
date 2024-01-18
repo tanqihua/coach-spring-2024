@@ -13,13 +13,13 @@ const Page14 = (props) => {
   };
 
   useEffect(() =>{
-    
+
   })
 
   useEffect(() => {
     // GSAP animations setup
     if (isPrizeContainerVisible) {
-      gsap.to(prizeContainerRef.current, { opacity: 1, duration: 0.5, ease: 'power2.inOut' });
+      gsap.to(prizeContainerRef.current, { opacity: 1, duration: 0.5, ease: 'ease-in' });
     } else {
       gsap.to(prizeContainerRef.current, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
     }
