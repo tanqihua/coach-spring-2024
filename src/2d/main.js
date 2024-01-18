@@ -24,7 +24,7 @@ export class Main extends Phaser.Scene {
           alpha: 1,
           duration: 500,
           ease: "Linear",
-          delay: 0.3,
+          delay: 0.5,
         });
       } else {
         this.tweens.add({
@@ -96,7 +96,7 @@ export class Main extends Phaser.Scene {
       .image(
         this.game.config.width / 2,
         this.game.config.height / 2 + broadHeight * 0.4,
-        "blueBroad"
+        "orangeBroad"
       )
       .setOrigin(0.5);
 
@@ -123,7 +123,7 @@ export class Main extends Phaser.Scene {
         });
       }
     }
-    if (this.currentFrame >= 15) {
+    if (this.currentFrame >= 10) {
       // start floating
       this.letters.forEach((letter) => {
         this[letter].y -= Math.sin(time / 1000) * 0.03 * delta;
