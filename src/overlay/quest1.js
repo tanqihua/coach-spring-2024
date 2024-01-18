@@ -63,7 +63,7 @@ const Page4 = (props) => {
             min="0"
             max={24}
             step="1"
-            derfaultValue="15"
+            defaultValue={13}
             style={{
               width: "100%",
               position: "absolute",

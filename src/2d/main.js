@@ -15,8 +15,8 @@ export class Main extends Phaser.Scene {
   init() {}
 
   setNextQuestion(color, letter) {
-    this.currentFrame = 15;
-    this.targetFrame = 16;
+    this.currentFrame = 0;
+    this.targetFrame = 13;
     this.letters.forEach((_letter) => {
       if (_letter === letter) {
         this.tweens.add({
