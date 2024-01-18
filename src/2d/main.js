@@ -7,7 +7,7 @@ export class Main extends Phaser.Scene {
     this.video = null;
     this.totalFrames = 44;
     this.targetFrame = 15;
-    this.currentFrame = 15;
+    this.currentFrame = 0;
     this.letters = ["a", "c", "o", "h"];
     this.currentLetter = "a";
   }
@@ -16,7 +16,7 @@ export class Main extends Phaser.Scene {
 
   setNextQuestion(color, letter) {
     this.currentFrame = 15;
-    this.targetFrame = 15;
+    this.targetFrame = 16;
     this.letters.forEach((_letter) => {
       if (_letter === letter) {
         this.tweens.add({
@@ -123,15 +123,13 @@ export class Main extends Phaser.Scene {
         });
       }
     }
-
     if (this.currentFrame >= 15) {
       // start floating
       this.letters.forEach((letter) => {
-        this[letter].y -= Math.sin(time / 1000) * 0.05 * delta;
+        this[letter].y -= Math.sin(time / 1000) * 0.03 * delta;
       });
-    } else if (Math.abs(this[this.currentLetter].y - this.oriPos) < 0.1) {
-      let direction = this[this.currentLetter].y - this.oriPos > 0 ? 1 : -1;
-      console.log(direction);
+    } else if (Math.abs(this[this.currentLetter].y - this.oriPos) > 1) {
+      let direction = this[this.currentLetter].y - this.oriPos > 0 ? -1 : 1;
       this.letters.forEach((letter) => {
         this[letter].y += direction * delta * 0.05;
       });

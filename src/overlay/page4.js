@@ -6,7 +6,9 @@ const Page4 = (props) => {
   const { phaserRef } = props;
 
   const handleSliderChange = (event) => {
-    phaserRef.current.scene.scenes[1].targetFrame = event.target.value;
+    let _temp = event.target.value;
+    if (_temp >= 24) _temp = 45;
+    phaserRef.current.scene.scenes[1].targetFrame = _temp;
   };
 
   return (
@@ -59,7 +61,7 @@ const Page4 = (props) => {
           <input
             type="range"
             min="0"
-            max={30}
+            max={24}
             step="1"
             derfaultValue="15"
             style={{
