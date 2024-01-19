@@ -14,16 +14,17 @@ import {
   Quest4,
   Quest5,
 } from "./overlay";
-
+import { LegerLine, DesktopBlock, PreloadingPage } from "./overlay/components";
 function App() {
   const phaserRef = useRef(null);
 
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      <THREESCENE />
+      {/* <THREESCENE /> */}
       <Routes>
-        {/* <Route path="/" element={<Page1 phaserRef={phaserRef} />} /> */}
+        <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
+        <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
         <Route path="/quest1" element={<Quest1 phaserRef={phaserRef} />} />
         <Route path="/quest2" element={<Quest2 phaserRef={phaserRef} />} />
         <Route path="/quest3" element={<Quest3 phaserRef={phaserRef} />} />
@@ -32,7 +33,6 @@ function App() {
 
         <Route path="/page14" element={<Page14 />} />
         <Route path="/page15" element={<Page15 />} />
-        <Route path="/formpage" element={<FormPage />} />
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
     </div>
@@ -86,6 +86,6 @@ function NavHanderler({ phaserRef }) {
     }
   }, [_phaser]);
 
-  return null;
+  return <PreloadingPage preload={_phaser} />;
 }
 export default App;

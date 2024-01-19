@@ -27,10 +27,10 @@ const Index = (props) => {
         }}
       >
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
-        Do you triple-check dress <br />
-        codes before heading to <br /> 
-        events, or pick your ‘fit <br /> 
-        intuitively?
+          Do you triple-check dress <br />
+          codes before heading to <br />
+          events, or pick your ‘fit <br />
+          intuitively?
         </h1>
       </div>
 
@@ -56,7 +56,8 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Go by the <br />codes
+            Go by the <br />
+            codes
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -132,6 +133,8 @@ const Index = (props) => {
         height="6svh"
         onClick={() => {
           phaserRef.current.scene.scenes[1].setNextQuestion("orange", "h");
+          phaserRef.current.scene.scenes[1].loadVideo();
+
           nav("/quest5");
         }}
       >

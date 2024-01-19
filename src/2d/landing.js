@@ -18,7 +18,7 @@ export class Landing extends Phaser.Scene {
     this.bg.setDisplaySize(this.game.config.height, this.game.config.height);
 
     //r "e", "a", "l", "y", "o", "u"
-    let width = this.game.config.width * 0.45;
+    let width = this.game.config.width * 0.25;
     let _canvasWidth = this.game.config.width;
     let _canvasHeight = this.game.config.height;
     let alignCenter = _canvasWidth * 0.1;
@@ -30,21 +30,21 @@ export class Landing extends Phaser.Scene {
       l: [alignCenter + _canvasWidth * 0.8, _canvasHeight * 0.2, 1, 3, 1],
       y: [
         alignYou + alignCenter + _canvasWidth * 0.01,
-        _canvasHeight * 0.4,
+        _canvasHeight * 0.3,
         1.3,
         8,
         5,
       ],
       o: [
         alignYou + alignCenter + _canvasWidth * 0.3,
-        _canvasHeight * 0.4,
+        _canvasHeight * 0.3,
         1.3,
         9,
         7,
       ],
       u: [
         alignYou + alignCenter + _canvasWidth * 0.6,
-        _canvasHeight * 0.4,
+        _canvasHeight * 0.3,
         1.3,
         8,
         6,

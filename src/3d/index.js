@@ -37,7 +37,7 @@ const Petals = ({ count = 1000 }) => {
       const speed = 0.01 + Math.random() / 200;
       const xFactor = -25 + Math.random() * 50;
       const yFactor = -25 + Math.random() * 50;
-      const zFactor = -25 + Math.random() * 50;
+      const zFactor = -2 + Math.random() * 4;
       temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
     }
     return temp;
@@ -56,40 +56,39 @@ const Petal = ({ index = 1, particle, dummy = new THREE.Object3D() }) => {
   const texture = useTexture("/2d/florwer.png");
   const textureLen = 9;
   const mesh = useRef();
+  let r = 0.1;
+  let z_ = 0;
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (mesh.current) {
-      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
+      let { t, speed, zFactor } = particle;
       t = particle.t += speed / 2;
-      const a = Math.cos(t) + Math.sin(t * 1) / 10;
-      const b = Math.sin(t) + Math.cos(t * 2) / 10;
       const s = Math.cos(t);
-      particle.mx += (state.mouse.x * 1000 - particle.mx) * 0.01;
-      particle.my += (state.mouse.y * 1000 - 1 - particle.my) * 0.01;
-      dummy.position.set(
-        (particle.mx / 10) * a +
-          xFactor +
-          Math.cos((t / 10) * factor) +
-          (Math.sin(t * 1) * factor) / 10,
-        (particle.my / 10) * b +
-          yFactor +
-          Math.sin((t / 10) * factor) +
-          (Math.cos(t * 2) * factor) / 10,
-        (particle.my / 10) * b +
-          zFactor +
-          Math.cos((t / 10) * factor) +
-          (Math.sin(t * 3) * factor) / 10
-      );
-      dummy.scale.setScalar(s);
-      dummy.rotation.set(0, 0, s * 5);
-      dummy.updateMatrix();
 
-      mesh.current.matrix.copy(dummy.matrix);
-      mesh.current.matrix.decompose(
-        mesh.current.position,
-        mesh.current.quaternion,
-        mesh.current.scale
-      );
+      z_ += delta * 3;
+
+      let _y;
+      let _x;
+      if (z_ > 0) {
+        // r -= delta * 0.05 * xFactor;
+        _y = Math.sin(t * 2) * r;
+        _x = Math.cos(t * 2) * r;
+
+        dummy.position.set(_x, _y, zFactor + z_);
+        dummy.scale.setScalar(s * 0.8);
+        dummy.rotation.set(0, 0, s * 5);
+        dummy.updateMatrix();
+
+        mesh.current.matrix.copy(dummy.matrix);
+        mesh.current.matrix.decompose(
+          mesh.current.position,
+          mesh.current.quaternion,
+          mesh.current.scale
+        );
+      } else {
+        // y = -0.3x^{2}
+        r = 1;
+      }
     }
   });
 
@@ -112,7 +111,7 @@ const Petal = ({ index = 1, particle, dummy = new THREE.Object3D() }) => {
 
   return (
     <mesh ref={mesh}>
-      <planeGeometry args={[1, 1]} attach="geometry" />
+      <planeGeometry args={[0.1, 0.1]} attach="geometry" />
       <meshStandardMaterial map={texture} transparent={true} />
     </mesh>
   );

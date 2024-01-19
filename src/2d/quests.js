@@ -18,6 +18,7 @@ export class Quests extends Phaser.Scene {
   setNextQuestion(color, letter) {
     this.currentFrame = 0;
     this.targetFrame = 13;
+
     this.letters.forEach((_letter) => {
       if (_letter === letter) {
         this.tweens.add({
@@ -36,8 +37,6 @@ export class Quests extends Phaser.Scene {
         });
       }
     });
-    // tween
-    this.startInfration = false;
     this.tweens.add({
       targets: this.broad,
       alpha: 0,
@@ -79,7 +78,7 @@ export class Quests extends Phaser.Scene {
         letter
       );
 
-      let ratio = window.innerHeight / window.innerWidth
+      let ratio = window.innerHeight / window.innerWidth;
       this[letter].setDisplaySize(
         this.game.config.width * (0.6 + 0.2 * ratio),
         this.game.config.width * (0.6 + 0.2 * ratio)
@@ -154,12 +153,31 @@ export class Quests extends Phaser.Scene {
   }
   // load video after preload function
   playVideo() {
-    this.video.play(true);
-    this.video.setLoop(false);
+    this.letters.forEach((letter) => {
+      this.tweens.add({
+        targets: this[letter],
+        alpha: 0,
+        duration: 500,
+        ease: "Linear",
+      });
+    });
 
-    // vidoe is playing
-    this.video.on("playing", () => {
-      this.bg.alpha = 0;
+    this.tweens.add({
+      targets: this.broad,
+      alpha: 0,
+      duration: 500,
+      ease: "Linear",
+    });
+
+    // delay call
+    this.time.delayedCall(500, () => {
+      this.video.play(true);
+      this.video.setLoop(false);
+
+      // vidoe is playing
+      this.video.on("playing", () => {
+        this.bg.alpha = 0;
+      });
     });
   }
 
@@ -171,25 +189,21 @@ export class Quests extends Phaser.Scene {
       false,
       true
     );
-    this.load.once(
-      "complete",
-      () => {
-        this.video = this.add.video(
-          this.game.config.width / 2,
-          this.game.config.height / 2,
-          "yellowVideo"
-        );
-        this.video.setOrigin(0.5);
+    this.load.once("complete", () => {
+      this.video = this.add.video(
+        this.game.config.width / 2,
+        this.game.config.height / 2,
+        "yellowVideo"
+      );
+      this.video.setOrigin(0.5);
 
-        // set vidoe to full screen
-        this.video.realHeight = 1024;
-        this.video.realWidth = 1024;
+      // set vidoe to full screen
+      this.video.realHeight = 1024;
+      this.video.realWidth = 1024;
 
-        let ratio = this.game.config.height / this.video.realWidth;
-        this.video.setScale(ratio);
-      },
-      this
-    );
+      let ratio = this.game.config.height / this.video.realWidth;
+      this.video.setScale(ratio);
+    });
 
     this.load.start();
   }

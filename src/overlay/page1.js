@@ -1,7 +1,10 @@
 import { Wraper } from "./helper";
 import { Button, ButtonRound } from "./components";
+import { useNavigate } from "react-router-dom";
+
 const Page1 = (props) => {
   const { phaserRef } = props;
+  const nav = useNavigate();
 
   return (
     <Wraper style={{}}>
@@ -11,7 +14,7 @@ const Page1 = (props) => {
       <div className="block" style={{ height: "20svh" }} />
       <ButtonRound
         onClick={() => {
-          console.log(phaserRef.current.scene.scenes[2].scene.start("quests"));
+          nav("/formpage");
         }}
       >
         LET’S GO
