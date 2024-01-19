@@ -15,6 +15,10 @@ export class Quests extends Phaser.Scene {
 
   init() {}
 
+  preload() {
+    this.load.video("yellowVideo", "/2d/Yellow_FullVideo.webm", false, true);
+  }
+
   setNextQuestion(color, letter) {
     this.currentFrame = 0;
     this.targetFrame = 13;

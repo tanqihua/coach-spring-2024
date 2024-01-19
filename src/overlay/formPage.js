@@ -55,7 +55,12 @@ const FormPage = (props) => {
         <div className="block" style={{ height: "3%" }} />
         <Terms />
         <div className="block" style={{ height: "5%" }} />
-        <ButtonRound>
+        <ButtonRound
+          onClick={() => {
+            phaserRef.current.scene.scenes[2].scene.start("quests");
+            nav("/quest1");
+          }}
+        >
           <div
             className="imgContainer"
             style={{
