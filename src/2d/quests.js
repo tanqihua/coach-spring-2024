@@ -78,9 +78,11 @@ export class Quests extends Phaser.Scene {
         this.game.config.height * 0.33,
         letter
       );
+
+      let ratio = window.innerHeight / window.innerWidth
       this[letter].setDisplaySize(
-        this.game.config.width * 0.8,
-        this.game.config.width * 0.8
+        this.game.config.width * (0.6 + 0.2 * ratio),
+        this.game.config.width * (0.6 + 0.2 * ratio)
       );
       this[letter].setDepth(2);
 
