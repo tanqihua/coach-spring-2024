@@ -15,6 +15,15 @@ const Page4 = (props) => {
 
   return (
     <Quest>
+      {/* <div
+        className="imgContainer"
+        style={{
+          height : "6svh",
+          margin : "auto",
+        }}
+      >
+        <img src="/asset/logo.png"/>
+      </div> */}
       <div
         className="block"
         style={{
