@@ -7,13 +7,14 @@ const FormPage = (props) => {
       <div className="formContainer" style={{ 
         backgroundColor: "#f4b404",
         padding: "0 3rem", // Adjust the padding as needed
-        borderRadius: "10px", // Optional: Add border-radius for rounded corners
+        borderRadius: "15px", // Optional: Add border-radius for rounded corners
         width: "90%", // Adjust the width as needed
         height: "85svh", // Adjust the height as needed
-        position : "relative"
+        position : "relative",
+        boxShadow: "0 0 1rem rgba(0,0,0,0.2)",
       }}>
 
-        <div className="block" style={{height:"5%"}}/>
+        <div className="block" style={{height:"8%"}}/>
 
         <div
           className="imgContainer"
@@ -25,11 +26,11 @@ const FormPage = (props) => {
           <img src="/asset/logo.png"/>
         </div>
         
-        <div className="block" style={{height:"5%"}}/>
+        <div className="block" style={{height:"8%"}}/>
 
         <h2 style={{wordSpacing:"0.1rem"}}>BEFORE WE START, <br /> TELL US ABOUT YOURSELF</h2>
 
-        <div className="block" style={{height:"3%"}}/>
+        <div className="block" style={{height:"2%"}}/>
 
         <Input/>
         <Input placeholder="LAST NAME"/>
@@ -44,7 +45,7 @@ const FormPage = (props) => {
         </div>
         <Input placeholder="EMAIL (Optional)"/>
 
-        <div className="block" style={{height:"3%"}}/>
+        <div className="block" style={{height:"2%"}}/>
         <Terms/>
         <div className="block" style={{height:"3%"}}/>
         <ButtonRound>

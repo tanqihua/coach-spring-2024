@@ -118,7 +118,7 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
         <p
           style={{
             color: "white",
-            fontSize: "0.51rem",
+            fontSize: "0.54rem",
             textAlign: "left",
           }}
         >

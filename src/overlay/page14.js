@@ -102,7 +102,10 @@ const Page14 = (props) => {
           
           <div className="block" style={{height:"7%"}}/>
           
-          <h5>Do not tap the button below. <br /> Present it to our staff to redeem.</h5>
+          <h5>
+            Do not tap the button below. <br /> 
+            Present it to our staff to redeem.
+          </h5>
           
           <div className="block" style={{height:"3%"}}/>
 
@@ -112,7 +115,10 @@ const Page14 = (props) => {
 
           <div className="block" style={{height:"3%"}}/>
 
-          <h6>WED APR 11 2024 10:05:06 <br /> GMT +0800 (SINGAPORE TIME)</h6>
+          <h6>
+            WED APR 11 2024 10:05:06 <br /> 
+            GMT +0800 (SINGAPORE TIME)
+          </h6>
         </div>
       )}
     </Wraper>
