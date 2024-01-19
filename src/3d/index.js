@@ -81,7 +81,7 @@ const Petal = ({ index = 1, particle, dummy = new THREE.Object3D() }) => {
           (Math.sin(t * 3) * factor) / 10
       );
       dummy.scale.setScalar(s);
-      dummy.rotation.set(s * 5, s * 5, s * 5);
+      dummy.rotation.set(0, 0, s * 5);
       dummy.updateMatrix();
 
       mesh.current.matrix.copy(dummy.matrix);
