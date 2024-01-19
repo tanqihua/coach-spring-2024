@@ -1,7 +1,7 @@
 import "./App.css";
 import THREESCENE from "./3d";
 import PhaserScene from "./2d";
-import React, { useRef } from "react";
+import React, { useRef , useEffect , useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   Page1,
@@ -46,7 +46,7 @@ function NavBarColorHandler() {
     // Set the color of the browser's address bar
     document
       .querySelector('meta[name="theme-color"]')
-      .setAttribute("content", "red");
+      .setAttribute("content", "#a4b8e5");
   }, []); // Empty dependency array ensures that this effect runs only once, similar to componentDidMount
 
   return null;

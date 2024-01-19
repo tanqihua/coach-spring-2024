@@ -12,7 +12,7 @@ const Page1 = (props) => {
           window.setTriggerUp();
         }}
       >
-        LET'S GO
+        LET’S GO
       </ButtonRound>
     </Wraper>
   );
