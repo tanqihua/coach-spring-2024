@@ -15,9 +15,7 @@ export class Quests extends Phaser.Scene {
 
   init() {}
 
-  preload() {
-    this.load.video("yellowVideo", "/2d/Yellow_FullVideo.webm", false, true);
-  }
+  preload() {}
 
   setNextQuestion(color, letter) {
     this.currentFrame = 0;
@@ -64,8 +62,22 @@ export class Quests extends Phaser.Scene {
   }
 
   create() {
-    window.loadVideo = this.loadVideo.bind(this);
     window.playVideo = this.playVideo.bind(this);
+
+    this.video = this.add.video(
+      this.game.config.width / 2,
+      this.game.config.height / 2,
+      "yellowVideo"
+    );
+    this.video.setOrigin(0.5);
+
+    // set vidoe to full screen
+    this.video.realHeight = 1024;
+    this.video.realWidth = 1024;
+
+    let ratio = this.game.config.height / this.video.realWidth;
+    this.video.setScale(ratio);
+
     this.bg = this.add
       .sprite(
         this.game.config.width / 2,
@@ -183,32 +195,5 @@ export class Quests extends Phaser.Scene {
         this.bg.alpha = 0;
       });
     });
-  }
-
-  loadVideo() {
-    this.load.video(
-      "yellowVideo",
-      "/2d/Yellow_FullVideo.webm",
-      "loadeddata",
-      false,
-      true
-    );
-    this.load.once("complete", () => {
-      this.video = this.add.video(
-        this.game.config.width / 2,
-        this.game.config.height / 2,
-        "yellowVideo"
-      );
-      this.video.setOrigin(0.5);
-
-      // set vidoe to full screen
-      this.video.realHeight = 1024;
-      this.video.realWidth = 1024;
-
-      let ratio = this.game.config.height / this.video.realWidth;
-      this.video.setScale(ratio);
-    });
-
-    this.load.start();
   }
 }

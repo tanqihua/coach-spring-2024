@@ -8,6 +8,9 @@ export class Bootstrap extends Phaser.Scene {
   init() {}
 
   preload() {
+    // load vidoe
+    this.load.video("yellowVideo", "/2d/Yellow_FullVideo.webm");
+
     this.load.image("background", "/2d/Spring_Yellow_01_001.webp");
     this.load.image("blueBroad", "/2d/blue.webp");
     this.load.image("orangeBroad", "/2d/orange.webp");

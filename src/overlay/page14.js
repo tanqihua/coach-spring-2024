@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
-import gsap from "gsap";
 
 const Page14 = (props) => {
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
@@ -14,23 +13,6 @@ const Page14 = (props) => {
   };
 
   useEffect(() => {});
-
-  useEffect(() => {
-    // GSAP animations setup
-    if (isPrizeContainerVisible) {
-      gsap.to(prizeContainerRef.current, {
-        opacity: 1,
-        duration: 0.5,
-        ease: "ease-in",
-      });
-    } else {
-      gsap.to(prizeContainerRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
-    }
-  }, [isPrizeContainerVisible]);
 
   return (
     <Wraper style={{ position: "relative" }}>
