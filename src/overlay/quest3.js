@@ -74,7 +74,7 @@ const Index = (props) => {
             step="1"
             defaultValue={11}
             style={{
-              width: "100%",
+              width: "95%",
               position: "absolute",
               left: "50%",
               top: "50%",
@@ -90,7 +90,7 @@ const Index = (props) => {
               display: "flex",
               justifyContent: "space-between",
               position: "absolute",
-              width: "100%",
+              width: "95%",
               left: "50%",
               top: "50%",
               transform: "translate(-50% , -50%)",
@@ -120,7 +120,7 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Pass me a <br />dart
+            Pass me <br /> a dart
           </p>
         </div>
       </div>

@@ -44,7 +44,7 @@ function NavBarColorHandler() {
     // Set the color of the browser's address bar
     document
       .querySelector('meta[name="theme-color"]')
-      .setAttribute("content", "red");
+      .setAttribute("content", "#a4b8e5");
   }, []); // Empty dependency array ensures that this effect runs only once, similar to componentDidMount
 
   return null;

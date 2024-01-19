@@ -14,7 +14,7 @@ const Page1 = (props) => {
           console.log(phaserRef.current.scene.scenes[2].scene.start("quests"));
         }}
       >
-        LET'S GO
+        LET’S GO
       </ButtonRound>
     </Wraper>
   );
