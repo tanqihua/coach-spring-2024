@@ -37,12 +37,6 @@ const FormPage = (props) => {
           <img src="/asset/logo.png" />
         </div>
 
-        <div className="block" style={{ height: "8%" }} />
-
-        <div className="block" style={{ height: "5%" }} />
-
-        <div className="block" style={{ height: "2%" }} />
-
         <div className="block" style={{ height: "3%" }} />
 
         <Input />
@@ -58,9 +52,9 @@ const FormPage = (props) => {
         </div>
         <Input placeholder="EMAIL (Optional)" />
 
-        <div className="block" style={{ height: "2%" }} />
-        <Terms />
         <div className="block" style={{ height: "3%" }} />
+        <Terms />
+        <div className="block" style={{ height: "5%" }} />
         <ButtonRound>
           <div
             className="imgContainer"
