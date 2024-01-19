@@ -37,6 +37,7 @@ export class Quests extends Phaser.Scene {
       }
     });
     // tween
+    this.startInfration = false;
     this.tweens.add({
       targets: this.broad,
       alpha: 0,
@@ -83,9 +84,7 @@ export class Quests extends Phaser.Scene {
       );
       this[letter].setDepth(2);
 
-      if (this.currentLetter !== letter) {
-        this[letter].alpha = 0;
-      }
+      this[letter].setAlpha(0);
     });
 
     this.oriPos = this.game.config.height * 0.33;
@@ -99,41 +98,56 @@ export class Quests extends Phaser.Scene {
         this.game.config.height / 2 + broadHeight * 0.4,
         this.currentBroad
       )
-      .setOrigin(0.5);
+      .setOrigin(0.5)
+      .setAlpha(0);
 
     this.broad.setDisplaySize(broadWidth, broadHeight);
+
+    this.tweens.add({
+      targets: [this.broad, this[this.currentLetter]],
+      alpha: 1,
+      duration: 500,
+      delay: 500,
+      ease: "Linear",
+
+      onComplete: () => {
+        this.startInfration = true;
+      },
+    });
 
     this.tick = false;
   }
 
   update(time, delta) {
-    if (this.targetFrame > this.currentFrame) {
-      this.currentFrame += 0.025 * delta;
-      if (this.currentFrame > 0) {
-        let _ = Math.round(this.currentFrame);
+    if (this.startInfration) {
+      if (this.targetFrame > this.currentFrame) {
+        this.currentFrame += 0.025 * delta;
+        if (this.currentFrame > 0) {
+          let _ = Math.round(this.currentFrame);
+          this.letters.forEach((letter) => {
+            this[letter].setFrame(_);
+          });
+        }
+      } else if (this.targetFrame < this.currentFrame) {
+        this.currentFrame -= 0.025 * delta;
+        if (this.currentFrame > 0) {
+          let _ = Math.round(this.currentFrame);
+          this.letters.forEach((letter) => {
+            this[letter].setFrame(_);
+          });
+        }
+      }
+      if (this.currentFrame >= 10) {
+        // start floating
         this.letters.forEach((letter) => {
-          this[letter].setFrame(_);
+          this[letter].y -= Math.sin(time / 1000) * 0.03 * delta;
+        });
+      } else if (Math.abs(this[this.currentLetter].y - this.oriPos) > 1) {
+        let direction = this[this.currentLetter].y - this.oriPos > 0 ? -1 : 1;
+        this.letters.forEach((letter) => {
+          this[letter].y += direction * delta * 0.05;
         });
       }
-    } else if (this.targetFrame < this.currentFrame) {
-      this.currentFrame -= 0.025 * delta;
-      if (this.currentFrame > 0) {
-        let _ = Math.round(this.currentFrame);
-        this.letters.forEach((letter) => {
-          this[letter].setFrame(_);
-        });
-      }
-    }
-    if (this.currentFrame >= 10) {
-      // start floating
-      this.letters.forEach((letter) => {
-        this[letter].y -= Math.sin(time / 1000) * 0.03 * delta;
-      });
-    } else if (Math.abs(this[this.currentLetter].y - this.oriPos) > 1) {
-      let direction = this[this.currentLetter].y - this.oriPos > 0 ? -1 : 1;
-      this.letters.forEach((letter) => {
-        this[letter].y += direction * delta * 0.05;
-      });
     }
   }
   // load video after preload function

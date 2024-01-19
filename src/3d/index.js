@@ -1,31 +1,8 @@
-import React, {
-  Suspense,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useThreeStore } from "../store";
-import {
-  Physics,
-  RigidBody,
-  BallCollider,
-  CuboidCollider,
-} from "@react-three/rapier";
-
-import {
-  Environment,
-  OrbitControls,
-  useGLTF,
-  useTexture,
-} from "@react-three/drei";
 import * as THREE from "three";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { useLoader } from "@react-three/fiber";
-import { EffectComposer, SSAO } from "@react-three/postprocessing";
-import { BackDrop, GroundPlane, KeyLight, FillLight, RimLight } from "./helper";
+import { Environment, OrbitControls, useTexture } from "@react-three/drei";
 
 const THREESCENE = React.forwardRef((props, ref) => {
   return (
@@ -33,254 +10,131 @@ const THREESCENE = React.forwardRef((props, ref) => {
       <Canvas
         style={{
           height: "100svh",
-          width: window.innerWidth > 700 ? "700px" : "100vw",
+          width: window.innerWidth > 700 ? "100vw" : "100vw",
           position: "absolute",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: "10",
           pointerEvents: "none",
         }}
-        camera={{ position: [0, 0, 30], fov: 32.5, near: 0.1, far: 100 }}
-        onCreated={({ gl }) => {
-          // gl.setClearColor("#FFDF91");
-          // transparent background
-        }}
+        camera={{ fov: 32.5, near: 0.1, far: 100 }}
       >
-        <OrbitControls />
-
-        <Suspense fallback={null}>
-          <Physics gravity={[0, 0, 0]}>
-            <Fonts />
-          </Physics>
-        </Suspense>
-        {/* <GroundPlane />
-        <BackDrop />
-
-        <KeyLight brightness={1.6} color={"#FFDF91"} />
-        <FillLight brightness={2.6} color={"#FFDF91"} />
-        <RimLight brightness={10.6} color={"orange"} /> */}
-        {/* <RimLight brightness={10.6} color={"orange"} /> */}
+        <Petals />
         <Environment preset="studio" />
         <ambientLight intensity={1} color={"white"} />
+        <OrbitControls />
       </Canvas>
     </div>
   );
 });
 
-let LandingAnimation = [
-  {
-    name: "c",
-    initPos: [-8, -12, 5],
-    targetPos: [-4, 3, 0],
-    leavePos: [-4, 12, 7],
-  },
-  {
-    name: "o",
-    initPos: [-4, -15, 5],
-    targetPos: [-2, 2.5, 1],
-    leavePos: [3, 12, 7],
-  },
-];
-
-const Fonts = () => {
-  let triggerUp = false;
-  function setTriggerUp() {
-    triggerUp = true;
-  }
-
-  function getTriggerUp() {
-    return triggerUp;
-  }
-
-  useEffect(() => {
-    window.setTriggerUp = () => {
-      setTriggerUp();
-    };
-  }, []);
+const Petals = ({ count = 1000 }) => {
+  const particles = useMemo(() => {
+    const temp = [];
+    for (let i = 0; i < count; i++) {
+      const t = Math.random() * 100;
+      const factor = 20 + Math.random() * 100;
+      const speed = 0.01 + Math.random() / 200;
+      const xFactor = -25 + Math.random() * 50;
+      const yFactor = -25 + Math.random() * 50;
+      const zFactor = -25 + Math.random() * 50;
+      temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
+    }
+    return temp;
+  }, [count]);
 
   return (
     <>
-      {LandingAnimation.map((item, index) => {
-        return (
-          <Font
-            key={index}
-            font={item.name}
-            target={item.targetPos}
-            initPos={item.initPos}
-            getTriggerUp={getTriggerUp}
-            leavePos={item.leavePos}
-          />
-        );
+      {particles.map((_, i) => {
+        return <Petal index={(i + 1) % 9} particle={_} key={i} />;
       })}
     </>
   );
 };
 
-const Font = ({
-  font,
-  target = [0, 0, 0],
-  r = THREE.MathUtils.randFloatSpread,
-  getTriggerUp,
-  initPos,
-  leavePos,
-}) => {
-  // useTexute
-  const obj1 = useLoader(OBJLoader, `/3d/coach/${font}/0.obj`);
-  const obj2 = useLoader(OBJLoader, `/3d/coach/${font}/1.obj`);
-  const api = useRef(null);
-  const colorMap = useTexture("/3d/tex/colormap.webp");
-  const normalMap = useTexture("/3d/tex/normalmap.webp");
-  const displacementMap = useTexture("/3d/tex/displacementmap.webp");
-  const geometryRef = useRef(null);
+const Petal = ({ index = 1, particle, dummy = new THREE.Object3D() }) => {
+  const texture = useTexture("/2d/florwer.png");
+  const textureLen = 9;
+  const mesh = useRef();
 
-  const {
-    viewport: { width, height },
-  } = useThree();
+  useFrame((state) => {
+    if (mesh.current) {
+      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
+      t = particle.t += speed / 2;
+      const a = Math.cos(t) + Math.sin(t * 1) / 10;
+      const b = Math.sin(t) + Math.cos(t * 2) / 10;
+      const s = Math.cos(t);
+      particle.mx += (state.mouse.x * 1000 - particle.mx) * 0.01;
+      particle.my += (state.mouse.y * 1000 - 1 - particle.my) * 0.01;
+      dummy.position.set(
+        (particle.mx / 10) * a +
+          xFactor +
+          Math.cos((t / 10) * factor) +
+          (Math.sin(t * 1) * factor) / 10,
+        (particle.my / 10) * b +
+          yFactor +
+          Math.sin((t / 10) * factor) +
+          (Math.cos(t * 2) * factor) / 10,
+        (particle.my / 10) * b +
+          zFactor +
+          Math.cos((t / 10) * factor) +
+          (Math.sin(t * 3) * factor) / 10
+      );
+      dummy.scale.setScalar(s);
+      dummy.rotation.set(s * 5, s * 5, s * 5);
+      dummy.updateMatrix();
 
-  let storingPos = useMemo(() => {
-    try {
-      let _pos1 = obj2?.children[0]?.geometry.attributes.position.array;
-      let _pos2 = obj1?.children[0]?.geometry.clone().attributes.position.array;
-      let float32Array = new Float32Array(_pos1.length);
-
-      for (let i = 0; i < _pos1.length; i++) {
-        let delta = _pos1[i] - _pos2[i];
-        float32Array[i] = delta;
-      }
-
-      return {
-        float32Array,
-        _pos2,
-        _pos1,
-      };
-    } catch (e) {
-      return null;
-    }
-  }, []);
-
-  let _infrationRate = 0.001;
-  let inflationRate = 1;
-
-  useEffect(() => {
-    let name = "set" + font.toUpperCase() + "_Slider";
-    return (window[name] = (value) => {
-      inflationRate = value;
-    });
-  }, []);
-
-  useFrame((state, delta) => {
-    if (geometryRef.current && storingPos !== null) {
-      let _len = geometryRef.current.attributes.position.array.length;
-
-      for (let i = 0; i < _len; i += 3) {
-        let direction = new THREE.Vector3(
-          storingPos.float32Array[i],
-          storingPos.float32Array[i + 1],
-          storingPos.float32Array[i + 2]
-        );
-
-        geometryRef.current.attributes.position.array[i] =
-          storingPos._pos2[i] + direction.x * _infrationRate;
-        geometryRef.current.attributes.position.array[i + 1] =
-          storingPos._pos2[i + 1] + direction.y * _infrationRate;
-        geometryRef.current.attributes.position.array[i + 2] =
-          storingPos._pos2[i + 2] + direction.z * _infrationRate;
-      }
-
-      let direction = _infrationRate > inflationRate ? -1 : 1;
-      let target = inflationRate;
-
-      //
-      if (Math.abs(_infrationRate - target) > 0.001) {
-        _infrationRate += direction * delta * 0.5;
-      }
-
-      geometryRef.current.attributes.position.needsUpdate = true;
-    }
-
-    if (api.current) {
-      delta = Math.min(0.1, delta);
-      let targetPos;
-      let bais = 0.8;
-
-      if (getTriggerUp()) {
-        targetPos = new THREE.Vector3(leavePos[0], leavePos[1], leavePos[2]);
-        bais = 0.4;
-      } else {
-        targetPos = new THREE.Vector3(target[0], target[1], target[2]);
-      }
-
-      let current = new THREE.Vector3().copy(api.current.translation());
-      let direction = targetPos.sub(current).normalize();
-
-      direction.multiply({
-        x: 50 * delta * bais,
-        y: 150 * delta * bais,
-        z: 50 * delta * bais,
-      });
-
-      api.current.applyImpulse(direction);
+      mesh.current.matrix.copy(dummy.matrix);
+      mesh.current.matrix.decompose(
+        mesh.current.position,
+        mesh.current.quaternion,
+        mesh.current.scale
+      );
     }
   });
 
-  return (
-    <>
-      <RigidBody
-        linearDamping={0.75}
-        angularDamping={0.15}
-        friction={0.2}
-        position={initPos}
-        ref={api}
-        colliders={false}
-        dispose={null}
-      >
-        <CuboidCollider
-          args={[1, 1, 1]}
-          collisionGroups={Math.round(Math.random() * 100)}
-        />
+  useEffect(() => {
+    if (mesh.current) {
+      mesh.current.geometry.attributes.uv.array = new Float32Array([
+        (index - 1) / textureLen,
+        1,
+        index / textureLen,
+        1,
+        (index - 1) / textureLen,
+        0,
+        index / textureLen,
+        0,
+      ]);
+      // count
+      mesh.current.geometry.attributes.uv.needsUpdate = true;
+    }
+  }, []);
 
-        <group scale={[0.05, 0.05, 0.05]}>
-          {obj1 && (
-            <mesh
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
-            >
-              <bufferGeometry
-                attach="geometry"
-                {...obj1?.children[0]?.geometry}
-                ref={geometryRef}
-              />
-              <meshStandardMaterial
-                map={colorMap}
-                normalMap={normalMap}
-                displacementMap={displacementMap}
-                roughnessMap={colorMap}
-                transparent={true}
-                envMapIntensity={0.3}
-                displacementScale={1}
-              />
-            </mesh>
-          )}
-        </group>
-      </RigidBody>
-    </>
+  return (
+    <mesh ref={mesh}>
+      <planeGeometry args={[1, 1]} attach="geometry" />
+      <meshStandardMaterial map={texture} transparent={true} />
+    </mesh>
   );
 };
 
-function easeOutBounce(x) {
-  const n1 = 7.3625;
-  const d1 = 2.75;
-
-  if (x < 1 / d1) {
-    return n1 * x * x;
-  } else if (x < 2 / d1) {
-    return n1 * (x -= 1.5 / d1) * x + 0.75;
-  } else if (x < 2.5 / d1) {
-    return n1 * (x -= 2.25 / d1) * x + 0.9375;
-  } else {
-    return n1 * (x -= 2.625 / d1) * x + 0.984375;
-  }
-}
-
 export default THREESCENE;
+
+// useEffect(() => {
+//   console.log(geometry.current);
+//   if (geometry.current) {
+//     let i = 1;
+//     geometry.current.attributes.uv.array = new Float32Array([
+//       (i - 1) / 9,
+//       1,
+//       i / 9,
+//       1,
+//       (i - 1) / 9,
+//       0,
+//       i / 9,
+//       0,
+//     ]);
+//     // count
+//     geometry.current.attributes.uv.needsUpdate = true;
+//   }
+// }, []); // Add dependencies here if needed

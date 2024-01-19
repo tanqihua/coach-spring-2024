@@ -28,10 +28,20 @@ export class Bootstrap extends Phaser.Scene {
       frameWidth: 400,
       frameHeight: 400,
     });
+
+    this.load.spritesheet("r", "/2d/r.webp", {
+      frameWidth: 400,
+      frameHeight: 400,
+    });
+
+    this.load.spritesheet("realyou", "/2d/realyou.webp", {
+      frameWidth: 400,
+      frameHeight: 400,
+    });
   }
 
   create() {
-    window.setPhaser(true);
-    // this.scene.start("main");
+    // window?.setPhaser(true);
+    this.scene.start("landing");
   }
 }

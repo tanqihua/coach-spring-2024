@@ -1,7 +1,7 @@
 import "./App.css";
 import THREESCENE from "./3d";
 import PhaserScene from "./2d";
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   Page1,
@@ -14,7 +14,6 @@ import {
   Quest4,
   Quest5,
 } from "./overlay";
-import { useNavigate } from "react-router-dom";
 
 function App() {
   const phaserRef = useRef(null);
@@ -22,20 +21,19 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      <NavBarColorHandler />
+      <THREESCENE />
       <Routes>
+        {/* <Route path="/" element={<Page1 phaserRef={phaserRef} />} /> */}
         <Route path="/quest1" element={<Quest1 phaserRef={phaserRef} />} />
         <Route path="/quest2" element={<Quest2 phaserRef={phaserRef} />} />
         <Route path="/quest3" element={<Quest3 phaserRef={phaserRef} />} />
         <Route path="/quest4" element={<Quest4 phaserRef={phaserRef} />} />
         <Route path="/quest5" element={<Quest5 phaserRef={phaserRef} />} />
 
-        <Route path="/page1" element={<Page1 />} />
         <Route path="/page14" element={<Page14 />} />
         <Route path="/page15" element={<Page15 />} />
         <Route path="/formpage" element={<FormPage />} />
       </Routes>
-
       <NavHanderler phaserRef={phaserRef} />
     </div>
   );
@@ -64,6 +62,9 @@ function NavHanderler({ phaserRef }) {
     if (_phaser && phaserRef.current) {
       // current path name
       const path = window.location.pathname;
+      if (path === "/") {
+        phaserRef.current.scene.start("landing");
+      }
 
       if (path.includes("quest")) {
         // quest next words
