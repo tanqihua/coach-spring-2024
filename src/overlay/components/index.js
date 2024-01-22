@@ -25,6 +25,7 @@ export function Button({ children, id, onClick, size = "100%", width = "25svh", 
           fontSize: fontSize,
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
+          position:"relative"
         }}
         onClick={() => {
           onClick();

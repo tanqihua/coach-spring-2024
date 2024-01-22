@@ -46,7 +46,23 @@ const Page14 = (props) => {
         <div className="block" style={{ height: "4svh" }} />
         <h4>Tap the gift box to redeem <br /> your a treat!</h4>
         <div className="block" style={{ height: "2svh" }} />
-        <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>REDEEM</Button>
+        <Button 
+          backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
+            REDEEM
+            <div
+              className="imgContainer"
+              style={{
+                height : "3svh",
+                margin : "auto",
+                position:"absolute",
+                top:"50%",
+                right:"5%",
+                transform:"translate(-55%,-55%)"
+              }}
+            >
+              <img src="/asset/gift_icon.png"/>
+            </div>
+        </Button>
         <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
         <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
       </div>
@@ -86,21 +102,21 @@ const Page14 = (props) => {
           
           <div className="block" style={{height:"8%"}}/>
 
-          <h3 style={{wordSpacing:"0.1rem"}}>HERE'S YOUR <br /> TREAT</h3>
+          <h3 style={{wordSpacing:"0.1rem"}}>HERE’S YOUR <br /> TREAT</h3>
 
-          <div className="block" style={{height:"5%"}}/>
+          <div className="block" style={{height:"12%"}}/>
 
           <div
             className="imgContainer"
             style={{
-              height : "15svh",
+              height : "16svh",
               margin : "auto"
             }}
           >
-            <img src="/asset/activist.png" alt="Activist" />
+            <img src="/asset/treat1.png" alt="Activist" />
           </div>
           
-          <div className="block" style={{height:"7%"}}/>
+          <div className="block" style={{height:"12%"}}/>
           
           <h5>
             Do not tap the button below. <br /> 
