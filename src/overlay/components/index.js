@@ -1,6 +1,16 @@
 import { useEffect } from "react";
 
-export function Button({ children, id, onClick, size = "100%", width = "25svh", height = "5.5svh", backgroundColor = "transparent",fontSize = "1.8svh", borderRadius = "4px", }) {
+export function Button({
+  children,
+  id,
+  onClick,
+  size = "100%",
+  width = "25svh",
+  height = "5.5svh",
+  backgroundColor = "transparent",
+  fontSize = "1.8svh",
+  borderRadius = "4px",
+}) {
   return (
     <div
       style={{
@@ -36,7 +46,14 @@ export function Button({ children, id, onClick, size = "100%", width = "25svh", 
     </div>
   );
 }
-export function ButtonRound({ children, id, onClick, size = "100%" , width = "16svh" , height = "16svh"}) {
+export function ButtonRound({
+  children,
+  id,
+  onClick,
+  size = "100%",
+  width = "16svh",
+  height = "16svh",
+}) {
   return (
     <div
       style={{
@@ -48,7 +65,7 @@ export function ButtonRound({ children, id, onClick, size = "100%" , width = "16
       <button
         id={id}
         style={{
-          backgroundColor: "rgba(244, 180, 4, 0.8)", 
+          backgroundColor: "rgba(244, 180, 4, 0.8)",
           color: "#fff",
           border: "0.1rem solid #fff",
           borderRadius: "50%", // Make the button round by setting border-radius to 50%
@@ -70,7 +87,7 @@ export function ButtonRound({ children, id, onClick, size = "100%" , width = "16
   );
 }
 
-export function Terms({ terms = false, setInfo = ()=>{} }) {
+export function Terms({ terms = false, setInfo = () => {} }) {
   return (
     <section
       style={{
@@ -99,7 +116,7 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
             justifyContent: "center",
             alignItems: "center",
             border: "none",
-            marginRight : "1.1rem"
+            marginRight: "1.1rem",
           }}
         >
           <div
@@ -114,7 +131,6 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
         </div>
       </div>
 
-
       <div>
         <p
           style={{
@@ -123,7 +139,11 @@ export function Terms({ terms = false, setInfo = ()=>{} }) {
             textAlign: "left",
           }}
         >
-          BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW .{" "}
+          BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED
+          PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART
+          REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT
+          IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO
+          CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW .{" "}
           <span
             style={{
               textDecoration: "underline",
@@ -154,7 +174,7 @@ export function Input({
       name={placeholder}
       style={{
         textAlign: "center",
-        fontFamily:"HelveticaLTPro-Roman",
+        fontFamily: "HelveticaLTPro-Roman",
         fontSize: "1rem",
         color: "black",
         border: "none",
@@ -362,6 +382,33 @@ export const DesktopBlock = () => {
         }}
       />
       <LegerLine />
+    </div>
+  );
+};
+
+export const PreloadingPage = ({ preload = false }) => {
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        position: "absolute",
+        zIndex: 100,
+        backgroundColor: "black",
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: preload ? 0 : 1,
+        pointerEvents: preload ? "none" : "all",
+        transition: "opacity 1s ease-in-out",
+      }}
+    >
+      <h1>
+        Mini Jason <br />
+        handle preloading page <br />
+        fong sam
+      </h1>
     </div>
   );
 };

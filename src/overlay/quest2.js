@@ -10,6 +10,7 @@ const Index = (props) => {
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
+    console.log(_temp);
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
   };
 
@@ -56,7 +57,7 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Lists and <br /> 
+            Lists and <br />
             habits
           </p>
         </div>

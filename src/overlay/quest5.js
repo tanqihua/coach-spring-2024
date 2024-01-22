@@ -27,9 +27,9 @@ const Index = (props) => {
         }}
       >
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
-          Do you prefer to stick to <br /> 
-          (and get great at) what <br /> 
-          you know, or explore the <br /> 
+          Do you prefer to stick to <br />
+          (and get great at) what <br />
+          you know, or explore the <br />
           unknown?
         </h1>
       </div>
@@ -131,8 +131,8 @@ const Index = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
-          phaserRef.current.scene.scenes[1].setNextQuestion("orange", "c");
-          nav("/quest1");
+          phaserRef.current.scene.scenes[1].playVideo();
+          nav("/page14");
         }}
       >
         GET RESULT

@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
-import gsap from 'gsap';
+import gsap from "gsap";
 
 const Page14 = (props) => {
-  const [isPrizeContainerVisible, setPrizeContainerVisibility] = useState(false);
+  const [isPrizeContainerVisible, setPrizeContainerVisibility] =
+    useState(false);
   const prizeContainerRef = useRef(null);
 
   const handleRedeemButtonClick = () => {
@@ -12,22 +13,28 @@ const Page14 = (props) => {
     setPrizeContainerVisibility(true);
   };
 
-  useEffect(() =>{
-
-  })
+  useEffect(() => {});
 
   useEffect(() => {
     // GSAP animations setup
     if (isPrizeContainerVisible) {
-      gsap.to(prizeContainerRef.current, { opacity: 1, duration: 0.5, ease: 'ease-in' });
+      gsap.to(prizeContainerRef.current, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "ease-in",
+      });
     } else {
-      gsap.to(prizeContainerRef.current, { opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+      gsap.to(prizeContainerRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
     }
   }, [isPrizeContainerVisible]);
 
   return (
     <Wraper style={{ position: "relative" }}>
-      <div className="block" style={{ height: "6svh" }} />
+      {/* <div className="block" style={{ height: "6svh" }} />
       <div className="redeemContainer" style={{
         height: "90svh",
         width: "fit-content",
@@ -136,13 +143,9 @@ const Page14 = (props) => {
             GMT +0800 (SINGAPORE TIME)
           </h6>
         </div>
-      )}
+      )} */}
     </Wraper>
   );
 };
 
 export default Page14;
-
-
-
-
