@@ -89,11 +89,11 @@ const PopUp = ({
     switch (buttonText) {
       case "STAFF REDEEM":
         setButtonText("CONFIRM");
-        setButtonBackgroundColor("#efa906"); 
+        setButtonBackgroundColor("#efa906");
         break;
       case "CONFIRM":
         setButtonText("REDEEMED");
-        setButtonBackgroundColor("#9b9696"); 
+        setButtonBackgroundColor("#9b9696");
         break;
       case "REDEEMED":
         break;
@@ -152,7 +152,7 @@ const PopUp = ({
           margin: "auto",
         }}
       >
-        <img src="/asset/treat1.png" alt="Activist" />
+        <img src="/asset/treat1.webp" alt="Activist" />
       </div>
 
       <div className="block" style={{ height: "12%" }} />
