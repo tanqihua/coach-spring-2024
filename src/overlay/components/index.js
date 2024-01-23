@@ -35,7 +35,7 @@ export function Button({
           fontSize: fontSize,
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
-          position:"relative"
+          position: "relative",
         }}
         onClick={() => {
           onClick();
@@ -229,7 +229,8 @@ export const LegerLine = ({ currentPage }) => {
         transform: "translate(-50%,0)",
         width: "100vw",
         textAlign: "center",
-        opacity: [3, 4, 5, 6].includes(currentPage) ? 0 : 1,
+        opacity: 1,
+        zIndex: 10000,
       }}
     >
       <span
@@ -242,7 +243,7 @@ export const LegerLine = ({ currentPage }) => {
       >
         <span
           style={{
-            fontSize: "1.2svh",
+            fontSize: "0.65rem",
             position: "relative",
             top: "-0.03svh",
             marginRight: "0.5vw",
@@ -254,7 +255,7 @@ export const LegerLine = ({ currentPage }) => {
         <a
           style={{
             color: "white",
-            fontSize: "1svh",
+            fontSize: "0.65rem",
             fontFamily: "HelveticaLTPro-Roman",
             textDecoration: "underline",
           }}
@@ -393,51 +394,51 @@ export const PreloadingPage = ({ preload = false }) => {
         width: "100vw",
         height: "100vh",
         position: "absolute",
-        zIndex: 100,
-        background: "linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0.3) 70.56%)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        zIndex: 10,
+        backgroundColor: "white",
         opacity: preload ? 0 : 1,
         pointerEvents: preload ? "none" : "all",
-        transition: "opacity 1s ease-in-out",
+        transition: "opacity 0.5s ease-in-out",
       }}
-      // background: linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0) 120.56%);
     >
       <div
-        className="imgContainer"
         style={{
-          height: "6svh",
-          margin: "auto",
-          position: "absolute",
-          top: "6%"
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#C41F32",
+          background:
+            "linear-gradient(0deg, rgba(194,32,51,0.947391456582633) 0%, rgba(141,140,196,0.8969712885154062) 73%)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
+        // background: linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0) 120.56%);
       >
-        <img src="/asset/logo.png" alt="Logo" />
-      </div>
+        <div
+          className="imgContainer"
+          style={{
+            height: "6svh",
+            margin: "auto",
+            position: "absolute",
+            top: "6%",
+          }}
+        >
+          <img src="/asset/logo.png" alt="Logo" />
+        </div>
 
-      <div
-        className="imgContainer"
-        style={{
-          height: "14svh",
-          margin: "auto",
-          position: "absolute",
-          top:"35%"
-        }}
-      >
-        <img src="/asset/balloon.png" alt="Balloon" />
-      </div>
-      <div style={{
-        position:"absolute",
-        bottom:"1%"
-      }}>
-        <p style={{
-          fontSize:"0.6rem",
-          lineHeight:"6.65px"
-        }}>® ALL RIGHTS RESERVED BY COACH. POWERED BY CONTEN.T</p>
+        <div
+          className="imgContainer"
+          style={{
+            height: "14svh",
+            margin: "auto",
+            position: "absolute",
+            top: "35%",
+          }}
+        >
+          <img src="/asset/balloon.png" alt="Balloon" />
+        </div>
       </div>
     </div>
   );
 };
-

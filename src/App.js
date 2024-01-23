@@ -35,6 +35,7 @@ function App() {
         <Route path="/page15" element={<Page15 />} />
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
+      <LegerLine />
     </div>
   );
 }
