@@ -35,6 +35,7 @@ export function Button({
           fontSize: fontSize,
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
+          position:"relative"
         }}
         onClick={() => {
           onClick();
