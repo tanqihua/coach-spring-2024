@@ -25,7 +25,7 @@ const FormPage = (props) => {
           boxShadow: "0 0 1rem rgba(0,0,0,0.2)",
         }}
       >
-        <div className="block" style={{ height: "8%" }} />
+        <div className="block" style={{ height: "6%" }} />
 
         <div
           className="imgContainer"
@@ -36,6 +36,10 @@ const FormPage = (props) => {
         >
           <img src="/asset/logo.png" />
         </div>
+
+        <div className="block" style={{ height: "6%" }} />
+
+        <h2>BEFORE WE START, <br /> TELL US ABOUT YOURSELF</h2>
 
         <div className="block" style={{ height: "3%" }} />
 

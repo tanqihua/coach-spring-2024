@@ -10,8 +10,14 @@ const Page1 = (props) => {
     <Wraper style={{}}>
       <div className="block" style={{ height: "50svh" }} />
 
-      <h1>WHAT’s YOUR COURAGE</h1>
-      <div className="block" style={{ height: "20svh" }} />
+      <h1>WHAT’S YOUR COURAGE</h1>
+      <div className="block" style={{ height: "1svh" }} />
+      <h5>
+        Move the dot to best reflect your style. <br /> 
+        At the end, we’ll reveal your secret <br />
+        superpower.
+      </h5>
+      <div className="block" style={{ height: "12svh" }} />
       <ButtonRound
         onClick={() => {
           nav("/formpage");
