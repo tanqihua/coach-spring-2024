@@ -86,6 +86,10 @@ export class Quests extends Phaser.Scene {
           this.game.config.height
         );
       });
+
+      this[video].once("complete", () => {
+        window.setShowPage14(true);
+      });
     });
 
     this.bg = this.add

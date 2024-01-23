@@ -17,7 +17,13 @@ import {
 import { LegerLine, DesktopBlock, PreloadingPage } from "./overlay/components";
 function App() {
   const phaserRef = useRef(null);
+  const [showPage14, setShowPage14] = React.useState(false);
 
+  useEffect(() => {
+    window.setShowPage14 = () => {
+      setShowPage14(true);
+    };
+  }, []);
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
@@ -31,7 +37,7 @@ function App() {
         <Route path="/quest4" element={<Quest4 phaserRef={phaserRef} />} />
         <Route path="/quest5" element={<Quest5 phaserRef={phaserRef} />} />
 
-        <Route path="/page14" element={<Page14 />} />
+        <Route path="/page14" element={<Page14 showPage14={showPage14} />} />
         <Route path="/page15" element={<Page15 />} />
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
