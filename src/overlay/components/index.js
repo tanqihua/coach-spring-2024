@@ -174,8 +174,8 @@ export function Input({
       name={placeholder}
       style={{
         textAlign: "center",
-        fontFamily: "HelveticaLTPro-Roman",
-        fontSize: "1rem",
+        fontFamily: "HelveticaLTPro-Bold",
+        fontSize: "1.2rem",
         color: "black",
         border: "none",
         backgroundColor: "white",
