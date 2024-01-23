@@ -72,6 +72,19 @@ export class Quests extends Phaser.Scene {
   create() {
     // this.video.play(true);
     // check preload is done
+    this.logo = this.add
+      .image(
+        this.game.config.width * 0.5,
+        this.game.config.height * 0.06,
+        "logo"
+      )
+      .setOrigin(0.5);
+    this.logo.setDisplaySize(
+      (this.game.config.height * 0.06 * 256) / 69,
+      this.game.config.height * 0.06
+    );
+
+    this.logo.setDepth(10);
 
     ["purpleVideo", "yellowVideo", "blackVideo"].forEach((video) => {
       this[video] = this.add.video(

@@ -13,6 +13,7 @@ export class Bootstrap extends Phaser.Scene {
     this.load.image("background", "/2d/start_bg2.jpg");
     this.load.image("blueBroad", "/2d/blue.webp");
     this.load.image("orangeBroad", "/2d/orange.webp");
+    this.load.image("logo", "/asset/logo.png");
 
     this.load.spritesheet("a", "/2d/a.webp", {
       frameWidth: 400,
