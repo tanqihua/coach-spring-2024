@@ -47,5 +47,6 @@ export class Bootstrap extends Phaser.Scene {
 
   create() {
     window?.setPhaser(true);
+    this.scene.start("landing");
   }
 }
