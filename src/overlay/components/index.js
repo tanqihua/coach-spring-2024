@@ -396,7 +396,7 @@ export const PreloadingPage = ({ preload = false }) => {
         position: "absolute",
         zIndex: 10,
         backgroundColor: "white",
-        opacity: preload ? 0 : 1,
+        opacity: false ? 0 : 1,
         pointerEvents: preload ? "none" : "all",
         transition: "opacity 0.5s ease-in-out",
       }}
@@ -407,7 +407,7 @@ export const PreloadingPage = ({ preload = false }) => {
           height: "100%",
           backgroundColor: "#C41F32",
           background:
-            "linear-gradient(0deg, rgba(194,32,51,0.947391456582633) 0%, rgba(141,140,196,0.8969712885154062) 73%)",
+            "linear-gradient(0deg, rgba(255, 255, 255, 0.882) 0%, rgba(194, 32, 51, 0.52) 42%, rgb(141, 140, 196) 95%)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -428,7 +428,7 @@ export const PreloadingPage = ({ preload = false }) => {
         </div>
 
         <div
-          className="imgContainer"
+          className="imgContainer floating"
           style={{
             height: "14svh",
             margin: "auto",
@@ -436,7 +436,7 @@ export const PreloadingPage = ({ preload = false }) => {
             top: "35%",
           }}
         >
-          <img src="/asset/balloon.png" alt="Balloon" />
+          <img src="/asset/balloon.webp" alt="Balloon" />
         </div>
       </div>
     </div>
