@@ -421,7 +421,7 @@ export const PreloadingPage = ({ preload = false }) => {
             height: "6svh",
             margin: "auto",
             position: "absolute",
-            top: "6%",
+            top: "3%",
           }}
         >
           <img src="/asset/logo.png" alt="Logo" />

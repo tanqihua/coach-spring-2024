@@ -23,6 +23,11 @@ const Page14 = (props) => {
           opacity: showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
           pointerEvents: showPage14 ? "auto" : "none",
+          backgroundImage: "url(/2d/start_bg2.jpg)",
+          backgroundSize: "cover",
+          width: "100%",
+          height: "100%",
+          backgroundPosition: "center",
         }}
       >
         <div className="block" style={{ height: "6svh" }} />
@@ -89,11 +94,11 @@ const PopUp = ({
     switch (buttonText) {
       case "STAFF REDEEM":
         setButtonText("CONFIRM");
-        setButtonBackgroundColor("#efa906"); 
+        setButtonBackgroundColor("#efa906");
         break;
       case "CONFIRM":
         setButtonText("REDEEMED");
-        setButtonBackgroundColor("#9b9696"); 
+        setButtonBackgroundColor("#9b9696");
         break;
       case "REDEEMED":
         break;
@@ -152,7 +157,7 @@ const PopUp = ({
           margin: "auto",
         }}
       >
-        <img src="/asset/treat1.png" alt="Activist" />
+        <img src="/asset/treat1.webp" alt="Activist" />
       </div>
 
       <div className="block" style={{ height: "12%" }} />

@@ -19,6 +19,20 @@ export class Landing extends Phaser.Scene {
       .setOrigin(0.5);
     this.bg.setDisplaySize(this.game.config.height, this.game.config.height);
 
+    this.logo = this.add
+      .image(
+        this.game.config.width * 0.5,
+        this.game.config.height * 0.06,
+        "logo"
+      )
+      .setOrigin(0.5);
+    this.logo.setDisplaySize(
+      (this.game.config.height * 0.06 * 256) / 69,
+      this.game.config.height * 0.06
+    );
+
+    this.logo.setDepth(10);
+
     //r "e", "a", "l", "y", "o", "u"
     let width = this.game.config.width * 0.45;
     let _canvasWidth = this.game.config.width;
