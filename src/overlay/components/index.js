@@ -172,6 +172,9 @@ export function Input({
       placeholder={placeholder}
       type={type}
       name={placeholder}
+      onBlur={() => {
+        window.scrollTo(0, 0);
+      }}
       style={{
         textAlign: "center",
         fontFamily: "HelveticaLTPro-Bold",

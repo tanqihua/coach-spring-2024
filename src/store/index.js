@@ -6,4 +6,10 @@ export const useStore = create((set) => ({
     set((state) => ({
       point: { ...state.point, [num]: point },
     })),
+
+  info: {},
+  addInfo: (info) =>
+    set((state) => ({
+      info: { ...state.info, ...info },
+    })),
 }));

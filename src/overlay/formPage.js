@@ -20,26 +20,16 @@ const FormPage = (props) => {
           padding: "0 3rem", // Adjust the padding as needed
           borderRadius: "15px", // Optional: Add border-radius for rounded corners
           width: "90%", // Adjust the width as needed
-          height: "85svh", // Adjust the height as needed
+          height: "80svh", // Adjust the height as needed
           position: "relative",
           boxShadow: "0 0 1rem rgba(0,0,0,0.2)",
         }}
       >
-        <div className="block" style={{ height: "6%" }} />
+        <div className="block" style={{ height: "8%" }} />
 
-        <div
-          className="imgContainer"
-          style={{
-            height: "6svh",
-            margin: "auto",
-          }}
-        >
-          <img src="/asset/logo.png" />
-        </div>
-
-        <div className="block" style={{ height: "6%" }} />
-
-        <h2>BEFORE WE START, <br /> TELL US ABOUT YOURSELF</h2>
+        <h2>
+          BEFORE WE START, <br /> TELL US ABOUT YOURSELF
+        </h2>
 
         <div className="block" style={{ height: "3%" }} />
 
@@ -58,9 +48,10 @@ const FormPage = (props) => {
 
         <div className="block" style={{ height: "3%" }} />
         <Terms />
-        <div className="block" style={{ height: "5%" }} />
+        <div className="block" style={{ height: "2%" }} />
         <ButtonRound
           onClick={() => {
+            window.scrollTo(0, 0);
             phaserRef.current.scene.scenes[2].scene.start("quests");
             nav("/quest1");
           }}
@@ -68,7 +59,7 @@ const FormPage = (props) => {
           <div
             className="imgContainer"
             style={{
-              height: "6svh",
+              height: "50%",
               margin: "auto",
             }}
           >
