@@ -7,6 +7,8 @@ export class Landing extends Phaser.Scene {
 
   init() {}
 
+  preload() {}
+
   create() {
     this.bg = this.add
       .sprite(

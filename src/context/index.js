@@ -192,7 +192,6 @@ export const SuperFanProvider = ({ children, value }) => {
             ...info,
             _name: docSnap.data()?.name ?? null,
           });
-          console.log(docSnap.data());
           init(docSnap.data()?.timeSpent, docSnap.data()["replay"] + 1);
         }
       }

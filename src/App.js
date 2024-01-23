@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      {/* <THREESCENE /> */}
+      <THREESCENE />
       <Routes>
         <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
         <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
@@ -64,6 +64,8 @@ function NavHanderler({ phaserRef }) {
       const path = window.location.pathname;
       if (path === "/") {
         phaserRef.current.scene.start("landing");
+      } else {
+        window.location.href = "/";
       }
 
       if (path.includes("quest")) {
@@ -86,6 +88,6 @@ function NavHanderler({ phaserRef }) {
     }
   }, [_phaser]);
 
-  return <PreloadingPage preload={_phaser} />;
+  return null;
 }
 export default App;

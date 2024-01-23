@@ -132,7 +132,7 @@ const Index = (props) => {
         height="6svh"
         onClick={() => {
           phaserRef.current.scene.scenes[1].playVideo();
-          // nav("/page14");
+          nav("/page14");
         }}
       >
         GET RESULT

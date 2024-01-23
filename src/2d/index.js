@@ -45,7 +45,7 @@ const IoPhaser = React.forwardRef((props, ref) => {
         height: "100svh",
         maxWidth: "700px",
         overflow: "hidden",
-        pointerEvents: "null",
+        pointerEvents: "none",
         transform: "translateX(-50%)",
       }}
     ></div>

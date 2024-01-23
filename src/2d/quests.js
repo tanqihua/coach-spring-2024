@@ -4,7 +4,6 @@ export class Quests extends Phaser.Scene {
   constructor() {
     super("quests");
 
-    this.video = null;
     this.totalFrames = 44;
     this.targetFrame = 15;
     this.currentFrame = 0;
@@ -15,12 +14,19 @@ export class Quests extends Phaser.Scene {
 
   init() {}
 
-  preload() {}
+  preload() {
+    // this.load.video(
+    //   "yellowVideo",
+    //   "/2d/Purple_FullVideo.mp4",
+    //   "loadeddata",
+    //   false,
+    //   true
+    // );
+  }
 
   setNextQuestion(color, letter) {
     this.currentFrame = 0;
     this.targetFrame = 13;
-
     this.letters.forEach((_letter) => {
       if (_letter === letter) {
         this.tweens.add({
@@ -39,6 +45,8 @@ export class Quests extends Phaser.Scene {
         });
       }
     });
+    // tween
+
     this.tweens.add({
       targets: this.broad,
       alpha: 0,
@@ -62,21 +70,20 @@ export class Quests extends Phaser.Scene {
   }
 
   create() {
-    window.playVideo = this.playVideo.bind(this);
-
+    // this.video.play(true);
+    // check preload is done
     this.video = this.add.video(
       this.game.config.width / 2,
       this.game.config.height / 2,
-      "yellowVideo"
+      "blackVideo"
     );
-    this.video.setOrigin(0.5);
 
-    // set vidoe to full screen
-    this.video.realHeight = 1024;
-    this.video.realWidth = 1024;
-
-    let ratio = this.game.config.height / this.video.realWidth;
-    this.video.setScale(ratio);
+    this.video.once("play", () => {
+      this.video.setDisplaySize(
+        this.game.config.height,
+        this.game.config.height
+      );
+    });
 
     this.bg = this.add
       .sprite(
@@ -170,30 +177,14 @@ export class Quests extends Phaser.Scene {
   // load video after preload function
   playVideo() {
     this.letters.forEach((letter) => {
-      this.tweens.add({
-        targets: this[letter],
-        alpha: 0,
-        duration: 500,
-        ease: "Linear",
-      });
+      this[letter].setAlpha(0);
     });
 
-    this.tweens.add({
-      targets: this.broad,
-      alpha: 0,
-      duration: 500,
-      ease: "Linear",
-    });
+    this.broad.setAlpha(0);
 
-    // delay call
-    this.time.delayedCall(500, () => {
-      this.video.play(true);
-      this.video.setLoop(false);
+    this.bg.setAlpha(0);
 
-      // vidoe is playing
-      this.video.on("playing", () => {
-        this.bg.alpha = 0;
-      });
-    });
+    this.video.play(false);
+    this.video.setDepth(10);
   }
 }

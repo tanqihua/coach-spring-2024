@@ -9,12 +9,11 @@ export class Bootstrap extends Phaser.Scene {
 
   preload() {
     // load vidoe
-    this.load.video("yellowVideo", "/2d/Yellow_FullVideo.webm");
 
-    this.load.image("background", "/2d/Spring_Yellow_01_001.webp");
+    this.load.image("background", "/2d/start_bg2.jpg");
     this.load.image("blueBroad", "/2d/blue.webp");
     this.load.image("orangeBroad", "/2d/orange.webp");
-    // load sprite sheet
+
     this.load.spritesheet("a", "/2d/a.webp", {
       frameWidth: 400,
       frameHeight: 400,
@@ -41,10 +40,12 @@ export class Bootstrap extends Phaser.Scene {
       frameWidth: 400,
       frameHeight: 400,
     });
+    this.load.video("purpleVideo", "/2d/Purple_FullVideo.mp4");
+    this.load.video("yellowVideo", "/2d/Yellow_FullVideo.mp4");
+    this.load.video("blackVideo", "/2d/Black_FullVideo.mp4");
   }
 
   create() {
     window?.setPhaser(true);
-    // this.scene.start("landing");
   }
 }
