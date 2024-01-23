@@ -23,6 +23,11 @@ const Page14 = (props) => {
           opacity: showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
           pointerEvents: showPage14 ? "auto" : "none",
+          backgroundImage: "url(/2d/start_bg2.jpg)",
+          backgroundSize: "cover",
+          width: "100%",
+          height: "100%",
+          backgroundPosition: "center",
         }}
       >
         <div className="block" style={{ height: "6svh" }} />
