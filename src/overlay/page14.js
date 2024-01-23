@@ -16,7 +16,7 @@ const Page14 = (props) => {
 
   return (
     <Wraper style={{ position: "relative" }}>
-      {/* <div className="block" style={{ height: "6svh" }} />
+      <div className="block" style={{ height: "6svh" }} />
       <div className="redeemContainer" style={{
         height: "90svh",
         width: "fit-content",
@@ -125,7 +125,7 @@ const Page14 = (props) => {
             GMT +0800 (SINGAPORE TIME)
           </h6>
         </div>
-      )} */}
+      )}
     </Wraper>
   );
 };

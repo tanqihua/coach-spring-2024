@@ -394,21 +394,50 @@ export const PreloadingPage = ({ preload = false }) => {
         height: "100vh",
         position: "absolute",
         zIndex: 100,
-        backgroundColor: "black",
-
+        background: "linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0.3) 70.56%)",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        opacity: preload ? 0 : 1,
+        opacity: preload ? 1 : 1,
         pointerEvents: preload ? "none" : "all",
         transition: "opacity 1s ease-in-out",
       }}
+      // background: linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0) 120.56%);
     >
-      <h1>
-        Mini Jason <br />
-        handle preloading page <br />
-        fong sam
-      </h1>
+      <div
+        className="imgContainer"
+        style={{
+          height: "6svh",
+          margin: "auto",
+          position: "absolute",
+          top: "6%"
+        }}
+      >
+        <img src="/asset/logo.png" alt="Logo" />
+      </div>
+
+      <div
+        className="imgContainer"
+        style={{
+          height: "14svh",
+          margin: "auto",
+          position: "absolute",
+          top:"35%"
+        }}
+      >
+        <img src="/asset/balloon.png" alt="Balloon" />
+      </div>
+      <div style={{
+        position:"absolute",
+        bottom:"1%"
+      }}>
+        <p style={{
+          fontSize:"0.6rem",
+          lineHeight:"6.65px"
+        }}>® ALL RIGHTS RESERVED BY COACH. POWERED BY CONTEN.T</p>
+      </div>
     </div>
   );
 };
+
