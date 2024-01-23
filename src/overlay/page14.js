@@ -69,6 +69,26 @@ const PopUp = ({
   isPrizeContainerVisible = false,
   setPrizeContainerVisibility,
 }) => {
+  const [buttonText, setButtonText] = useState("STAFF REDEEM");
+  const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
+
+  const handleStaffRedeemClick = () => {
+    switch (buttonText) {
+      case "STAFF REDEEM":
+        setButtonText("CONFIRM");
+        setButtonBackgroundColor("#efa906"); 
+        break;
+      case "CONFIRM":
+        setButtonText("REDEEMED");
+        setButtonBackgroundColor("#9b9696"); 
+        break;
+      case "REDEEMED":
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div
       className="prizeContainer"
@@ -132,11 +152,17 @@ const PopUp = ({
       <div className="block" style={{ height: "3%" }} />
 
       <Button
-        backgroundColor="#1eae35"
+        backgroundColor={buttonBackgroundColor}
         fontSize="2svh"
-        onClick={() => setPrizeContainerVisibility(false)}
+        onClick={() => {
+          handleStaffRedeemClick();
+          if (buttonText === "CONFIRM") {
+          } else if (buttonText === "REDEEMED") {
+            setPrizeContainerVisibility(false);
+          }
+        }}
       >
-        STAFF REDEEM
+        {buttonText}
       </Button>
 
       <div className="block" style={{ height: "3%" }} />
