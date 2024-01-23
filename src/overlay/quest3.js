@@ -4,15 +4,21 @@ import { Button } from "./components";
 import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../store";
+
 const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
+  let _currentPoint = 11;
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
+
+    _currentPoint = event.target.value;
   };
 
+  const { addPoint, point } = useStore();
   return (
     <Quest>
       <div
@@ -57,7 +63,7 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Follow the <br /> posts 
+            Follow the <br /> posts
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -132,6 +138,7 @@ const Index = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
+          addPoint(_currentPoint, "3");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "c");
           nav("/quest4");
         }}

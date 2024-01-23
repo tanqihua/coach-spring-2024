@@ -399,7 +399,7 @@ export const PreloadingPage = ({ preload = false }) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        opacity: preload ? 1 : 1,
+        opacity: preload ? 0 : 1,
         pointerEvents: preload ? "none" : "all",
         transition: "opacity 1s ease-in-out",
       }}
