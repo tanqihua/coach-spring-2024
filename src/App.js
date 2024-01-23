@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      {/* <THREESCENE /> */}
+      <THREESCENE />
       <Routes>
         <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
         <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
@@ -42,6 +42,7 @@ function App() {
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
       <LegerLine />
+      <NavBarColorHandler />
     </div>
   );
 }
