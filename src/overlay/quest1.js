@@ -2,16 +2,23 @@ import React, { useState } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
+import { useStore } from "../store";
 // nav
 import { useNavigate } from "react-router-dom";
-const Page4 = (props) => {
+const Quest1 = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
+
+  let _currentPoint = 11;
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
+
+    _currentPoint = event.target.value;
   };
+
+  const { addPoint, point } = useStore();
 
   return (
     <Quest>
@@ -130,6 +137,7 @@ const Page4 = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
+          addPoint(_currentPoint, "1");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "o");
           nav("/quest2");
         }}
@@ -140,4 +148,4 @@ const Page4 = (props) => {
   );
 };
 
-export default Page4;
+export default Quest1;

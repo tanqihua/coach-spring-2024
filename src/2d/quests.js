@@ -72,17 +72,20 @@ export class Quests extends Phaser.Scene {
   create() {
     // this.video.play(true);
     // check preload is done
-    this.video = this.add.video(
-      this.game.config.width / 2,
-      this.game.config.height / 2,
-      "blackVideo"
-    );
 
-    this.video.once("play", () => {
-      this.video.setDisplaySize(
-        this.game.config.height,
-        this.game.config.height
+    ["purpleVideo", "yellowVideo", "blackVideo"].forEach((video) => {
+      this[video] = this.add.video(
+        this.game.config.width / 2,
+        this.game.config.height / 2,
+        video
       );
+
+      this[video].once("play", () => {
+        this[video].setDisplaySize(
+          this.game.config.height,
+          this.game.config.height
+        );
+      });
     });
 
     this.bg = this.add
@@ -175,7 +178,7 @@ export class Quests extends Phaser.Scene {
     }
   }
   // load video after preload function
-  playVideo() {
+  playVideo(video = "purpleVideo") {
     this.letters.forEach((letter) => {
       this[letter].setAlpha(0);
     });
@@ -184,7 +187,8 @@ export class Quests extends Phaser.Scene {
 
     this.bg.setAlpha(0);
 
-    this.video.play(false);
-    this.video.setDepth(10);
+    // "purpleVideo", "yellowVideo", "blackVideo"
+    this[video].play(false);
+    this[video].setDepth(10);
   }
 }

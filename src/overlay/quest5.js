@@ -4,14 +4,21 @@ import { Button } from "./components";
 import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../store";
+
 const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
+  let _currentPoint = 11;
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
+
+    _currentPoint = event.target.value;
   };
+
+  const { addPoint, point } = useStore();
 
   return (
     <Quest>
@@ -131,7 +138,32 @@ const Index = (props) => {
         width="21svh"
         height="6svh"
         onClick={() => {
-          phaserRef.current.scene.scenes[1].playVideo();
+          let totalPoint = Object.values(point).reduce(
+            (a, b) => parseInt(a) + parseInt(b),
+            0
+          );
+
+          totalPoint = totalPoint + _currentPoint;
+
+          let videoType = null;
+          switch (totalPoint) {
+            case totalPoint < 20:
+              videoType = "blackVideo";
+              break;
+            case totalPoint < 40:
+              videoType = "purpleVideo";
+              break;
+            case totalPoint < 60:
+              videoType = "yellowVideo";
+              break;
+            default:
+              videoType = "blackVideo";
+              break;
+          }
+
+          addPoint(_currentPoint, "5");
+
+          phaserRef.current.scene.scenes[1].playVideo(videoType);
           nav("/page14");
         }}
       >
