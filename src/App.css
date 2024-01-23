@@ -35,3 +35,9 @@ input {
 body {
   touch-action: none;
 }
+
+/* floating */
+
+input[type="text"]::-webkit-input-placeholder {
+  color: #c4c4c4;
+}
