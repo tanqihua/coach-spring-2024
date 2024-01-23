@@ -4,12 +4,24 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import { DesktopBlock } from "./overlay/components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <>
+    <MobileView>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </MobileView>
+    
+    <BrowserView>
+      <DesktopBlock />
+    </BrowserView>
+  </>
+
+
 );
 
 // If you want to start measuring performance in your app, pass a function
