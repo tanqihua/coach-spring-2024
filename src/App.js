@@ -67,27 +67,9 @@ function NavHanderler({ phaserRef }) {
       } else {
         window.location.href = "/";
       }
-
-      if (path.includes("quest")) {
-        // quest next words
-        const quest = path.split("/")[1];
-        const lastWord = quest.split("").pop();
-        let currentFont = ["c", "o", "a", "c", "h"][lastWord - 1];
-        let broadColor = [
-          "orangeBroad",
-          "blueBroad",
-          "orangeBroad",
-          "blueBroad",
-          "orangeBroad",
-        ][lastWord - 1];
-
-        phaserRef.current.scene.scenes[1].currentLetter = currentFont;
-        phaserRef.current.scene.scenes[1].currentBroad = broadColor;
-        phaserRef.current.scene.start("quests");
-      }
     }
   }, [_phaser]);
 
-  return null;
+  return <PreloadingPage preload={_phaser} />;
 }
 export default App;
