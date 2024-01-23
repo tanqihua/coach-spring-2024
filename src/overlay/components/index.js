@@ -143,7 +143,8 @@ export function Terms({ terms = false, setInfo = () => {} }) {
           PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART
           REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT
           IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO
-          CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW .{" "}
+          CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW{" "}
+          <br />
           <span
             style={{
               textDecoration: "underline",
@@ -151,7 +152,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             }}
           >
             {" "}
-            TERMS & PRIVACY
+            TERMS & PRIVACY.
           </span>
           .
         </p>
