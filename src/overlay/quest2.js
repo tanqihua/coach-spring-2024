@@ -36,8 +36,7 @@ const Index = (props) => {
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
           Do you start your day <br />
           with good habits and <br />
-          to-do lists, or leave it open <br />
-          to stay open to surprises?
+          to-do lists, or leave it open to stay open to surprises?
         </h1>
       </div>
 

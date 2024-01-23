@@ -38,8 +38,7 @@ const Index = (props) => {
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
           Do you triple-check dress <br />
           codes before heading to <br />
-          events, or pick your ‘fit <br />
-          intuitively?
+          events, or pick your <br /> ‘fit intuitively?
         </h1>
       </div>
 

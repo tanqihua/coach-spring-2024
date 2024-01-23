@@ -36,8 +36,8 @@ const Index = (props) => {
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
           Do you prefer to stick to <br />
           (and get great at) what <br />
-          you know, or explore the <br />
-          unknown?
+          you know, or explore <br />
+          the unknown?
         </h1>
       </div>
 
