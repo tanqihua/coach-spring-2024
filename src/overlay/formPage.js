@@ -1,10 +1,11 @@
 import { Wraper } from "./helper";
 import { Button, ButtonRound, Input, Terms } from "./components";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 const FormPage = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
+  const [check, setCheck] = useState(false);
   return (
     <Wraper
       style={{
@@ -47,7 +48,7 @@ const FormPage = (props) => {
         <Input placeholder="EMAIL (Optional)" />
 
         <div className="block" style={{ height: "3%" }} />
-        <Terms />
+        <Terms terms={check} setInfo={setCheck} />
         <div className="block" style={{ height: "2%" }} />
         <ButtonRound
           onClick={() => {
