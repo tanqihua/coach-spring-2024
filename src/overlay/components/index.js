@@ -396,7 +396,7 @@ export const PreloadingPage = ({ preload = false }) => {
         position: "absolute",
         zIndex: 10,
         backgroundColor: "white",
-        opacity: false ? 0 : 1,
+        opacity: preload ? 0 : 1,
         pointerEvents: preload ? "none" : "all",
         transition: "opacity 0.5s ease-in-out",
       }}
