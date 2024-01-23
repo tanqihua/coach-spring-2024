@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      <THREESCENE />
+      {/* <THREESCENE /> */}
       <Routes>
         <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
         <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
