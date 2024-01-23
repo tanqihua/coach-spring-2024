@@ -407,7 +407,7 @@ export const PreloadingPage = ({ preload = false }) => {
           height: "100%",
           backgroundColor: "#C41F32",
           background:
-            "linear-gradient(0deg, rgba(255, 255, 255, 0.882) 0%, rgba(194, 32, 51, 0.52) 42%, rgb(141, 140, 196) 95%)",
+            "linear-gradient(0deg, rgba(255, 255, 255, 0.882) -3%, rgba(194, 32, 51, 0.52) 0%, rgb(141, 140, 196) 95%)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
