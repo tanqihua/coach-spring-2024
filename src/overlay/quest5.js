@@ -143,9 +143,9 @@ const Index = (props) => {
             0
           );
 
+          let videoType = null;
           totalPoint = totalPoint + _currentPoint;
 
-          let videoType = null;
           switch (totalPoint) {
             case totalPoint < 20:
               videoType = "blackVideo";
@@ -156,14 +156,17 @@ const Index = (props) => {
             case totalPoint < 60:
               videoType = "yellowVideo";
               break;
-            default:
-              videoType = "blackVideo";
-              break;
           }
+
+          let random = ["blackVideo", "purpleVideo", "yellowVideo"].sort(
+            () => Math.random() - 0.5
+          )[0];
+
+          console.log(totalPoint, random);
 
           addPoint(_currentPoint, "5");
 
-          phaserRef.current.scene.scenes[1].playVideo(videoType);
+          phaserRef.current.scene.scenes[1].playVideo(random);
           nav("/page14");
         }}
       >

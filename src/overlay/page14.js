@@ -3,6 +3,7 @@ import { Wraper } from "./helper";
 import { Button } from "./components";
 
 const Page14 = (props) => {
+  const { showPage14 } = props;
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
     useState(false);
 
@@ -11,56 +12,68 @@ const Page14 = (props) => {
     setPrizeContainerVisibility(true);
   };
 
+  useEffect(() => {
+    console.log(showPage14);
+  }, [showPage14]);
+
   return (
     <Wraper style={{ position: "relative" }}>
-      <div className="block" style={{ height: "6svh" }} />
       <div
-        className="redeemContainer"
         style={{
-          height: "90svh",
-          width: "fit-content",
-          margin: "auto",
+          opacity: showPage14 ? 1 : 0,
+          transition: "opacity 0.5s ease-in-out",
+          pointerEvents: showPage14 ? "auto" : "none",
         }}
       >
+        <div className="block" style={{ height: "6svh" }} />
         <div
-          className="imgContainer"
+          className="redeemContainer"
           style={{
-            height: "55svh",
+            height: "90svh",
+            width: "fit-content",
             margin: "auto",
-            boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
           }}
         >
-          <img src="/asset/test.jpg" alt="Gift" />
-        </div>
-        <div className="block" style={{ height: "4svh" }} />
-        <h4>
-          Tap the gift box to redeem <br /> your a treat!
-        </h4>
-        <div className="block" style={{ height: "2svh" }} />
-        <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
-          REDEEM
           <div
             className="imgContainer"
             style={{
-              height: "3svh",
+              height: "55svh",
               margin: "auto",
-              position: "absolute",
-              top: "50%",
-              right: "5%",
-              transform: "translate(-55%,-55%)",
+              boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
-            <img src="/asset/gift_icon.png" />
+            <img src="/asset/test.jpg" alt="Gift" />
           </div>
-        </Button>
-        <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
-        <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
-      </div>
+          <div className="block" style={{ height: "4svh" }} />
+          <h4>
+            Tap the gift box to redeem <br /> your a treat!
+          </h4>
+          <div className="block" style={{ height: "2svh" }} />
+          <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
+            REDEEM
+            <div
+              className="imgContainer"
+              style={{
+                height: "3svh",
+                margin: "auto",
+                position: "absolute",
+                top: "50%",
+                right: "5%",
+                transform: "translate(-55%,-55%)",
+              }}
+            >
+              <img src="/asset/gift_icon.png" />
+            </div>
+          </Button>
+          <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
+          <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
+        </div>
 
-      <PopUp
-        isPrizeContainerVisible={isPrizeContainerVisible}
-        setPrizeContainerVisibility={setPrizeContainerVisibility}
-      />
+        <PopUp
+          isPrizeContainerVisible={isPrizeContainerVisible}
+          setPrizeContainerVisibility={setPrizeContainerVisibility}
+        />
+      </div>
     </Wraper>
   );
 };
