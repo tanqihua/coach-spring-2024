@@ -93,7 +93,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
       style={{
         display: "flex",
       }}
-      className="terms"
+      className="terms dontwantBold"
     >
       <div
         onClick={() => {
@@ -137,6 +137,8 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             color: "white",
             fontSize: "0.54rem",
             textAlign: "left",
+            lineHeight: "1.2",
+            letterSpacing: "0.1rem",
           }}
         >
           BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED
@@ -144,11 +146,10 @@ export function Terms({ terms = false, setInfo = () => {} }) {
           REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT
           IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO
           CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW{" "}
-          <br />
           <span
             style={{
               textDecoration: "underline",
-              fontSize: "1svh",
+              fontSize: "0.54rem",
             }}
           >
             {" "}
@@ -280,8 +281,8 @@ export const DesktopBlock = () => {
       style={{
         width: "100vw",
         height: "100svh",
-        backgroundImage:"url(/2d/bg.jpg)",
-        backgroundPosition:"center",
+        backgroundImage: "url(/2d/bg.jpg)",
+        backgroundPosition: "center",
       }}
     >
       <div
@@ -399,16 +400,16 @@ export const DesktopBlock = () => {
 };
 
 export const preloadingpages = () => {
-  return(
-    <div style={{
-      width:"100vw",
-      height:"100vh",
-      position:"absolute"
-    }}>
-
-    </div>
-  )
-}
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        position: "absolute",
+      }}
+    ></div>
+  );
+};
 
 export const PreloadingPage = ({ preload = false }) => {
   return (

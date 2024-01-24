@@ -29,7 +29,7 @@
 }
 
 input {
-  font-family: "HelveticaLTPro-Bold";
+  font-family: "HelveticaLTPro-Light";
 }
 
 body {
@@ -40,4 +40,5 @@ body {
 
 input[type="text"]::-webkit-input-placeholder {
   color: #c4c4c4;
+  font-family: "HelveticaLTPro-Light";
 }

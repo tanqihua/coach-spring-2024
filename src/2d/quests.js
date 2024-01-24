@@ -34,7 +34,7 @@ export class Quests extends Phaser.Scene {
           alpha: 1,
           duration: 500,
           ease: "Linear",
-          delay: 0.5,
+          delay: 900,
         });
       } else {
         this.tweens.add({

@@ -34,17 +34,17 @@ export class Landing extends Phaser.Scene {
     this.logo.setDepth(10);
 
     //r "e", "a", "l", "y", "o", "u"
-    let width = this.game.config.width * 0.38;
+    let width = this.game.config.width * 0.4;
     let _canvasWidth = this.game.config.width;
     let _canvasHeight = this.game.config.height;
     let alignCenter = _canvasWidth * 0.1;
     let alignYou = width * 0.6;
     let initPos = {
-      r: [alignCenter + _canvasWidth * 0.05, _canvasHeight * 0.25, 1, 4, 4, 0],
-      e: [alignCenter + _canvasWidth * 0.3, _canvasHeight * 0.25, 1, 1, 3, 0],
+      r: [alignCenter + _canvasWidth * 0.05, _canvasHeight * 0.22, 1, 4, 4, 0],
+      e: [alignCenter + _canvasWidth * 0.3, _canvasHeight * 0.22, 1, 1, 3, 0],
       a: [
         alignCenter + _canvasWidth * 0.55,
-        _canvasHeight * 0.25,
+        _canvasHeight * 0.22,
         1,
         2,
         2,
@@ -52,7 +52,7 @@ export class Landing extends Phaser.Scene {
       ],
       l: [
         alignCenter + _canvasWidth * 0.8,
-        _canvasHeight * 0.25,
+        _canvasHeight * 0.22,
         1,
         3,
         1,
@@ -60,7 +60,7 @@ export class Landing extends Phaser.Scene {
       ],
       y: [
         this.game.config.width / 2 - alignYou,
-        _canvasHeight * 0.25 + width * 0.65,
+        _canvasHeight * 0.22 + width * 0.65,
         1.1,
         8,
         5,
@@ -68,7 +68,7 @@ export class Landing extends Phaser.Scene {
       ],
       o: [
         this.game.config.width / 2,
-        _canvasHeight * 0.25 + width * 0.65,
+        _canvasHeight * 0.22 + width * 0.65,
         1.1,
         9,
         7,
@@ -76,7 +76,7 @@ export class Landing extends Phaser.Scene {
       ],
       u: [
         this.game.config.width / 2 + alignYou,
-        _canvasHeight * 0.25 + width * 0.65,
+        _canvasHeight * 0.22 + width * 0.65,
         1.1,
         8,
         6,

@@ -106,7 +106,7 @@ const Index = (props) => {
             {new Array(21).fill(0).map((_, i) => {
               return (
                 <div
-                  className={[0, 10, 20].includes(i) ? "circle" : "dot"}
+                  className={[0, 20].includes(i) ? "circle" : "dot"}
                   key={i}
                 />
               );

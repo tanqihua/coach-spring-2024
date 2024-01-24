@@ -6,14 +6,16 @@ p {
 }
 
 h1 {
-  font-size: 2.1rem;
+  font-size: 1.6rem;
   color: white;
   text-align: center;
   font-family: "HelveticaLTPro-Bold";
+
+  filter: drop-shadow(0, 0, 0.75rem, #000000);
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: white;
   text-align: center;
   font-family: "HelveticaLTPro-Bold";
@@ -34,7 +36,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: white;
   text-align: center;
   font-family: "HelveticaLTPro-Bold";
@@ -45,6 +47,10 @@ h6 {
   color: white;
   text-align: center;
   font-family: "HelveticaLTPro-Roman1";
+}
+
+.dontwantBold p {
+  font-family: "HelveticaLTPro-Light";
 }
 
 .imgContainer img {
