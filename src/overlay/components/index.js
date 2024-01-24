@@ -282,6 +282,7 @@ export const DesktopBlock = () => {
         height: "100svh",
         backgroundImage:"url(/2d/bg.jpg)",
         backgroundPosition:"center",
+        backgroundSize:"cover",
       }}
     >
       <div
@@ -320,10 +321,10 @@ export const DesktopBlock = () => {
         PLEASE SCAN THE QR CODE BELOW TO ACCESS
       </h2>
 
-      <div
+      {/* <div
         className="block"
         style={{
-          height: "4svh",
+          height: "14svh",
         }}
       />
 
@@ -336,10 +337,10 @@ export const DesktopBlock = () => {
           top: 0,
         }}
       >
-        <img src="/2d/light.webp" />
-      </div>
+        <img src="/2d/light.webp" alt="asd"/>
+      </div> */}
 
-      <div
+      {/* <div
         className="imgContainer"
         style={{
           position: "absolute",
@@ -349,8 +350,8 @@ export const DesktopBlock = () => {
           right: 0,
         }}
       >
-        <img src="/2d/light.webp" />
-      </div>
+        <img src="/2d/light.webp" alt="msg"/>
+      </div> */}
 
       <div
         className="imgContainerHeight"
@@ -397,18 +398,6 @@ export const DesktopBlock = () => {
     </div>
   );
 };
-
-export const preloadingpages = () => {
-  return(
-    <div style={{
-      width:"100vw",
-      height:"100vh",
-      position:"absolute"
-    }}>
-
-    </div>
-  )
-}
 
 export const PreloadingPage = ({ preload = false }) => {
   return (
