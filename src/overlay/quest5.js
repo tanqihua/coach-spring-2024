@@ -204,7 +204,7 @@ const Index = (props) => {
           nav("/page14");
         }}
       >
-        GET RESULT
+        GET RESULTS
       </Button>
     </Quest>
   );
