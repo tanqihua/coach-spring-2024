@@ -283,6 +283,9 @@ export const DesktopBlock = () => {
         height: "100svh",
         backgroundImage: "url(/2d/bg.jpg)",
         backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundImage: "url(/2d/bg.jpg)",
+        backgroundPosition: "center",
       }}
     >
       <div
@@ -321,10 +324,10 @@ export const DesktopBlock = () => {
         PLEASE SCAN THE QR CODE BELOW TO ACCESS
       </h2>
 
-      <div
+      {/* <div
         className="block"
         style={{
-          height: "4svh",
+          height: "14svh",
         }}
       />
 
@@ -337,10 +340,10 @@ export const DesktopBlock = () => {
           top: 0,
         }}
       >
-        <img src="/2d/light.webp" />
-      </div>
+        <img src="/2d/light.webp" alt="asd"/>
+      </div> */}
 
-      <div
+      {/* <div
         className="imgContainer"
         style={{
           position: "absolute",
@@ -350,8 +353,8 @@ export const DesktopBlock = () => {
           right: 0,
         }}
       >
-        <img src="/2d/light.webp" />
-      </div>
+        <img src="/2d/light.webp" alt="msg"/>
+      </div> */}
 
       <div
         className="imgContainerHeight"

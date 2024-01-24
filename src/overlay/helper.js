@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export const Wraper = (props) => {
-  const { children, style, ...rest } = props;
+  const { children, style, delay, ...rest } = props;
 
   return (
     <motion.section
@@ -17,7 +17,7 @@ export const Wraper = (props) => {
         ...style,
       }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.2 } }}
+      animate={{ opacity: 1, transition: { duration: 0.5 } }}
     >
       {children}
     </motion.section>
