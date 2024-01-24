@@ -59,7 +59,7 @@ const Page14 = (props) => {
             <div
               className="imgContainer"
               style={{
-                height: "3svh",
+                height: "2.5svh",
                 margin: "auto",
                 position: "absolute",
                 top: "50%",

@@ -11,6 +11,7 @@ import {
   isMobile,
 } from "react-device-detect";
 import { DesktopBlock } from "./overlay/components";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>

@@ -280,23 +280,25 @@ export const DesktopBlock = () => {
       style={{
         width: "100vw",
         height: "100svh",
-        backgroundColor: "#C41F32",
+        backgroundImage:"url(/2d/bg.jpg)",
+        backgroundPosition:"center",
       }}
     >
       <div
         className="block"
         style={{
-          height: "6svh",
+          height: "12svh",
+          //6
         }}
       />
       <div
         style={{
-          height: "12svh",
+          height: "8svh",
           width: "fit-content",
           margin: "auto",
         }}
       >
-        <img src="/2d/logolanding.webp" style={{ height: "100%" }} />
+        <img src="/asset/logo.png" style={{ height: "100%" }} />
       </div>
 
       <div
@@ -360,7 +362,7 @@ export const DesktopBlock = () => {
         }}
       >
         <img
-          src="/2d/Coach_Holiday_Mobile_MY.png"
+          src="/2d/QR.jpg"
           style={{
             height: "100%",
           }}
@@ -378,18 +380,35 @@ export const DesktopBlock = () => {
           height: "4svh",
         }}
       />
-      <Button
+      {/* <Button
         param={"SHOP HOLIDAY"}
         id="learnmoreDesktop"
         size="100%"
+        // backgroundColor="#EFA906"
+        // backgroundColor="black"
+        color
         onClick={() => {
           window.open("https://malaysia.coach.com/holiday.html", "_blank");
         }}
-      />
+      >
+        Learn More
+      </Button> */}
       <LegerLine />
     </div>
   );
 };
+
+export const preloadingpages = () => {
+  return(
+    <div style={{
+      width:"100vw",
+      height:"100vh",
+      position:"absolute"
+    }}>
+
+    </div>
+  )
+}
 
 export const PreloadingPage = ({ preload = false }) => {
   return (
@@ -437,7 +456,7 @@ export const PreloadingPage = ({ preload = false }) => {
             height: "14svh",
             margin: "auto",
             position: "absolute",
-            top: "35%",
+            top: "40%",
           }}
         >
           <img src="/asset/balloon.webp" alt="Balloon" />
