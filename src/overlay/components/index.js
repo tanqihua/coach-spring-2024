@@ -463,7 +463,7 @@ export const PreloadingPage = ({ preload = false }) => {
             top: "40%",
           }}
         >
-          <img src="/asset/balloon.webp" alt="Balloon" />
+          <img src="/asset/Coach_C_045.png" alt="Balloon" />
         </div>
       </div>
     </div>

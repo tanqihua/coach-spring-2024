@@ -46,7 +46,7 @@ const Page14 = (props) => {
               boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
-            <img src={info.url ?? ""} alt="Gift" />
+            <img src={info?.url ?? "/asset/test.jpg"} alt="Gift" />
           </div>
           <div className="block" style={{ height: "4svh" }} />
           <h4>
@@ -69,7 +69,9 @@ const Page14 = (props) => {
               <img src="/asset/gift_icon.png" />
             </div>
           </Button>
-          <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
+          <Button backgroundColor="#f4b404" onClick={() => {}}>
+            SAVE RESULT VIDEO
+          </Button>
           <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
         </div>
 

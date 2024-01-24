@@ -10,7 +10,7 @@ export const useStore = create((set) => ({
   info: {
     firstName: "",
     bagColor: "",
-    url: "",
+    url: undefined,
   },
 
   setInfo: (_info) =>

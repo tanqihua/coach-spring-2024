@@ -186,7 +186,7 @@ const Index = (props) => {
           axios
             .get("https://coachname.onrender.com", {
               params: {
-                name: info.firstName,
+                name: info.firstName ?? "undefined",
                 color: color,
               },
             })
