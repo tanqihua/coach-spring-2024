@@ -7,7 +7,8 @@ const Page1 = (props) => {
   const nav = useNavigate();
 
   return (
-    <Wraper style={{}}>
+    <Wraper 
+      style={{}}>
       <div className="block" style={{ height: "50svh" }} />
 
       <h1>WHAT’S YOUR COURAGE</h1>
