@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
+import { useStore } from "../store";
 
 const Page14 = (props) => {
   const { showPage14 } = props;
@@ -12,9 +13,7 @@ const Page14 = (props) => {
     setPrizeContainerVisibility(true);
   };
 
-  useEffect(() => {
-    console.log(showPage14);
-  }, [showPage14]);
+  const { info } = useStore();
 
   return (
     <Wraper style={{ position: "relative" }}>
@@ -47,7 +46,7 @@ const Page14 = (props) => {
               boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
-            <img src="/asset/test.jpg" alt="Gift" />
+            <img src={info.url ?? ""} alt="Gift" />
           </div>
           <div className="block" style={{ height: "4svh" }} />
           <h4>

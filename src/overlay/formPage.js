@@ -1,11 +1,22 @@
 import { Wraper } from "./helper";
 import { Button, ButtonRound, Input, Terms } from "./components";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useStore } from "../store";
+
 const FormPage = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
-  const [check, setCheck] = useState(false);
+  const { setInfo } = useStore();
+  const [info, addInfo] = useState({
+    EMAIL: null,
+    FIRSTNAME: null,
+    LASTNAME: null,
+    MOBILE: null,
+    countryCode: null,
+    terms: null,
+  });
+
   return (
     <Wraper
       delay={0.6}
@@ -35,25 +46,72 @@ const FormPage = (props) => {
 
         <div className="block" style={{ height: "3%" }} />
 
-        <Input />
-        <Input placeholder="LAST NAME" />
+        <Input
+          placeholder="FIRST NAME"
+          onChange={(e) => {
+            addInfo((prevInfo) => ({
+              ...prevInfo,
+              FIRSTNAME: e.target.value,
+            }));
+          }}
+        />
+        <Input
+          placeholder="LAST NAME"
+          onChange={(e) => {
+            addInfo((prevInfo) => ({
+              ...prevInfo,
+              LASTNAME: e.target.value,
+            }));
+          }}
+        />
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
           }}
         >
-          <Input placeholder="+1" size="20%" />
-          <Input placeholder="MOBILE" size="75%" />
+          <Input
+            placeholder="+1"
+            size="20%"
+            onChange={(e) => {
+              addInfo((prevInfo) => ({
+                ...prevInfo,
+                countryCode: e.target.value,
+              }));
+            }}
+          />
+          <Input
+            placeholder="MOBILE"
+            size="75%"
+            onChange={(e) => {
+              addInfo((prevInfo) => ({
+                ...prevInfo,
+                MOBILE: e.target.value,
+              }));
+            }}
+          />
         </div>
-        <Input placeholder="EMAIL (Optional)" />
+        <Input
+          placeholder="EMAIL (Optional)"
+          onChange={(e) => {
+            addInfo((prevInfo) => ({
+              ...prevInfo,
+              EMAIL: e.target.value,
+            }));
+          }}
+        />
 
         <div className="block" style={{ height: "3%" }} />
-        <Terms terms={check} setInfo={setCheck} />
+        <Terms terms={info?.terms ?? false} setInfo={addInfo} />
+
         <div className="block" style={{ height: "2%" }} />
         <ButtonRound
           onClick={() => {
             window.scrollTo(0, 0);
+            window.FIRSTNAME = info.FIRSTNAME;
+            setInfo({
+              firstName: info.FIRSTNAME,
+            });
             phaserRef.current.scene.scenes[2].scene.start("quests");
             nav("/quest1");
           }}
