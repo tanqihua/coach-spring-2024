@@ -60,6 +60,7 @@ function NavBarColorHandler() {
 
 function NavHanderler({ phaserRef }) {
   const [_phaser, _setPhaser] = React.useState(false);
+
   useEffect(() => {
     window.setPhaser = (value) => {
       _setPhaser(value);
