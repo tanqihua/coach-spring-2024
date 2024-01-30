@@ -7,9 +7,14 @@ export const useStore = create((set) => ({
       point: { ...state.point, [num]: point },
     })),
 
-  info: {},
-  addInfo: (info) =>
+  info: {
+    firstName: "",
+    bagColor: "",
+    url: undefined,
+  },
+
+  setInfo: (_info) =>
     set((state) => ({
-      info: { ...state.info, ...info },
+      info: { ...state.info, ..._info },
     })),
 }));

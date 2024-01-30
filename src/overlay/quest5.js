@@ -5,7 +5,7 @@ import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
-
+import axios from "axios";
 const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
@@ -18,7 +18,7 @@ const Index = (props) => {
     _currentPoint = event.target.value;
   };
 
-  const { addPoint, point } = useStore();
+  const { addPoint, point, info, setInfo } = useStore();
 
   return (
     <Quest>
@@ -162,7 +162,41 @@ const Index = (props) => {
             () => Math.random() - 0.5
           )[0];
 
-          console.log(totalPoint, random);
+          let color;
+
+          switch (random) {
+            case "blackVideo":
+              color = "black";
+              break;
+            case "purpleVideo":
+              color = "purple";
+              break;
+            case "yellowVideo":
+              color = "yellow";
+              break;
+            default:
+              color = "black";
+              break;
+          }
+
+          setInfo({
+            bagColor: color,
+          });
+
+          axios
+            .get("https://coachname.onrender.com", {
+              params: {
+                name: info.firstName ?? "undefined",
+                color: color,
+              },
+            })
+            .then((res) => {
+              setInfo({
+                url: res.data.url,
+              });
+              console.log(res.data.url);
+            })
+            .catch((err) => console.log(err));
 
           addPoint(_currentPoint, "5");
 
