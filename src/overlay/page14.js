@@ -16,6 +16,27 @@ const Page14 = (props) => {
     console.log(showPage14);
   }, [showPage14]);
 
+  const handleSaveVideoClick = () => {
+    handleShare();
+  };
+
+  const handleShare = () => {
+    // Check if the navigator.share API is available
+    if (navigator.share) {
+      navigator.share({
+        title: "Share Video",
+        text: "Check out this amazing video!",
+        url: "https://example.com", // Replace with the actual URL of the saved video
+      })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.error("Error sharing:", error));
+    } else {
+      // Fallback for devices/browsers that don't support navigator.share
+      // Implement your custom sharing functionality here
+      console.log("navigator.share not supported. Implement custom sharing.");
+    }
+  };
+
   return (
     <Wraper style={{ position: "relative" }}>
       <div
@@ -70,7 +91,7 @@ const Page14 = (props) => {
               <img src="/asset/gift_icon.png" />
             </div>
           </Button>
-          <Button backgroundColor="#f4b404">SAVE RESULT VIDEO</Button>
+          <Button backgroundColor="#f4b404" onClick={handleSaveVideoClick}>SAVE RESULT VIDEO</Button>
           <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
         </div>
 

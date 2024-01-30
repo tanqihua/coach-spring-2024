@@ -8,7 +8,6 @@ const FormPage = (props) => {
   const [check, setCheck] = useState(false);
   return (
     <Wraper
-      delay={0.6}
       style={{
         display: "flex",
         justifyContent: "center",
