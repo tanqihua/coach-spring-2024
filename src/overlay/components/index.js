@@ -186,6 +186,7 @@ export function Input({
         backgroundColor: "white",
         width: size,
         padding: "1rem",
+        paddingTop: "1.2rem",
         margin: "0.5rem 0",
         borderRadius: "0",
       }}

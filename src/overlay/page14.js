@@ -22,11 +22,12 @@ const Page14 = (props) => {
   const handleShare = () => {
     // Check if the navigator.share API is available
     if (navigator.share) {
-      navigator.share({
-        title: "Share Video",
-        text: "Check out this amazing video!",
-        url: "https://example.com", // Replace with the actual URL of the saved video
-      })
+      navigator
+        .share({
+          title: "Share Video",
+          text: "Check out this amazing video!",
+          url: "https://example.com", // Replace with the actual URL of the saved video
+        })
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.error("Error sharing:", error));
     } else {
@@ -69,9 +70,24 @@ const Page14 = (props) => {
           >
             <img src={info?.url ?? "/asset/test.jpg"} alt="Gift" />
           </div>
+
+          <div
+            style={{
+              background:
+                "linear-gradient(0deg, rgba(255,255,255,0) 0%, #9194c729 50%, rgba(255,255,255,0) 100%)",
+              height: "40svh",
+              width: "100vw",
+              zIndex: "-1",
+              position: "absolute",
+              top: "41%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+            }}
+          />
+
           <div className="block" style={{ height: "4svh" }} />
           <h4>
-            Tap the gift box to redeem <br /> your a treat!
+            Tap the gift box to redeem <br /> your treat!
           </h4>
           <div className="block" style={{ height: "2svh" }} />
           <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>

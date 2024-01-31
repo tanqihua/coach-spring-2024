@@ -98,6 +98,8 @@ export class Quests extends Phaser.Scene {
           this.game.config.height,
           this.game.config.height
         );
+
+        this[video].setDepth(10);
       });
 
       this[video].once("complete", () => {
@@ -202,7 +204,7 @@ export class Quests extends Phaser.Scene {
 
     this.broad.setAlpha(0);
 
-    this.bg.setAlpha(0);
+    this.bg.setAlpha(1);
 
     // "purpleVideo", "yellowVideo", "blackVideo"
     this[video].play(false);
