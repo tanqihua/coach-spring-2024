@@ -44,6 +44,8 @@ export class Bootstrap extends Phaser.Scene {
     this.load.video("purpleVideo", "/2d/Purple_FullVideo.mp4");
     this.load.video("yellowVideo", "/2d/Yellow_FullVideo.mp4");
     this.load.video("blackVideo", "/2d/Black_FullVideo.mp4");
+    this.load.video("tyeDyeVideo", "/2d/TyeDye_FullVideo.mp4");
+    this.load.video("denimVideo", "/2d/Denim_FullVideo.mp4");
   }
 
   create() {

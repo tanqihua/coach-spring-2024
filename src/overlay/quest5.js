@@ -158,9 +158,13 @@ const Index = (props) => {
               break;
           }
 
-          let random = ["blackVideo", "purpleVideo", "yellowVideo"].sort(
-            () => Math.random() - 0.5
-          )[0];
+          let random = [
+            "blackVideo",
+            "purpleVideo",
+            "yellowVideo",
+            "tyeDyeVideo",
+            "denimVideo",
+          ].sort(() => Math.random() - 0.5)[0];
 
           let color;
 
@@ -173,6 +177,12 @@ const Index = (props) => {
               break;
             case "yellowVideo":
               color = "yellow";
+              break;
+            case "tyeDyeVideo":
+              color = "brown";
+              break;
+            case "denimVideo":
+              color = "grey";
               break;
             default:
               color = "black";
