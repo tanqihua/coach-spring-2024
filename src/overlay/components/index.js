@@ -444,27 +444,17 @@ export const PreloadingPage = ({ preload = false }) => {
         // background: linear-gradient(180deg, #8D8CC4 0%, rgba(194, 32, 51, 0) 120.56%);
       >
         <div
-          className="imgContainer"
-          style={{
-            height: "6svh",
-            margin: "auto",
-            position: "absolute",
-            top: "3%",
-          }}
-        >
-          <img src="/asset/logo.png" alt="Logo" />
-        </div>
-
-        <div
           className="imgContainer floating"
           style={{
-            height: "14svh",
+            height: "5svh",
             margin: "auto",
             position: "absolute",
-            top: "40%",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
           }}
         >
-          <img src="/asset/Coach_C_045.png" alt="Balloon" />
+          <img src="/asset/logo.png" alt="Balloon" />
         </div>
       </div>
     </div>

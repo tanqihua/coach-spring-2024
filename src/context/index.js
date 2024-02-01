@@ -222,7 +222,6 @@ export const SuperFanProvider = ({ children, value }) => {
         submit,
         customType,
         uploadFile,
-        submit_temp,
       }}
     >
       {children}
