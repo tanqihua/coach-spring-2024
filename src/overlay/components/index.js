@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import { motion } from "framer-motion";
 export function Button({
   children,
   id,
@@ -65,7 +65,7 @@ export function ButtonRound({
       <button
         id={id}
         style={{
-          backgroundColor: "rgba(244, 180, 4, 0.8)",
+          backgroundColor: "rgba(244, 180, 4, 0.7)",
           color: "#fff",
           border: "0.1rem solid #fff",
           borderRadius: "50%", // Make the button round by setting border-radius to 50%
@@ -449,12 +449,23 @@ export const PreloadingPage = ({ preload = false }) => {
             height: "5svh",
             margin: "auto",
             position: "absolute",
-            top: "50%",
+            top: "45%",
             left: "50%",
             transform: "translate(-50%,-50%)",
           }}
         >
-          <img src="/asset/logo.png" alt="Balloon" />
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+              },
+            }}
+            src="/asset/logo.png"
+            alt="Balloon"
+          />
         </div>
       </div>
     </div>
