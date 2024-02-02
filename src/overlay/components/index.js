@@ -75,7 +75,7 @@ export function ButtonRound({
           width: width,
           height: height, // Set height equal to width to make a perfect circle
           maxWidth: "250px",
-          fontSize: "1.8svh",
+          fontSize: "1.1rem",
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
         }}
@@ -180,13 +180,13 @@ export function Input({
       style={{
         textAlign: "center",
         fontFamily: "HelveticaLTPro-Bold",
-        fontSize: "1.2rem",
+        fontSize: "1.1rem",
         color: "black",
         border: "none",
         backgroundColor: "white",
         width: size,
-        padding: "1rem",
-        paddingTop: "1.2rem",
+        padding: "0.9rem",
+        paddingTop: "1.1rem",
         margin: "0.5rem 0",
         borderRadius: "0",
       }}

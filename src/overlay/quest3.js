@@ -24,15 +24,15 @@ const Index = (props) => {
       <div
         className="block"
         style={{
-          height: "20%",
+          height: "25%",
         }}
       />
       <div
         style={{
-          height: "20svh",
+          height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
+        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
           Do you travel to the <br />
           places everyone is <br />
           posting, or are you the <br />
@@ -41,7 +41,7 @@ const Index = (props) => {
         </h1>
       </div>
 
-      <div className="block" style={{ height: "8%" }} />
+      <div className="block" style={{ height: "4%" }} />
 
       <div
         className="rangeSlider"
@@ -131,7 +131,7 @@ const Index = (props) => {
         </div>
       </div>
 
-      <div className="block" style={{ height: "8%" }} />
+      <div className="block" style={{ height: "4%" }} />
 
       <Button
         borderRadius="12px"

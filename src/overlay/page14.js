@@ -44,7 +44,7 @@ const Page14 = (props) => {
           opacity: showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
           pointerEvents: showPage14 ? "auto" : "none",
-          backgroundImage: "url(/2d/start_bg2.jpg)",
+          backgroundImage: "url(/asset/BG_01.webp)",
           backgroundSize: "cover",
           width: "100%",
           height: "100%",
@@ -179,8 +179,6 @@ const PopUp = ({
       >
         <img src="/asset/logo.png" alt="Logo" />
       </div>
-
-      <div className="block" style={{ height: "8%" }} />
 
       <h3 style={{ wordSpacing: "0.1rem" }}>
         HERE’S YOUR <br /> TREAT

@@ -115,7 +115,7 @@ const FormPage = (props) => {
             nav("/quest1");
           }}
         >
-          <div
+          {/* <div
             className="imgContainer"
             style={{
               height: "50%",
@@ -123,8 +123,8 @@ const FormPage = (props) => {
             }}
           >
             <img src="/asset/activist.png" />
-          </div>
-          <div className="block" style={{ height: "1svh" }}></div>
+          </div> */}
+          {/* <div className="block" style={{ height: "1svh" }}></div> */}
           NEXT
         </ButtonRound>
       </div>

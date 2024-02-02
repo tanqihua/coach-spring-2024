@@ -39,7 +39,7 @@ body {
 /* floating */
 input[type="text"]::-webkit-input-placeholder {
   color: #c4c4c4;
-  font-family: "HelveticaLTPro-Light";
+  font-family: "HelveticaLTPro-Roman";
 }
 
 .fade-enter {

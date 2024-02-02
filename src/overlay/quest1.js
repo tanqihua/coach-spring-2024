@@ -25,22 +25,22 @@ const Quest1 = (props) => {
       <div
         className="block"
         style={{
-          height: "20%",
+          height: "25%",
         }}
       />
       <div
         style={{
-          height: "20svh",
+          height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "2.1rem" }}>
+        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
           Instead of chatting <br /> one-on-one at parties, <br />
           you find a way to bring <br />
           everyone together. <br />
         </h1>
       </div>
 
-      <div className="block" style={{ height: "8%" }} />
+      <div className="block" style={{ height: "4%" }} />
 
       <div
         className="rangeSlider"
@@ -130,7 +130,7 @@ const Quest1 = (props) => {
         </div>
       </div>
 
-      <div className="block" style={{ height: "8%" }} />
+      <div className="block" style={{ height: "4%" }} />
 
       <Button
         borderRadius="12px"

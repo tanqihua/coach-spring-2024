@@ -46,11 +46,11 @@ h6 {
   font-size: 1.2rem;
   color: white;
   text-align: center;
-  font-family: "HelveticaLTPro-Roman1";
+  font-family: "HelveticaLTPro-Roman";
 }
 
 .dontwantBold p {
-  font-family: "HelveticaLTPro-Light";
+  font-family: "HelveticaLTPro-Roman";
 }
 
 .imgContainer img {
