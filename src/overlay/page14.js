@@ -127,6 +127,7 @@ const PopUp = ({
 }) => {
   const [buttonText, setButtonText] = useState("STAFF REDEEM");
   const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
+  const [redeemTime, setRedeemTime] = useState(new Date());
 
   const handleStaffRedeemClick = () => {
     switch (buttonText) {
@@ -144,6 +145,13 @@ const PopUp = ({
         break;
     }
   };
+
+  useEffect(() => {
+    if (buttonText === "REDEEMED") {
+      const newTime = new Date();
+      setRedeemTime(newTime);
+    }
+  }, [buttonText]);
 
   return (
     <div
@@ -173,7 +181,7 @@ const PopUp = ({
       <div
         className="imgContainer"
         style={{
-          height: "4svh",
+          height: "4.5svh",
           margin: "auto",
         }}
       >
@@ -183,7 +191,8 @@ const PopUp = ({
       <div className="block" style={{ height: "8%" }} />
 
       <h3 style={{ wordSpacing: "0.1rem" }}>
-        HERE’S YOUR <br /> TREAT
+        HERE’S YOUR <br /> 
+        TREAT
       </h3>
 
       <div className="block" style={{ height: "12%" }} />
@@ -223,10 +232,23 @@ const PopUp = ({
 
       <div className="block" style={{ height: "3%" }} />
 
-      <h6>
-        WED APR 11 2024 10:05:06 <br />
-        GMT +0800 (SINGAPORE TIME)
-      </h6>
+      <h5 style={{
+        width:"80%",
+        margin:"auto"
+      }}>
+        {redeemTime.toLocaleString("en-US", {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: false,
+          timeZoneName: "long",
+        }).replace(/,/g, '').toUpperCase()}{' '} 
+        ({redeemTime.toLocaleString(undefined, { timeZoneName: "short" }).split(' ').pop().toUpperCase()})
+      </h5>
     </div>
   );
 };
