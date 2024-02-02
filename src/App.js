@@ -3,6 +3,7 @@ import THREESCENE from "./3d";
 import PhaserScene from "./2d";
 import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from 'axios';
 import {
   Page1,
   FormPage,
