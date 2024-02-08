@@ -36,7 +36,15 @@ const Quest1 = (props) => {
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
           Instead of chatting <br /> one-on-one at parties, <br />
           you find a way to bring <br />
-          everyone together. <br />
+          <span
+            style={{
+              fontSize: "inherit",
+              fontStyle: "italic",
+            }}
+          >
+            everyone
+          </span>{" "}
+          together. <br />
         </h1>
       </div>
 

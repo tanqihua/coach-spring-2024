@@ -34,10 +34,10 @@ const Index = (props) => {
         }}
       >
         <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
-          Do you start your day with <br />
-          good habits and to-do lists, or <br /> leave it open to stay open to{" "}
-          <br />
-          surprises?
+          Do you start your day <br />
+          with a to-do list, or <br />
+          leave it open to stay
+          <br /> open to surprises?
         </h1>
       </div>
 
@@ -63,8 +63,8 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Lists and <br />
-            habits
+            Love
+            <br />a list
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -127,7 +127,9 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Surprises
+            Send me
+            <br />
+            surprise
           </p>
         </div>
       </div>

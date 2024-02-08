@@ -22,7 +22,9 @@ root.render(
     </MobileView>
 
     <BrowserView>
-      <DesktopBlock />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </BrowserView>
   </>
 );

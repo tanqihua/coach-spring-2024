@@ -75,7 +75,7 @@ export function ButtonRound({
           width: width,
           height: height, // Set height equal to width to make a perfect circle
           maxWidth: "250px",
-          fontSize: "1.1rem",
+          fontSize: "1rem",
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
         }}
@@ -116,7 +116,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             justifyContent: "center",
             alignItems: "center",
             border: "none",
-            marginRight: "1.1rem",
+            marginRight: "1rem",
           }}
         >
           <div
@@ -180,13 +180,13 @@ export function Input({
       style={{
         textAlign: "center",
         fontFamily: "HelveticaLTPro-Bold",
-        fontSize: "1.1rem",
+        fontSize: "1rem",
         color: "black",
         border: "none",
         backgroundColor: "white",
         width: size,
         padding: "0.9rem",
-        paddingTop: "1.1rem",
+        paddingTop: "1rem",
         margin: "0.5rem 0",
         borderRadius: "0",
       }}

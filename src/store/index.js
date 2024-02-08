@@ -17,4 +17,7 @@ export const useStore = create((set) => ({
     set((state) => ({
       info: { ...state.info, ..._info },
     })),
+
+  playAnimation: false,
+  setplayAnimation: (value) => set({ playAnimation: value }),
 }));

@@ -3,7 +3,7 @@ import THREESCENE from "./3d";
 import PhaserScene from "./2d";
 import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import {
   Page1,
   FormPage,
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <PhaserScene ref={phaserRef} />
-      {/* <THREESCENE /> */}
+      <THREESCENE />
       <Routes>
         <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
         <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
@@ -75,7 +75,7 @@ function NavHanderler({ phaserRef }) {
       if (path === "/") {
         phaserRef.current.scene.start("landing");
       } else {
-        window.location.href = "/";
+        phaserRef.current.scene.start("quests");
       }
     }
   }, [_phaser]);

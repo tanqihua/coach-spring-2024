@@ -46,10 +46,13 @@ export class Bootstrap extends Phaser.Scene {
     this.load.video("blackVideo", "/2d/Black_FullVideo.mp4");
     this.load.video("tyeDyeVideo", "/2d/TyeDye_FullVideo.mp4");
     this.load.video("denimVideo", "/2d/Denim_FullVideo.mp4");
+
+    // laod audio
+    this.load.audio("infration", "/PowerMode1.mp3");
   }
 
   create() {
     window?.setPhaser(true);
-    this.scene.start("landing");
+    // this.scene.start("landing");
   }
 }

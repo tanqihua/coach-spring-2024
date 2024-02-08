@@ -86,6 +86,11 @@ export class Quests extends Phaser.Scene {
 
     this.logo.setDepth(10);
 
+    // plat infration audio
+    this.infration = this.sound.add("infration");
+    this.infration.seek = 2;
+    window.infration = this.infration;
+
     [
       "purpleVideo",
       "yellowVideo",

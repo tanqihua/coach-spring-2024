@@ -86,9 +86,7 @@ const Page14 = (props) => {
           />
 
           <div className="block" style={{ height: "4svh" }} />
-          <h4>
-            Tap the gift box to redeem <br /> your treat!
-          </h4>
+          <h4>Tap to redeem your treat!</h4>
           <div className="block" style={{ height: "2svh" }} />
           <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
             REDEEM
@@ -187,13 +185,14 @@ const PopUp = ({
       >
         <img src="/asset/logo.png" alt="Logo" />
       </div>
+      <div className="block" style={{ height: "6%" }} />
 
-      <h3 style={{ wordSpacing: "0.1rem" }}>
-        HERE’S YOUR <br /> 
+      <h4 style={{ wordSpacing: "0.1rem" }}>
+        HERE’S YOUR <br />
         TREAT
-      </h3>
+      </h4>
 
-      <div className="block" style={{ height: "12%" }} />
+      <div className="block" style={{ height: "6%" }} />
 
       <div
         className="imgContainer"
@@ -208,8 +207,9 @@ const PopUp = ({
       <div className="block" style={{ height: "12%" }} />
 
       <h5>
-        Do not tap the button below. <br />
-        Present it to our staff to redeem.
+        Don’t tap the button below!
+        <br />
+        Present it to staff to redeem.
       </h5>
 
       <div className="block" style={{ height: "3%" }} />
@@ -230,22 +230,35 @@ const PopUp = ({
 
       <div className="block" style={{ height: "3%" }} />
 
-      <h5 style={{
-        width:"80%",
-        margin:"auto"
-      }}>
-        {redeemTime.toLocaleString("en-US", {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-          second: "numeric",
-          hour12: false,
-          timeZoneName: "long",
-        }).replace(/,/g, '').toUpperCase()}{' '} 
-        ({redeemTime.toLocaleString(undefined, { timeZoneName: "short" }).split(' ').pop().toUpperCase()})
+      <h5
+        style={{
+          width: "80%",
+          margin: "auto",
+          fontSize: "0.9rem",
+          lineHeight: "1.2",
+        }}
+      >
+        {redeemTime
+          .toLocaleString("en-US", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+            hour12: false,
+            timeZoneName: "long",
+          })
+          .replace(/,/g, "")
+          .toUpperCase()}{" "}
+        (
+        {redeemTime
+          .toLocaleString(undefined, { timeZoneName: "short" })
+          .split(" ")
+          .pop()
+          .toUpperCase()}
+        )
       </h5>
     </div>
   );

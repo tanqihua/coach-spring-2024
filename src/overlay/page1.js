@@ -1,9 +1,10 @@
 import { Wraper } from "./helper";
 import { Button, ButtonRound } from "./components";
 import { useNavigate } from "react-router-dom";
-
+import { useStore } from "../store";
 const Page1 = (props) => {
   const { phaserRef } = props;
+  const { setplayAnimation } = useStore();
   const nav = useNavigate();
 
   return (
@@ -15,7 +16,7 @@ const Page1 = (props) => {
           position: "relative",
         }}
       >
-        <div
+        {/* <div
           style={{
             background:
               "linear-gradient(0deg, rgba(255,255,255,0) 0%, #9194c729 50%, rgba(255,255,255,0) 100%)",
@@ -27,19 +28,23 @@ const Page1 = (props) => {
             left: "50%",
             transform: "translate(-50%,-50%)",
           }}
-        />
+        /> */}
         <h1
           style={{
-            filter: "drop-shadow(0px 4px 4px #9598c8)",
+            filter: "drop-shadow(0px 2px 2px #5d63beaf)",
           }}
         >
-          WHAT’S YOUR COURAGE
+          FIND YOUR COURAGE
         </h1>
         <div className="block" style={{ height: "1svh" }} />
-        <h5>
-          Move the dot to best reflect
-          <br /> your style. At the end, we’ll reveal <br />
-          your secret superpower.
+        <h5
+          style={{
+            filter: "drop-shadow(0px 2px 2px #5d63beaf)",
+          }}
+        >
+          Move the dot to answer each question. <br />
+          At the end of the quiz, we’ll reveal your <br />
+          secret superpower.
         </h5>
       </div>
       <div className="block" style={{ height: "10svh" }} />
