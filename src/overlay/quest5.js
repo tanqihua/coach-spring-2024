@@ -33,7 +33,13 @@ const Index = (props) => {
           height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
+        <h1
+          style={{
+            wordSpacing: "0.1rem",
+            lineHeight: "1.95rem",
+            color: "#faf3e3",
+          }}
+        >
           Do you prefer to stick to <br />
           (and get great at) what <br />
           you know, or explore <br />

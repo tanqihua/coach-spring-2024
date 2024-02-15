@@ -33,7 +33,13 @@ const Index = (props) => {
           height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
+        <h1
+          style={{
+            wordSpacing: "0.1rem",
+            lineHeight: "1.95rem",
+            color: "#faf3e3",
+          }}
+        >
           Do you start your day <br />
           with a to-do list, or <br />
           leave it open to stay

@@ -32,7 +32,13 @@ const Index = (props) => {
           height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
+        <h1
+          style={{
+            wordSpacing: "0.1rem",
+            lineHeight: "1.95rem",
+            color: "#faf3e3",
+          }}
+        >
           Do you travel to the <br />
           places everyone is <br />
           posting, or are you the <br />

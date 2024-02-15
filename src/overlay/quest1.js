@@ -17,7 +17,7 @@ const Quest1 = (props) => {
 
     _currentPoint = event.target.value;
   };
-
+  //
   const { addPoint, point } = useStore();
 
   return (
@@ -33,7 +33,13 @@ const Quest1 = (props) => {
           height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
+        <h1
+          style={{
+            wordSpacing: "0.1rem",
+            lineHeight: "1.95rem",
+            color: "#faf3e3",
+          }}
+        >
           Instead of chatting <br /> one-on-one at parties, <br />
           you find a way to bring <br />
           <span

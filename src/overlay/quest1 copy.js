@@ -26,7 +26,13 @@ const Page4 = (props) => {
           height: "18svh",
         }}
       >
-        <h1 style={{ wordSpacing: "0.1rem", lineHeight: "1.95rem" }}>
+        <h1
+          style={{
+            wordSpacing: "0.1rem",
+            lineHeight: "1.95rem",
+            color: "#faf3e3",
+          }}
+        >
           Instead of chatting <br /> one-on-one at parties, <br />
           you find a way to bring <br />
           everyone together. <br />
