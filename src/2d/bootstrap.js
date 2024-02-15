@@ -10,7 +10,7 @@ export class Bootstrap extends Phaser.Scene {
   preload() {
     // load vidoe
 
-    this.load.image("background", "/2d/COACH SPRING_SQUARE_BG.webp");
+    this.load.image("background", "/2d/SPRING_SQUARE_BG_1.webp");
     this.load.image("blueBroad", "/2d/blue.webp");
     this.load.image("orangeBroad", "/2d/orange.webp");
     this.load.image("logo", "/asset/logo.png");

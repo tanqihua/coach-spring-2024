@@ -4,6 +4,8 @@ import PhaserScene from "./2d";
 import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+
 import {
   Page1,
   FormPage,
@@ -42,7 +44,6 @@ function App() {
         <Route path="/page15" element={<Page15 />} />
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
-      <LegerLine />
       <NavBarColorHandler />
     </div>
   );
@@ -62,6 +63,9 @@ function NavBarColorHandler() {
 function NavHanderler({ phaserRef }) {
   const [_phaser, _setPhaser] = React.useState(false);
 
+  // detech current path
+  const location = useLocation();
+  const path = location.pathname;
   useEffect(() => {
     window.setPhaser = (value) => {
       _setPhaser(value);
@@ -80,6 +84,11 @@ function NavHanderler({ phaserRef }) {
     }
   }, [_phaser]);
 
-  return <PreloadingPage preload={_phaser} />;
+  return (
+    <>
+      <PreloadingPage preload={_phaser} />
+      {path !== "/" ? <LegerLine /> : null}
+    </>
+  );
 }
 export default App;
