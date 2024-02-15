@@ -10,6 +10,8 @@ export function Button({
   backgroundColor = "transparent",
   fontSize = "1.8svh",
   borderRadius = "4px",
+
+  style = {},
 }) {
   return (
     <div
@@ -36,6 +38,7 @@ export function Button({
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
           position: "relative",
+          ...style,
         }}
         onClick={() => {
           onClick();

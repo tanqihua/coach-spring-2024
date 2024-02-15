@@ -41,12 +41,36 @@ const Page14 = (props) => {
   return (
     <Wraper style={{ position: "relative" }}>
       <div
-        onClick={() => {
-          console.log("clicked");
-          if (showPage14 && _showPage14 === false) {
-            setShowPage14(true);
-          }
+        style={{
+          position: "absolute",
+          bottom: "15%",
+          opacity: showPage14 ? 1 : 0,
+          pointerEvents: showPage14 ? "auto" : "none",
+          width: "fit-content",
+          left: "50%",
+          transform: "translate(-50%, 0%)",
+          zIndex: 999,
         }}
+      >
+        <div
+          onClick={() => {
+            setShowPage14(true);
+          }}
+        >
+          <Button
+            style={{
+              opacity: _showPage14 ? 0 : 1,
+              transition: "opacity 0.5s ease-in-out",
+              pointerEvents: _showPage14 ? "none" : "auto",
+            }}
+            onClick={() => {}}
+          >
+            NEXT
+          </Button>
+        </div>
+      </div>
+
+      <div
         style={{
           opacity: _showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",

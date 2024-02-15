@@ -128,8 +128,8 @@ export class Quests extends Phaser.Scene {
 
       this[video].once("complete", () => {
         // window.setShowPage14(true);
-        this.hand.setDepth(100);
-        this.horizontalMove(this.hand);
+        // this.hand.setDepth(100);
+        // this.horizontalMove(this.hand);
 
         window.setShowPage14(true);
       });
