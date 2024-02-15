@@ -3,15 +3,10 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useStore } from "../store";
 import * as THREE from "three";
 import { Environment, OrbitControls, useTexture } from "@react-three/drei";
-
+import { motion } from "framer-motion";
 const THREESCENE = React.forwardRef((props, ref) => {
   const { playAnimation, setplayAnimation } = useStore();
-
-  useEffect(() => {
-    window.setplayAnimation = (v) => {
-      setplayAnimation(v);
-    };
-  }, []);
+  const whiteRef = useRef();
 
   return (
     <div
@@ -24,8 +19,8 @@ const THREESCENE = React.forwardRef((props, ref) => {
         transform: "translateX(-50%)",
         zIndex: "10",
         pointerEvents: "none",
-        transitionDelay: "1.2s",
         overlay: "hidden",
+        transition: "all 3s linear",
       }}
     >
       <Canvas
@@ -41,8 +36,7 @@ const THREESCENE = React.forwardRef((props, ref) => {
         <Environment preset="studio" />
         <ambientLight intensity={1} color={"white"} />
         <OrbitControls />
-
-        <Petals />
+        <Petals whiteRef={whiteRef} />
       </Canvas>
 
       <div
@@ -53,11 +47,11 @@ const THREESCENE = React.forwardRef((props, ref) => {
           transform: "translate(-50%, -50%)",
           width: "100svw",
           height: "100svh",
-          background: playAnimation ? "rgba(255,255,255,1)" : 0,
-          zIndex: "-3",
-          transition: "all 1s ease-in-out",
-          transitionDelay: "1.2s",
+          zIndex: "1",
+          background: "rgba(255,255,255,1)",
+          opacity: 0,
         }}
+        ref={whiteRef}
       />
     </div>
   );
@@ -65,16 +59,24 @@ const THREESCENE = React.forwardRef((props, ref) => {
 
 let total = 600;
 const Petals = () => {
+  const { playAnimation } = useStore();
+  const whiteRef = useRef();
+
   return (
     <>
       {new Array(total).fill(0).map((_, i) => {
-        return <Petal index={i} key={i} />;
+        return <Petal index={i} key={i} whiteRef={whiteRef} />;
       })}
+
+      <mesh position={[0, 0, -10]} ref={whiteRef}>
+        <planeGeometry args={[20, 20]} attach="geometry" />
+        <meshStandardMaterial color={"white"} transparent opacity={0} />
+      </mesh>
     </>
   );
 };
 
-const Petal = ({ index }) => {
+const Petal = ({ index, whiteRef }) => {
   const texture = useTexture("/2d/florwer.png");
   const textureLen = 9;
   const mesh = useRef();
@@ -103,7 +105,7 @@ const Petal = ({ index }) => {
   let xFactor = Math.random() * 0.3 - 0.15;
   let size = 1.3 + Math.random() * 0.7;
   let yFactor = Math.random() * 0.5 - 0.5;
-  let zFactor = 1.8 + Math.random() * 0.5;
+  let zFactor = 2 + Math.random() * 0.8;
   let zRotSpeed = Math.random() * 5 - 5;
   let ranDirection = Math.random() > 0.5 ? 1 : 1.2;
   let ranFallSpeed = Math.random() * 0.5 + 0.3;
@@ -127,7 +129,7 @@ const Petal = ({ index }) => {
 
   let opaccity = Math.random() * 0.5 + 0.5;
 
-  useFrame((state, delta, xrFrame) => {
+  useFrame((state, delta) => {
     if (playAnimation) {
       // mesh opacity
       mesh.current.rotation.z += zRotSpeed * delta;
@@ -153,6 +155,12 @@ const Petal = ({ index }) => {
 
         mesh.current.position.x = _x;
         mesh.current.position.y = _y;
+
+        if (whiteRef.current && index === 0) {
+          if (whiteRef.current.material.opacity > 0) {
+            whiteRef.current.material.opacity -= 0.5 * delta;
+          }
+        }
       } else if (mesh.current.position.z < 3) {
         let currentVec = new THREE.Vector3(
           mesh.current.position.x,
@@ -183,6 +191,12 @@ const Petal = ({ index }) => {
           }
         } else {
           mesh.current.scale.y += ranFallSpeed * delta;
+
+          if (whiteRef.current && index === 0) {
+            if (whiteRef.current.material.opacity > 0) {
+              whiteRef.current.material.opacity -= 0.5 * delta;
+            }
+          }
 
           if (mesh.current.scale.x > 0) {
             mesh.current.scale.x -= 2 * delta;

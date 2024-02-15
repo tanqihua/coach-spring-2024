@@ -16,19 +16,6 @@ const Page1 = (props) => {
           position: "relative",
         }}
       >
-        {/* <div
-          style={{
-            background:
-              "linear-gradient(0deg, rgba(255,255,255,0) 0%, #9194c729 50%, rgba(255,255,255,0) 100%)",
-            height: "40svh",
-            width: "100vw",
-            zIndex: "1",
-            position: "absolute",
-            top: "41%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        /> */}
         <h1
           style={{
             filter: "drop-shadow(0px 2px 2px #5d63beaf)",

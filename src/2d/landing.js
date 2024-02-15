@@ -17,7 +17,10 @@ export class Landing extends Phaser.Scene {
         "background"
       )
       .setOrigin(0.5);
-    this.bg.setDisplaySize(this.game.config.height, this.game.config.height);
+    this.bg.setDisplaySize(
+      this.game.config.height * 0.893,
+      this.game.config.height
+    );
 
     this.logo = this.add
       .image(

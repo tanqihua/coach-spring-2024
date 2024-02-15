@@ -72,6 +72,19 @@ export class Quests extends Phaser.Scene {
   create() {
     // this.video.play(true);
     // check preload is done
+    window.playVideo = () => {
+      this.playVideo();
+    };
+
+    this.hand = this.add.image(
+      this.sys.game.config.width * 0.6,
+      this.sys.game.config.height * 0.68,
+      "tapicon"
+    );
+    this.hand.setScale((this.sys.game.config.height * 0.12) / this.hand.height);
+
+    window.hand = this.hand;
+
     this.logo = this.add
       .image(
         this.game.config.width * 0.5,
@@ -114,6 +127,10 @@ export class Quests extends Phaser.Scene {
       });
 
       this[video].once("complete", () => {
+        // window.setShowPage14(true);
+        this.hand.setDepth(100);
+        this.horizontalMove(this.hand);
+
         window.setShowPage14(true);
       });
     });
@@ -173,6 +190,16 @@ export class Quests extends Phaser.Scene {
     });
 
     this.tick = false;
+  }
+
+  horizontalMove(target) {
+    this.tweens.add({
+      targets: target,
+      ease: "Linear",
+      loop: -1,
+      yoyo: true,
+      x: this.sys.game.config.width * 0.44,
+    });
   }
 
   update(time, delta) {

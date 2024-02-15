@@ -7,7 +7,7 @@ import { useStore } from "../store";
 const FormPage = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
-  const { setInfo } = useStore();
+  const { setInfo, setplayAnimation } = useStore();
   const [info, addInfo] = useState({
     EMAIL: null,
     FIRSTNAME: null,
@@ -111,6 +111,7 @@ const FormPage = (props) => {
             setInfo({
               firstName: info.FIRSTNAME,
             });
+            // setplayAnimation(true);
             phaserRef.current.scene.scenes[2].scene.start("quests");
             nav("/quest1");
           }}

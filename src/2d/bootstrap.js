@@ -49,6 +49,8 @@ export class Bootstrap extends Phaser.Scene {
 
     // laod audio
     this.load.audio("infration", "/PowerMode1.mp3");
+
+    this.load.image("tapicon", "/2d/tapicon.png");
   }
 
   create() {

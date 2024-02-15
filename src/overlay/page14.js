@@ -5,6 +5,7 @@ import { useStore } from "../store";
 
 const Page14 = (props) => {
   const { showPage14 } = props;
+  const [_showPage14, setShowPage14] = useState(false);
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
     useState(false);
 
@@ -40,10 +41,16 @@ const Page14 = (props) => {
   return (
     <Wraper style={{ position: "relative" }}>
       <div
+        onClick={() => {
+          console.log("clicked");
+          if (showPage14 && _showPage14 === false) {
+            setShowPage14(true);
+          }
+        }}
         style={{
-          opacity: showPage14 ? 1 : 0,
+          opacity: _showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
-          pointerEvents: showPage14 ? "auto" : "none",
+          pointerEvents: _showPage14 ? "none" : "auto",
           backgroundImage: "url(/asset/BG_01.webp)",
           backgroundSize: "cover",
           width: "100%",
