@@ -87,7 +87,7 @@ function NavHanderler({ phaserRef }) {
   return (
     <>
       <PreloadingPage preload={_phaser} />
-      {path !== "/" ? <LegerLine /> : null}
+      {!path.includes("quest") ? <LegerLine /> : null}
     </>
   );
 }
