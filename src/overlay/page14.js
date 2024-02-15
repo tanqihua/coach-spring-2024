@@ -11,6 +11,7 @@ const Page14 = (props) => {
 
   const handleRedeemButtonClick = () => {
     // Add logic here to handle redeeming
+    console.log(1234);
     setPrizeContainerVisibility(true);
   };
 
@@ -49,7 +50,7 @@ const Page14 = (props) => {
           width: "fit-content",
           left: "50%",
           transform: "translate(-50%, 0%)",
-          zIndex: 999,
+          zIndex: _showPage14 ? -1 : 999,
         }}
       >
         <div
@@ -74,7 +75,7 @@ const Page14 = (props) => {
         style={{
           opacity: _showPage14 ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
-          pointerEvents: _showPage14 ? "none" : "auto",
+          pointerEvents: _showPage14 ? "auto" : "auto",
           backgroundImage: "url(/asset/BG_01.webp)",
           backgroundSize: "cover",
           width: "100%",
