@@ -173,6 +173,7 @@ const LanguageContainer = (props) => {
                 color: "white",
                 margin: "0",
                 marginLeft: "0.5rem",
+                marginTop: "0.12rem",
               }}
             >
               {language_content?.lan}
