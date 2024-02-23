@@ -81,6 +81,7 @@ export class Quests extends Phaser.Scene {
       this.sys.game.config.height * 0.68,
       "tapicon"
     );
+
     this.hand.setScale((this.sys.game.config.height * 0.12) / this.hand.height);
 
     window.hand = this.hand;
@@ -118,6 +119,8 @@ export class Quests extends Phaser.Scene {
       );
 
       this[video].once("play", () => {
+        this.sound.stopByKey("bgsound");
+        this.sound.play("endSound");
         this[video].setDisplaySize(
           this.game.config.height,
           this.game.config.height
