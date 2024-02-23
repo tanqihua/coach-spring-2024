@@ -134,7 +134,8 @@ const LanguageContainer = (props) => {
           width: "7rem",
           height: "2.5rem",
           backgroundColor: "#ecbb3a",
-          borderRadius: "1rem",
+          border: "0.12rem solid white",
+          borderRadius: "2rem",
           position: "relative",
 
           display: "flex",
