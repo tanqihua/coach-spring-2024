@@ -44,7 +44,10 @@ const Page1 = (props) => {
           })}
         </h5>
       </div>
-      <div className="block" style={{ height: "10svh" }} />
+      <div
+        className="block"
+        style={{ height: language.type === "en" ? "10svh" : "6svh" }}
+      />
       <ButtonRound
         onClick={() => {
           nav("/formpage");

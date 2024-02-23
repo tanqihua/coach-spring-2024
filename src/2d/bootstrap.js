@@ -48,7 +48,6 @@ export class Bootstrap extends Phaser.Scene {
     this.load.video("denimVideo", "/2d/Denim_FullVideo.mp4");
 
     // laod audio
-    this.load.audio("infration", "/PowerMode1.mp3");
 
     this.load.image("tapicon", "/2d/tapicon.png");
 
@@ -57,6 +56,11 @@ export class Bootstrap extends Phaser.Scene {
 
     // load video end sound
     this.load.audio("endSound", "/endSound.mp3");
+
+    // Deflate
+    this.load.audio("deflate", "/deflate.mp3");
+    // Inflate
+    this.load.audio("inflate", "/Inflate.mp3");
   }
 
   create() {

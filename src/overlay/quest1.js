@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
@@ -14,8 +14,20 @@ const Quest1 = (props) => {
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
 
+    // check is playing inflate sound
+    if (_currentPoint < event.target.value) {
+      if (!phaserRef.current.scene.scenes[1].infration.isPlaying) {
+        phaserRef.current.scene.scenes[1].infration.play();
+      }
+    } else {
+      if (!phaserRef.current.scene.scenes[1].defration.isPlaying) {
+        phaserRef.current.scene.scenes[1].defration.play();
+      }
+    }
+
     _currentPoint = event.target.value;
   };
+
   //
   const { addPoint, point, language } = useStore();
 

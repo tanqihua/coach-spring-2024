@@ -59,3 +59,16 @@ input[type="text"]::-webkit-input-placeholder {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+.custom-select {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  appearance: none; /* Remove default select dropdown arrow */
+  -webkit-appearance: none; /* Remove default select dropdown arrow */
+  -moz-appearance: none; /* Remove default select dropdown arrow */
+}

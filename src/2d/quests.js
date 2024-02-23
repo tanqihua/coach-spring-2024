@@ -72,6 +72,8 @@ export class Quests extends Phaser.Scene {
   create() {
     // this.video.play(true);
     // check preload is done
+    this.infration = this.sound.add("inflate");
+    this.defration = this.sound.add("deflate");
     window.playVideo = () => {
       this.playVideo();
     };
@@ -99,11 +101,6 @@ export class Quests extends Phaser.Scene {
     );
 
     this.logo.setDepth(10);
-
-    // plat infration audio
-    this.infration = this.sound.add("infration");
-    this.infration.seek = 2;
-    window.infration = this.infration;
 
     [
       "purpleVideo",

@@ -17,6 +17,16 @@ const Index = (props) => {
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
 
+    // check is playing inflate sound
+    if (_currentPoint < event.target.value) {
+      if (!phaserRef.current.scene.scenes[1].infration.isPlaying) {
+        phaserRef.current.scene.scenes[1].infration.play();
+      }
+    } else {
+      if (!phaserRef.current.scene.scenes[1].defration.isPlaying) {
+        phaserRef.current.scene.scenes[1].defration.play();
+      }
+    }
     _currentPoint = event.target.value;
   };
 

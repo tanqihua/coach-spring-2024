@@ -17,6 +17,7 @@ import {
   Quest4,
   Quest5,
 } from "./overlay";
+import { useStore } from "./store";
 import { LegerLine, DesktopBlock, PreloadingPage } from "./overlay/components";
 function App() {
   const phaserRef = useRef(null);
@@ -45,6 +46,8 @@ function App() {
       </Routes>
       <NavHanderler phaserRef={phaserRef} />
       <NavBarColorHandler />
+
+      <LanguageContainer />
     </div>
   );
 }
@@ -91,4 +94,117 @@ function NavHanderler({ phaserRef }) {
     </>
   );
 }
+
+const LanguageContainer = (props) => {
+  const [language, setLanguage_content] = React.useState("en");
+  const { setLanguage } = useStore();
+  const location = useLocation();
+  const path = location.pathname;
+
+  const language_content = useMemo(() => {
+    switch (language) {
+      case "en":
+        setLanguage("en");
+        return {
+          lan: "ENG",
+          img: "/png100px/sh.png",
+        };
+      case "kr":
+        setLanguage("kr");
+        return {
+          lan: "한국어",
+          img: "/png100px/kr.png",
+        };
+    }
+  }, [language]);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        zIndex: 9,
+        top: "2%",
+        right: "1.5%",
+
+        opacity: path === "/page14" ? 0 : 1,
+      }}
+    >
+      <div
+        style={{
+          width: "7rem",
+          height: "2.5rem",
+          backgroundColor: "#ecbb3a",
+          borderRadius: "1rem",
+          position: "relative",
+
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <div
+            className="imgContainer"
+            style={{
+              width: "1.6rem",
+              height: "1.6rem",
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "50%",
+            }}
+          >
+            <img src={language_content.img} />
+          </div>
+
+          <div>
+            <p
+              style={{
+                fontSize: "1rem",
+                width: "3rem",
+                fontWeight: "bold",
+                color: "white",
+                margin: "0",
+                marginLeft: "0.5rem",
+              }}
+            >
+              {language_content?.lan}
+            </p>
+          </div>
+        </div>
+        {/* sellect tag option have eng and korea */}
+        <select
+          style={{
+            width: "100%",
+            height: "100%",
+            opacity: 0,
+            position: "absolute",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            border: "none",
+            color: "white",
+            textAlign: "center",
+            fontSize: "0.5rem",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+          className="custom-select"
+          onChange={(e) => {
+            setLanguage_content(e.target.value);
+          }}
+          defaultValue={language}
+        >
+          <option value="en">ENG</option>
+          <option value="kr">한국어</option>
+        </select>
+      </div>
+    </div>
+  );
+};
+
 export default App;
