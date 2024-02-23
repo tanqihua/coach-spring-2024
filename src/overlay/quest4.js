@@ -20,7 +20,7 @@ const Index = (props) => {
     _currentPoint = event.target.value;
   };
 
-  const { addPoint, point } = useStore();
+  const { addPoint, point, language } = useStore();
 
   return (
     <Quest>
@@ -42,9 +42,19 @@ const Index = (props) => {
             color: "#faf3e3",
           }}
         >
-          Do you triple-check dress <br />
-          codes before heading to <br />
-          events, or pick your <br /> ’fit intuitively?
+          {language.quest4.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -70,8 +80,19 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Go by the <br />
-            codes
+            {language.quest4.left.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -134,7 +155,19 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Feel it out
+            {language.quest4.right.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>

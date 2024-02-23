@@ -18,7 +18,7 @@ const Index = (props) => {
     _currentPoint = event.target.value;
   };
 
-  const { addPoint, point } = useStore();
+  const { addPoint, point, language } = useStore();
 
   return (
     <Quest>
@@ -40,10 +40,19 @@ const Index = (props) => {
             color: "#faf3e3",
           }}
         >
-          Do you start your day <br />
-          with a to-do list, or <br />
-          leave it open to stay
-          <br /> open to surprises?
+          {language.quest2.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -69,8 +78,19 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Love
-            <br />a list
+            {language.quest2.left.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -133,9 +153,19 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Send me
-            <br />
-            surprise
+            {language.quest2.right.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>

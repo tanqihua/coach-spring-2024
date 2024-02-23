@@ -18,7 +18,7 @@ const Index = (props) => {
     _currentPoint = event.target.value;
   };
 
-  const { addPoint, point } = useStore();
+  const { addPoint, point, language } = useStore();
   return (
     <Quest>
       <div
@@ -39,11 +39,19 @@ const Index = (props) => {
             color: "#faf3e3",
           }}
         >
-          Do you travel to the <br />
-          places everyone is <br />
-          posting, or are you the <br />
-          throw-your-dart-at-a- <br />
-          map type?
+          {language.quest3.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -69,7 +77,19 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            Follow the <br /> posts
+            {language.quest3.left.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -132,7 +152,19 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            Pass me <br /> a dart
+            {language.quest3.right.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-
+import { language } from "../overlay/language";
 export const useStore = create((set) => ({
   point: {},
   addPoint: (point, num) =>
@@ -20,4 +20,6 @@ export const useStore = create((set) => ({
 
   playAnimation: false,
   setplayAnimation: (value) => set({ playAnimation: value }),
+
+  language: language["en"],
 }));

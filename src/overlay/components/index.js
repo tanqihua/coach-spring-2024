@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useStore } from "../../store";
+
 export function Button({
   children,
   id,
@@ -91,6 +93,7 @@ export function ButtonRound({
 }
 
 export function Terms({ terms = false, setInfo = () => {} }) {
+  const { language } = useStore();
   return (
     <section
       style={{
@@ -144,11 +147,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             letterSpacing: "0.1rem",
           }}
         >
-          BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED
-          PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART
-          REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT
-          IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO
-          CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW{" "}
+          {language.formPage.term}
           <span
             style={{
               textDecoration: "underline",
@@ -156,7 +155,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             }}
           >
             {" "}
-            TERMS & PRIVACY.
+            {language.formPage.termLink}
           </span>
           .
         </p>

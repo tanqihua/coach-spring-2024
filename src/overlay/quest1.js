@@ -3,7 +3,6 @@ import { Wraper } from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
-// nav
 import { useNavigate } from "react-router-dom";
 const Quest1 = (props) => {
   const { phaserRef } = props;
@@ -18,7 +17,7 @@ const Quest1 = (props) => {
     _currentPoint = event.target.value;
   };
   //
-  const { addPoint, point } = useStore();
+  const { addPoint, point, language } = useStore();
 
   return (
     <Quest>
@@ -40,17 +39,19 @@ const Quest1 = (props) => {
             color: "#faf3e3",
           }}
         >
-          Instead of chatting <br /> one-on-one at parties, <br />
-          you find a way to bring <br />
-          <span
-            style={{
-              fontSize: "inherit",
-              fontStyle: "italic",
-            }}
-          >
-            everyone
-          </span>{" "}
-          together. <br />
+          {language.quest1.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -76,7 +77,21 @@ const Quest1 = (props) => {
               textAlign: "center",
             }}
           >
-            Couldn’t <br /> be me
+            {
+              language.quest1.left.split("\n").map((item, key) => {
+                return (
+                  <span
+                    key={key}
+                    style={{
+                      fontSize: "inherit",
+                    }}
+                  >
+                    {item}
+                    <br />
+                  </span>
+                );
+              }) // Add a class for styling
+            }
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -139,7 +154,21 @@ const Quest1 = (props) => {
               width: "fit-content",
             }}
           >
-            Me to a T
+            {
+              language.quest1.right.split("\n").map((item, key) => {
+                return (
+                  <span
+                    key={key}
+                    style={{
+                      fontSize: "inherit",
+                    }}
+                  >
+                    {item}
+                    <br />
+                  </span>
+                );
+              }) // Add a class for styling
+            }{" "}
           </p>
         </div>
       </div>

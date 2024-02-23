@@ -15,7 +15,7 @@ const Page14 = (props) => {
     setPrizeContainerVisibility(true);
   };
 
-  const { info } = useStore();
+  const { info, language } = useStore();
 
   const handleSaveVideoClick = () => {
     handleShare();
@@ -118,10 +118,36 @@ const Page14 = (props) => {
           />
 
           <div className="block" style={{ height: "4svh" }} />
-          <h4>Tap to redeem your treat!</h4>
+          <h4>
+            {language.page14.title1.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
+          </h4>
           <div className="block" style={{ height: "2svh" }} />
           <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
-            REDEEM
+            {language.page14.redeem.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
             <div
               className="imgContainer"
               style={{
@@ -137,9 +163,36 @@ const Page14 = (props) => {
             </div>
           </Button>
           <Button backgroundColor="#f4b404" onClick={() => {}}>
-            SAVE RESULT VIDEO
+            {language.page14.saveresultvideo.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </Button>
-          <Button backgroundColor="#f4b404">SHOP COLLECTION</Button>
+          <Button backgroundColor="#f4b404">
+            {" "}
+            {language.page14.shopcollection.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
+          </Button>
         </div>
 
         <PopUp

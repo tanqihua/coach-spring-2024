@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 const Page1 = (props) => {
   const { phaserRef } = props;
-  const { setplayAnimation } = useStore();
+  const { setplayAnimation, language } = useStore();
   const nav = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ const Page1 = (props) => {
             filter: "drop-shadow(0px 2px 2px #5d63beaf)",
           }}
         >
-          FIND YOUR COURAGE
+          {language.page1.title1}
         </h1>
         <div className="block" style={{ height: "1svh" }} />
         <h5
@@ -29,9 +29,19 @@ const Page1 = (props) => {
             filter: "drop-shadow(0px 2px 2px #5d63beaf)",
           }}
         >
-          Move the dot to answer each question. <br />
-          At the end of the quiz, we’ll reveal your <br />
-          secret superpower.
+          {language.page1.p1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h5>
       </div>
       <div className="block" style={{ height: "10svh" }} />
@@ -40,7 +50,7 @@ const Page1 = (props) => {
           nav("/formpage");
         }}
       >
-        LET’S GO
+        {language.page1.btn1}
       </ButtonRound>
     </Wraper>
   );

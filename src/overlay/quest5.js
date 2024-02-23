@@ -18,7 +18,7 @@ const Index = (props) => {
     _currentPoint = event.target.value;
   };
 
-  const { addPoint, point, info, setInfo } = useStore();
+  const { addPoint, point, info, setInfo, language } = useStore();
 
   return (
     <Quest>
@@ -40,10 +40,19 @@ const Index = (props) => {
             color: "#faf3e3",
           }}
         >
-          Do you prefer to stick to <br />
-          (and get great at) what <br />
-          you know, or explore <br />
-          the unknown?
+          {language.quest5.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -69,7 +78,19 @@ const Index = (props) => {
               textAlign: "center",
             }}
           >
-            What I <br /> know
+            {language.quest5.left.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
         {/* <div className="dottedLine"></div> */}
@@ -132,7 +153,19 @@ const Index = (props) => {
               width: "fit-content",
             }}
           >
-            The great <br /> unknown
+            {language.quest5.right.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>

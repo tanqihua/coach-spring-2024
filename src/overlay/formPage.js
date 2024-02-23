@@ -7,7 +7,7 @@ import { useStore } from "../store";
 const FormPage = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
-  const { setInfo, setplayAnimation } = useStore();
+  const { setInfo, setplayAnimation, language } = useStore();
   const [info, addInfo] = useState({
     EMAIL: null,
     FIRSTNAME: null,
@@ -40,13 +40,25 @@ const FormPage = (props) => {
         <div className="block" style={{ height: "8%" }} />
 
         <h2>
-          BEFORE WE START, <br /> TELL US ABOUT YOURSELF
+          {language.formPage.title1.split("\n").map((item, key) => {
+            return (
+              <span
+                key={key}
+                style={{
+                  fontSize: "inherit",
+                }}
+              >
+                {item}
+                <br />
+              </span>
+            );
+          })}
         </h2>
 
         <div className="block" style={{ height: "3%" }} />
 
         <Input
-          placeholder="FIRST NAME"
+          placeholder={language.formPage.firstName}
           onChange={(e) => {
             addInfo((prevInfo) => ({
               ...prevInfo,
@@ -55,7 +67,7 @@ const FormPage = (props) => {
           }}
         />
         <Input
-          placeholder="LAST NAME"
+          placeholder={language.formPage.lastName}
           onChange={(e) => {
             addInfo((prevInfo) => ({
               ...prevInfo,
@@ -80,7 +92,7 @@ const FormPage = (props) => {
             }}
           />
           <Input
-            placeholder="MOBILE"
+            placeholder={language.formPage.mobile}
             size="75%"
             onChange={(e) => {
               addInfo((prevInfo) => ({
@@ -91,7 +103,7 @@ const FormPage = (props) => {
           />
         </div>
         <Input
-          placeholder="EMAIL (Optional)"
+          placeholder={language.formPage.email}
           onChange={(e) => {
             addInfo((prevInfo) => ({
               ...prevInfo,
@@ -116,16 +128,6 @@ const FormPage = (props) => {
             nav("/quest1");
           }}
         >
-          {/* <div
-            className="imgContainer"
-            style={{
-              height: "50%",
-              margin: "auto",
-            }}
-          >
-            <img src="/asset/activist.png" />
-          </div> */}
-          {/* <div className="block" style={{ height: "1svh" }}></div> */}
           NEXT
         </ButtonRound>
       </div>
