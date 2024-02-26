@@ -17,7 +17,7 @@ import {
   Quest5,
 } from "./overlay";
 import { useStore } from "./store";
-import { LegerLine, DesktopBlock, PreloadingPage } from "./overlay/components";
+import { LegerLine, PreloadingPage } from "./overlay/components";
 function App() {
   const phaserRef = useRef(null);
   const [showPage14, setShowPage14] = React.useState(false);
@@ -39,7 +39,6 @@ function App() {
         <Route path="/quest3" element={<Quest3 phaserRef={phaserRef} />} />
         <Route path="/quest4" element={<Quest4 phaserRef={phaserRef} />} />
         <Route path="/quest5" element={<Quest5 phaserRef={phaserRef} />} />
-
         <Route path="/page14" element={<Page14 showPage14={showPage14} />} />
         <Route path="/page15" element={<Page15 />} />
       </Routes>
