@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useStore } from "../../store";
-
+import { useSuperfan } from "@pikabobalex/superfan-module";
 export function Button({
   children,
   id,
@@ -12,9 +12,10 @@ export function Button({
   backgroundColor = "transparent",
   fontSize = "1.8svh",
   borderRadius = "4px",
-
+  name = null,
   style = {},
 }) {
+  const { recordEvent } = useSuperfan();
   return (
     <div
       style={{
@@ -24,7 +25,7 @@ export function Button({
       }}
     >
       <button
-        id={id}
+        id={name}
         style={{
           backgroundColor: backgroundColor,
           color: "#fff",
@@ -43,6 +44,7 @@ export function Button({
           ...style,
         }}
         onClick={() => {
+          recordEvent(name);
           onClick();
         }}
       >
@@ -58,7 +60,9 @@ export function ButtonRound({
   size = "100%",
   width = "16svh",
   height = "16svh",
+  name = null,
 }) {
+  const { recordEvent } = useSuperfan();
   return (
     <div
       style={{
@@ -84,7 +88,10 @@ export function ButtonRound({
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
         }}
-        onClick={onClick}
+        onClick={() => {
+          recordEvent(name);
+          onClick();
+        }}
       >
         {children}
       </button>

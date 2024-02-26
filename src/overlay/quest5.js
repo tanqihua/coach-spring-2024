@@ -6,7 +6,9 @@ import Quest from "./quest";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import axios from "axios";
+import { useSuperfan } from "@pikabobalex/superfan-module";
 const Index = (props) => {
+  const { recordGameData } = useSuperfan();
   const { phaserRef } = props;
   const nav = useNavigate();
   let _currentPoint = 11;
@@ -15,6 +17,7 @@ const Index = (props) => {
     if (_temp >= 20) _temp = 45;
     phaserRef.current.scene.scenes[1].targetFrame = _temp;
 
+    addPoint(event.target.value, "5");
     // check is playing inflate sound
     if (_currentPoint < event.target.value) {
       if (!phaserRef.current.scene.scenes[1].infration.isPlaying) {
@@ -186,6 +189,7 @@ const Index = (props) => {
         borderRadius="12px"
         width="21svh"
         height="6svh"
+        name={"q5"}
         onClick={() => {
           let totalPoint = Object.values(point).reduce(
             (a, b) => parseInt(a) + parseInt(b),
@@ -193,7 +197,6 @@ const Index = (props) => {
           );
 
           let videoType = null;
-          totalPoint = totalPoint + parseInt(_currentPoint);
 
           if (totalPoint <= 23) {
             videoType = "blackVideo";
@@ -207,14 +210,20 @@ const Index = (props) => {
             videoType = "denimVideo";
           }
 
-          console.log("videoType", videoType, totalPoint);
+          let tt = {
+            ...point,
+            total: totalPoint,
+            videoType: videoType,
+          };
+
+          recordGameData("recordGmaeData", tt);
 
           setInfo({
             bagColor: videoType,
           });
 
           axios
-            .get("https://coachname.onrender.com", {
+            .get("https://coachspring-backendhandle.onrender.com", {
               params: {
                 name: info.firstName ?? "undefined",
                 color: videoType,
@@ -224,7 +233,6 @@ const Index = (props) => {
               setInfo({
                 url: res.data.url,
               });
-              console.log(res.data.url);
             })
             .catch((err) => console.log(err));
 

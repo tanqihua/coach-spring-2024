@@ -191,6 +191,7 @@ const Quest1 = (props) => {
         borderRadius="12px"
         width="21svh"
         height="6svh"
+        name={"q1"}
         onClick={() => {
           addPoint(_currentPoint, "1");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "o");

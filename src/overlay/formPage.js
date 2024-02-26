@@ -3,9 +3,10 @@ import { Button, ButtonRound, Input, Terms } from "./components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
-
+import { useSuperfan } from "@pikabobalex/superfan-module";
 const FormPage = (props) => {
   const { phaserRef } = props;
+  const { submitForm } = useSuperfan();
   const nav = useNavigate();
   const { setInfo, setplayAnimation, language } = useStore();
   const [info, addInfo] = useState({
@@ -117,6 +118,7 @@ const FormPage = (props) => {
 
         <div className="block" style={{ height: "2%" }} />
         <ButtonRound
+          name={"submitForm"}
           onClick={() => {
             window.scrollTo(0, 0);
             // check if all fields are filled
@@ -131,6 +133,8 @@ const FormPage = (props) => {
               setInfo({
                 firstName: info.FIRSTNAME,
               });
+
+              submitForm(info);
               // setplayAnimation(true);
               phaserRef.current.scene.scenes[2].scene.start("quests");
               nav("/quest1");

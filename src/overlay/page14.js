@@ -64,6 +64,7 @@ const Page14 = (props) => {
               transition: "opacity 0.5s ease-in-out",
               pointerEvents: _showPage14 ? "none" : "auto",
             }}
+            name={"result"}
             onClick={() => {}}
           >
             NEXT
@@ -134,7 +135,11 @@ const Page14 = (props) => {
             })}
           </h4>
           <div className="block" style={{ height: "2svh" }} />
-          <Button backgroundColor="#6da5e2" onClick={handleRedeemButtonClick}>
+          <Button
+            name={"redeem"}
+            backgroundColor="#6da5e2"
+            onClick={handleRedeemButtonClick}
+          >
             {language.page14.redeem.split("\n").map((item, key) => {
               return (
                 <span
@@ -164,6 +169,7 @@ const Page14 = (props) => {
           </Button>
           <Button
             backgroundColor="#f4b404"
+            name={"saveVideo"}
             onClick={async () => {
               console.log(info);
 
@@ -223,8 +229,11 @@ const Page14 = (props) => {
               );
             })}
           </Button>
-          <Button backgroundColor="#f4b404">
-            {" "}
+          <Button
+            backgroundColor="#f4b404"
+            name={"shopCollection"}
+            onClick={() => {}}
+          >
             {language.page14.shopcollection.split("\n").map((item, key) => {
               return (
                 <span
@@ -286,7 +295,7 @@ const PopUp = ({
     <div
       className="prizeContainer"
       style={{
-        backgroundImage: "url(/asset/bg.png)",
+        backgroundImage: "url(/asset/popup22.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         padding: "0 3rem",
@@ -348,6 +357,7 @@ const PopUp = ({
       <Button
         backgroundColor={buttonBackgroundColor}
         fontSize="2svh"
+        name="staffRedeem"
         onClick={() => {
           handleStaffRedeemClick();
           if (buttonText === "CONFIRM") {

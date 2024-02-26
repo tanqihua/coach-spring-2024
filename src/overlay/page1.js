@@ -49,6 +49,7 @@ const Page1 = (props) => {
         style={{ height: language.type === "en" ? "10svh" : "6svh" }}
       />
       <ButtonRound
+        name={"startButton"}
         onClick={() => {
           phaserRef.current.scene.scenes[2].playAnimation();
           setTimeout(() => {

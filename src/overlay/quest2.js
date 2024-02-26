@@ -186,6 +186,7 @@ const Index = (props) => {
         borderRadius="12px"
         width="21svh"
         height="6svh"
+        name={"q2"}
         onClick={() => {
           addPoint(_currentPoint, "2");
           phaserRef.current.scene.scenes[1].setNextQuestion("orange", "a");
