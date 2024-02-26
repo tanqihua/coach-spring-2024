@@ -193,19 +193,21 @@ const Index = (props) => {
           );
 
           let videoType = null;
-          totalPoint = totalPoint + _currentPoint;
+          totalPoint = totalPoint + parseInt(_currentPoint);
 
           if (totalPoint <= 23) {
             videoType = "blackVideo";
-          } else if (totalPoint < 23 * 2) {
+          } else if (totalPoint <= 23 * 2) {
             videoType = "purpleVideo";
-          } else if (totalPoint < 23 * 3) {
+          } else if (totalPoint <= 23 * 3) {
             videoType = "yellowVideo";
-          } else if (totalPoint < 23 * 4) {
+          } else if (totalPoint <= 23 * 4) {
             videoType = "tyeDyeVideo";
           } else {
             videoType = "denimVideo";
           }
+
+          console.log("videoType", videoType, totalPoint);
 
           setInfo({
             bagColor: videoType,
