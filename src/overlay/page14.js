@@ -165,12 +165,48 @@ const Page14 = (props) => {
           <Button
             backgroundColor="#f4b404"
             onClick={async () => {
-              let url = "/Black_FullVideo.mp4";
-              var download = document.createElement("a");
-              download.download = "CoachHoliday.jpg";
-              var bolb = await fetch(url).then((r) => r.blob());
-              download.href = URL.createObjectURL(bolb);
-              download.click();
+              console.log(info);
+
+              let video;
+
+              switch (info?.bagColor) {
+                case "blackVideo":
+                  video = "/Black_FullVideo.mp4";
+                  break;
+                case "purpleVideo":
+                  video = "/Purple_FullVideo.mp4";
+                  break;
+                case "yellowVideo":
+                  video = "/Yellow_FullVideo.mp4";
+                  break;
+                case "tyeDyeVideo":
+                  video = "/TyeDye_FullVideo.mp4";
+                  break;
+                case "denimVideo":
+                  video = "/Denim_FullVideo.mp4";
+                  break;
+
+                default:
+                  video = "/Yellow_FullVideo.mp4";
+                  break;
+              }
+
+              var blob = await fetch("/2d/" + video).then((r) => r.blob());
+              console.log(blob);
+              if (navigator.share) {
+                navigator
+                  .share({
+                    files: [
+                      new File([blob], "video.mp4", {
+                        type: "video/mp4",
+                      }),
+                    ],
+                  })
+                  .then(() => {
+                    console.log("Thanks for sharing!");
+                  })
+                  .catch(console.error);
+              }
             }}
           >
             {language.page14.saveresultvideo.split("\n").map((item, key) => {

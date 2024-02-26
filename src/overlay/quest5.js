@@ -195,72 +195,41 @@ const Index = (props) => {
           let videoType = null;
           totalPoint = totalPoint + _currentPoint;
 
-          switch (totalPoint) {
-            case totalPoint < 20:
-              videoType = "blackVideo";
-              break;
-            case totalPoint < 40:
-              videoType = "purpleVideo";
-              break;
-            case totalPoint < 60:
-              videoType = "yellowVideo";
-              break;
+          if (totalPoint <= 23) {
+            videoType = "blackVideo";
+          } else if (totalPoint < 23 * 2) {
+            videoType = "purpleVideo";
+          } else if (totalPoint < 23 * 3) {
+            videoType = "yellowVideo";
+          } else if (totalPoint < 23 * 4) {
+            videoType = "tyeDyeVideo";
+          } else {
+            videoType = "denimVideo";
           }
 
-          // let random = [
-          //   "blackVideo",
-          //   "purpleVideo",
-          //   "yellowVideo",
-          //   "tyeDyeVideo",
-          //   "denimVideo",
-          // ].sort(() => Math.random() - 0.5)[0];
+          setInfo({
+            bagColor: videoType,
+          });
 
-          // let color;
+          axios
+            .get("https://coachname.onrender.com", {
+              params: {
+                name: info.firstName ?? "undefined",
+                color: videoType,
+              },
+            })
+            .then((res) => {
+              setInfo({
+                url: res.data.url,
+              });
+              console.log(res.data.url);
+            })
+            .catch((err) => console.log(err));
 
-          // switch (random) {
-          //   case "blackVideo":
-          //     color = "black";
-          //     break;
-          //   case "purpleVideo":
-          //     color = "purple";
-          //     break;
-          //   case "yellowVideo":
-          //     color = "yellow";
-          //     break;
-          //   case "tyeDyeVideo":
-          //     color = "brown";
-          //     break;
-          //   case "denimVideo":
-          //     color = "grey";
-          //     break;
-          //   default:
-          //     color = "black";
-          //     break;
-          // }
+          addPoint(_currentPoint, "5");
 
-          // setInfo({
-          //   bagColor: color,
-          // });
-
-          // axios
-          //   .get("https://coachname.onrender.com", {
-          //     params: {
-          //       name: info.firstName ?? "undefined",
-          //       color: color,
-          //     },
-          //   })
-          //   .then((res) => {
-          //     setInfo({
-          //       url: res.data.url,
-          //     });
-          //     console.log(res.data.url);
-          //   })
-          //   .catch((err) => console.log(err));
-
-          // addPoint(_currentPoint, "5");
-
-          // phaserRef.current.scene.scenes[1].playVideo(random);
-          // nav("/page14");
+          phaserRef.current.scene.scenes[1].playVideo(videoType);
+          nav("/page14");
         }}
       >
         GET RESULTS
