@@ -50,7 +50,11 @@ const Page1 = (props) => {
       />
       <ButtonRound
         onClick={() => {
-          nav("/formpage");
+          phaserRef.current.scene.scenes[2].playAnimation();
+          setTimeout(() => {
+            nav("/formpage");
+          }, 1500);
+          // playAnimation();
         }}
       >
         {language.page1.btn1}

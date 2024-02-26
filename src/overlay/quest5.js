@@ -207,60 +207,60 @@ const Index = (props) => {
               break;
           }
 
-          let random = [
-            "blackVideo",
-            "purpleVideo",
-            "yellowVideo",
-            "tyeDyeVideo",
-            "denimVideo",
-          ].sort(() => Math.random() - 0.5)[0];
+          // let random = [
+          //   "blackVideo",
+          //   "purpleVideo",
+          //   "yellowVideo",
+          //   "tyeDyeVideo",
+          //   "denimVideo",
+          // ].sort(() => Math.random() - 0.5)[0];
 
-          let color;
+          // let color;
 
-          switch (random) {
-            case "blackVideo":
-              color = "black";
-              break;
-            case "purpleVideo":
-              color = "purple";
-              break;
-            case "yellowVideo":
-              color = "yellow";
-              break;
-            case "tyeDyeVideo":
-              color = "brown";
-              break;
-            case "denimVideo":
-              color = "grey";
-              break;
-            default:
-              color = "black";
-              break;
-          }
+          // switch (random) {
+          //   case "blackVideo":
+          //     color = "black";
+          //     break;
+          //   case "purpleVideo":
+          //     color = "purple";
+          //     break;
+          //   case "yellowVideo":
+          //     color = "yellow";
+          //     break;
+          //   case "tyeDyeVideo":
+          //     color = "brown";
+          //     break;
+          //   case "denimVideo":
+          //     color = "grey";
+          //     break;
+          //   default:
+          //     color = "black";
+          //     break;
+          // }
 
-          setInfo({
-            bagColor: color,
-          });
+          // setInfo({
+          //   bagColor: color,
+          // });
 
-          axios
-            .get("https://coachname.onrender.com", {
-              params: {
-                name: info.firstName ?? "undefined",
-                color: color,
-              },
-            })
-            .then((res) => {
-              setInfo({
-                url: res.data.url,
-              });
-              console.log(res.data.url);
-            })
-            .catch((err) => console.log(err));
+          // axios
+          //   .get("https://coachname.onrender.com", {
+          //     params: {
+          //       name: info.firstName ?? "undefined",
+          //       color: color,
+          //     },
+          //   })
+          //   .then((res) => {
+          //     setInfo({
+          //       url: res.data.url,
+          //     });
+          //     console.log(res.data.url);
+          //   })
+          //   .catch((err) => console.log(err));
 
-          addPoint(_currentPoint, "5");
+          // addPoint(_currentPoint, "5");
 
-          phaserRef.current.scene.scenes[1].playVideo(random);
-          nav("/page14");
+          // phaserRef.current.scene.scenes[1].playVideo(random);
+          // nav("/page14");
         }}
       >
         GET RESULTS

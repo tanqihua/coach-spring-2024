@@ -5,7 +5,6 @@ import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-
 import {
   Page1,
   FormPage,
@@ -104,13 +103,11 @@ const LanguageContainer = (props) => {
   const language_content = useMemo(() => {
     switch (language) {
       case "en":
-        setLanguage("en");
         return {
           lan: "ENG",
           img: "/png100px/sh.png",
         };
       case "kr":
-        setLanguage("kr");
         return {
           lan: "한국어",
           img: "/png100px/kr.png",
@@ -197,6 +194,7 @@ const LanguageContainer = (props) => {
           }}
           className="custom-select"
           onChange={(e) => {
+            setLanguage(e.target.value);
             setLanguage_content(e.target.value);
           }}
           defaultValue={language}

@@ -12,7 +12,7 @@ const FormPage = (props) => {
     EMAIL: null,
     FIRSTNAME: null,
     LASTNAME: null,
-    MOBILE: null,
+    MOBILE: +60,
     countryCode: null,
     terms: null,
   });
@@ -82,7 +82,7 @@ const FormPage = (props) => {
           }}
         >
           <Input
-            placeholder="+1"
+            placeholder="+60"
             size="20%"
             onChange={(e) => {
               addInfo((prevInfo) => ({
@@ -119,13 +119,24 @@ const FormPage = (props) => {
         <ButtonRound
           onClick={() => {
             window.scrollTo(0, 0);
-            window.FIRSTNAME = info.FIRSTNAME;
-            setInfo({
-              firstName: info.FIRSTNAME,
-            });
-            // setplayAnimation(true);
-            phaserRef.current.scene.scenes[2].scene.start("quests");
-            nav("/quest1");
+            // check if all fields are filled
+            if (info.FIRSTNAME && info.LASTNAME && info.MOBILE && info.terms) {
+              // if mobile is not valid
+              if (info.MOBILE.length < 6) {
+                alert("Please enter a valid mobile number");
+                return;
+              }
+
+              window.FIRSTNAME = info.FIRSTNAME;
+              setInfo({
+                firstName: info.FIRSTNAME,
+              });
+              // setplayAnimation(true);
+              phaserRef.current.scene.scenes[2].scene.start("quests");
+              nav("/quest1");
+            } else {
+              alert("Please fill in all the fields");
+            }
           }}
         >
           NEXT

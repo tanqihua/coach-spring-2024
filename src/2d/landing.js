@@ -10,6 +10,8 @@ export class Landing extends Phaser.Scene {
   preload() {}
 
   create() {
+    this.height = this.game.config.height;
+    this.width = this.game.config.width;
     this.bg = this.add
       .sprite(
         this.game.config.width / 2,
@@ -43,11 +45,11 @@ export class Landing extends Phaser.Scene {
     let alignCenter = _canvasWidth * 0.1;
     let alignYou = width * 0.6;
     let initPos = {
-      r: [alignCenter + _canvasWidth * 0.05, _canvasHeight * 0.22, 1, 4, 4, 0],
-      e: [alignCenter + _canvasWidth * 0.3, _canvasHeight * 0.22, 1, 1, 3, 0],
+      r: [alignCenter + _canvasWidth * 0.05, _canvasHeight * 0.25, 1, 4, 4, 0],
+      e: [alignCenter + _canvasWidth * 0.3, _canvasHeight * 0.25, 1, 1, 3, 0],
       a: [
         alignCenter + _canvasWidth * 0.55,
-        _canvasHeight * 0.22,
+        _canvasHeight * 0.25,
         1,
         2,
         2,
@@ -55,7 +57,7 @@ export class Landing extends Phaser.Scene {
       ],
       l: [
         alignCenter + _canvasWidth * 0.8,
-        _canvasHeight * 0.22,
+        _canvasHeight * 0.25,
         1,
         3,
         1,
@@ -63,7 +65,7 @@ export class Landing extends Phaser.Scene {
       ],
       y: [
         this.game.config.width / 2 - alignYou,
-        _canvasHeight * 0.22 + width * 0.65,
+        _canvasHeight * 0.25 + width * 0.65,
         1.1,
         8,
         5,
@@ -71,7 +73,7 @@ export class Landing extends Phaser.Scene {
       ],
       o: [
         this.game.config.width / 2,
-        _canvasHeight * 0.22 + width * 0.65,
+        _canvasHeight * 0.25 + width * 0.65,
         1.1,
         9,
         7,
@@ -79,7 +81,7 @@ export class Landing extends Phaser.Scene {
       ],
       u: [
         this.game.config.width / 2 + alignYou,
-        _canvasHeight * 0.22 + width * 0.65,
+        _canvasHeight * 0.25 + width * 0.65,
         1.1,
         8,
         6,
@@ -93,6 +95,8 @@ export class Landing extends Phaser.Scene {
         .sprite(initPos[letter][0], initPos[letter][1], "realyou")
         .setFrame(index);
 
+      this[letter].name = letter;
+
       let scaling = initPos[letter][2] ?? 1;
       let depth = initPos[letter][3] ?? 1;
       let rotation = initPos[letter][5] ?? 0;
@@ -100,22 +104,55 @@ export class Landing extends Phaser.Scene {
       this[letter].setDepth(depth);
       this[letter].setRotation(rotation);
     });
+  }
 
-    // latter floating animation
+  playAnimation() {
     this.tweens.add({
-      targets: [this.r, this.e, this.a, this.l],
-      y: "-=10",
+      targets: this.l,
+      y: this.height * -0.15,
       duration: 1000,
-      yoyo: true,
-      repeat: -1,
     });
 
     this.tweens.add({
-      targets: [this.y, this.o, this.u],
-      y: "-=10",
+      targets: this.e,
+      y: this.height * -0.15,
       duration: 1000,
-      yoyo: true,
-      repeat: -1,
+      delay: 200,
+    });
+
+    this.tweens.add({
+      targets: this.r,
+      y: this.height * -0.1,
+      duration: 1000,
+      delay: 400,
+    });
+
+    this.tweens.add({
+      targets: this.a,
+      y: this.height * -0.1,
+      duration: 1000,
+      delay: 600,
+    });
+
+    this.tweens.add({
+      targets: this.y,
+      y: this.height * -0.1,
+      duration: 1000,
+      delay: 600,
+    });
+
+    this.tweens.add({
+      targets: this.u,
+      y: this.height * -0.1,
+      duration: 1000,
+      delay: 800,
+    });
+
+    this.tweens.add({
+      targets: this.o,
+      y: this.height * -0.1,
+      duration: 1000,
+      delay: 1000,
     });
   }
 

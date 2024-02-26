@@ -162,7 +162,17 @@ const Page14 = (props) => {
               <img src="/asset/gift_icon.png" />
             </div>
           </Button>
-          <Button backgroundColor="#f4b404" onClick={() => {}}>
+          <Button
+            backgroundColor="#f4b404"
+            onClick={async () => {
+              let url = "/Black_FullVideo.mp4";
+              var download = document.createElement("a");
+              download.download = "CoachHoliday.jpg";
+              var bolb = await fetch(url).then((r) => r.blob());
+              download.href = URL.createObjectURL(bolb);
+              download.click();
+            }}
+          >
             {language.page14.saveresultvideo.split("\n").map((item, key) => {
               return (
                 <span
