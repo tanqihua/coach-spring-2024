@@ -66,6 +66,7 @@ function NavHanderler({ phaserRef }) {
 
   // detech current path
   const location = useLocation();
+
   const path = location.pathname;
   useEffect(() => {
     window.setPhaser = (value) => {
@@ -80,7 +81,8 @@ function NavHanderler({ phaserRef }) {
       if (path === "/") {
         phaserRef.current.scene.start("landing");
       } else {
-        phaserRef.current.scene.start("quests");
+        // route to the /
+        window.location.href = "/";
       }
     }
   }, [_phaser]);
