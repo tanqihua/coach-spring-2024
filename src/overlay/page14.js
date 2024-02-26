@@ -191,7 +191,7 @@ const Page14 = (props) => {
                   break;
               }
 
-              var blob = await fetch("/2d/" + video).then((r) => r.blob());
+              var blob = await fetch("/2d" + video).then((r) => r.blob());
               console.log(blob);
               if (navigator.share) {
                 navigator
