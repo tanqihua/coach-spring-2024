@@ -123,6 +123,10 @@ export class Quests extends Phaser.Scene {
           this.game.config.height
         );
 
+        let loadingVideo = document.getElementById("loadingVideo");
+        loadingVideo.style.opacity = 0;
+        loadingVideo.style.pointerEvents = "none";
+
         this[video].setDepth(10);
       });
 

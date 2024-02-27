@@ -52,6 +52,7 @@ const Page14 = (props) => {
           zIndex: _showPage14 ? -1 : 999,
         }}
       >
+        <LoadingVideo />
         <div
           onClick={() => {
             setShowPage14(true);
@@ -194,7 +195,9 @@ const Page14 = (props) => {
                   break;
               }
 
-              var blob = await fetch("/2d" + video).then((r) => r.blob());
+              var blob = await fetch("/spring_potrait" + video).then((r) =>
+                r.blob()
+              );
               if (navigator.share) {
                 navigator
                   .share({
@@ -397,6 +400,32 @@ const PopUp = ({
           .toUpperCase()}
         )
       </h5>
+    </div>
+  );
+};
+
+const LoadingVideo = () => {
+  return (
+    <div
+      id="loadingVideo"
+      style={{
+        position: "absolute",
+        width: "100svw",
+        height: "100svh",
+        zIndex: 100,
+        backgroundColor: "rgba(0,0,0,0.5)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        transition: "0.5s ease-in-out",
+        pointerEvents: "all",
+      }}
+    >
+      <div className="dotContainer">
+        <div className="dot" />
+        <div className="dot" />
+        <div className="dot" />
+      </div>
     </div>
   );
 };

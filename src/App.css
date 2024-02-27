@@ -72,3 +72,37 @@ input[type="text"]::-webkit-input-placeholder {
   -webkit-appearance: none; /* Remove default select dropdown arrow */
   -moz-appearance: none; /* Remove default select dropdown arrow */
 }
+
+#loadingVideo .dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: rgb(219, 205, 205);
+  animation: wave 1s linear infinite;
+}
+
+#loadingVideo .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#loadingVideo .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+#loadingVideo .dotContainer {
+  display: flex;
+  width: 20vw;
+
+  justify-content: space-between;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
