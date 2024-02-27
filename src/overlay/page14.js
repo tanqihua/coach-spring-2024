@@ -11,7 +11,6 @@ const Page14 = (props) => {
 
   const handleRedeemButtonClick = () => {
     // Add logic here to handle redeeming
-    console.log(1234);
     setPrizeContainerVisibility(true);
   };
 
@@ -171,8 +170,6 @@ const Page14 = (props) => {
             backgroundColor="#f4b404"
             name={"saveVideo"}
             onClick={async () => {
-              console.log(info);
-
               let video;
 
               switch (info?.bagColor) {
@@ -198,7 +195,6 @@ const Page14 = (props) => {
               }
 
               var blob = await fetch("/2d" + video).then((r) => r.blob());
-              console.log(blob);
               if (navigator.share) {
                 navigator
                   .share({
