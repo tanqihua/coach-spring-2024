@@ -195,9 +195,9 @@ const Page14 = (props) => {
                   break;
               }
 
-              var blob = await fetch("/spring_potrait" + video).then((r) =>
-                r.blob()
-              );
+              var blob = await fetch(
+                "https://test.conten.tech/spring_potrait" + video
+              ).then((r) => r.blob());
               if (navigator.share) {
                 navigator
                   .share({
