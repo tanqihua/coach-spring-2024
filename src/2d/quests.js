@@ -90,7 +90,10 @@ export class Quests extends Phaser.Scene {
 
     this.logo = this.add
       .image(
-        this.game.config.width * 0.5,
+        this.game.config.width
+        
+        
+        * 0.5,
         this.game.config.height * 0.06,
         "logo"
       )
