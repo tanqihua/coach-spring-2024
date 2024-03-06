@@ -52,7 +52,7 @@ export const language = {
     },
 
     page14: {
-      title1: "Tap to redeem your treat!",
+      title1: "Tap to redeem your gift!",
       redeem: "REDEEM",
       saveresultvideo: "SAVE RESULT VIDEO",
       shopcollection: "SHOP COLLECTION",
