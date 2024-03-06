@@ -41,15 +41,7 @@ root.render(
     </MobileView>
 
     <BrowserView>
-      <SuperfanProvider
-        firebaseConfig={firebaseConfig}
-        collection={collectionId}
-        isDev={false}
-      >
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </SuperfanProvider>
+      <DesktopBlock/>
     </BrowserView>
   </>
 );
