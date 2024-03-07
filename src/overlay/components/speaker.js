@@ -65,7 +65,7 @@ const Speaker = ()=>{
             position : "absolute",
             top : "1.5svh",
             left : "1.5svh",
-            zIndex : 10000
+            zIndex : 1
         }}
     >
         <SvgComponent ismuted = {ismuted}/>
