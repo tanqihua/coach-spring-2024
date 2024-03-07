@@ -52,10 +52,10 @@ const Speaker = ()=>{
     return <div className="svgContainer"
         onClick={()=>{
             if(ismuted){
-                window.closeAllAudio()            
+                window.resumeAudio()
             }
             else{
-                window.resumeAudio()
+                window.closeAllAudio()            
             }
             setIsMuted(!ismuted)
         }}
