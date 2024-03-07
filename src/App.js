@@ -18,6 +18,7 @@ import {
 } from "./overlay";
 import { useStore } from "./store";
 import { LegerLine, PreloadingPage } from "./overlay/components";
+import Speaker from "./overlay/components/speaker";
 function App() {
   const phaserRef = useRef(null);
   const [showPage14, setShowPage14] = React.useState(false);
@@ -35,6 +36,7 @@ function App() {
       <NavHanderler phaserRef={phaserRef} />
 
       <PhaserScene ref={phaserRef} />
+      <Speaker/>
       {/* <THREESCENE /> */}
       <Routes>
         <Route path="/" element={<Page1 phaserRef={phaserRef} />} />

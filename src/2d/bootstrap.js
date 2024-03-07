@@ -59,11 +59,23 @@ export class Bootstrap extends Phaser.Scene {
     this.load.audio("inflate", "/Inflate.mp3");
   }
 
+  // all audio sound off
+  closeAllAudio() {
+    //all audio volume 0
+    this.sound.volume = 0;
+  }
+
+  // resume audio
+  resumeAudio() {
+    this.sound.volume = 1;
+  }
+
   create() {
     window?.setPhaser(true);
     // play sound
     this.sound.play("bgsound", { loop: true });
-
+    window.closeAllAudio = this.closeAllAudio.bind(this);
+    window.resumeAudio = this.resumeAudio.bind(this);
     //     this.sound.play("bgsound", { loop: true }); stop sound
     // this.scene.start("landing");
   }
