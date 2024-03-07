@@ -331,24 +331,24 @@ const PopUp = ({
       </div>
       <div className="block" style={{ height: "6%" }} />
 
-      <h4 style={{ wordSpacing: "0.1rem" }}>
+      <h3 style={{ wordSpacing: "0.1rem" }}>
         HERE’S YOUR <br />
-        TREAT
-      </h4>
+        GIFT
+      </h3>
 
-      <div className="block" style={{ height: "6%" }} />
+      <div className="block" style={{ height: "1%" }} />
 
       <div
         className="imgContainer"
         style={{
-          height: "16svh",
+          height: "28svh",
           margin: "auto",
         }}
       >
-        <img src="/asset/treat1.webp" alt="Activist" />
+        <img src="/2d/tag.png" alt="Activist" />
       </div>
 
-      <div className="block" style={{ height: "12%" }} />
+      <div className="block" style={{ height: "3%" }} />
 
       <h5>
         Don’t tap the button below!
