@@ -119,6 +119,7 @@ export class Quests extends Phaser.Scene {
       );
 
       this[video].once("play", () => {
+        window.setLoadingVideo()
         this.sound.stopByKey("bgsound");
         this.sound.play("endSound");
         this[video].setDisplaySize(

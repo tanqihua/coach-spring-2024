@@ -13,7 +13,7 @@ const FormPage = (props) => {
     EMAIL: null,
     FIRSTNAME: null,
     LASTNAME: null,
-    MOBILE: +60,
+    MOBILE: +61,
     countryCode: null,
     terms: null,
   });
@@ -83,7 +83,7 @@ const FormPage = (props) => {
           }}
         >
           <Input
-            placeholder="+60"
+            placeholder="+61"
             size="20%"
             onChange={(e) => {
               addInfo((prevInfo) => ({

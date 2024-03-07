@@ -4,7 +4,7 @@ import PhaserScene from "./2d";
 import React, { useRef, useEffect, useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 import {
   Page1,
   FormPage,
@@ -21,14 +21,19 @@ import { LegerLine, PreloadingPage } from "./overlay/components";
 function App() {
   const phaserRef = useRef(null);
   const [showPage14, setShowPage14] = React.useState(false);
-
+  const [loadingVideo , setLoadingVideo] = React.useState(true);
   useEffect(() => {
     window.setShowPage14 = () => {
       setShowPage14(true);
     };
+    window.setLoadingVideo = () => {
+      setLoadingVideo(false);
+    };
   }, []);
   return (
     <div className="App">
+      <NavHanderler phaserRef={phaserRef} />
+
       <PhaserScene ref={phaserRef} />
       {/* <THREESCENE /> */}
       <Routes>
@@ -39,13 +44,12 @@ function App() {
         <Route path="/quest3" element={<Quest3 phaserRef={phaserRef} />} />
         <Route path="/quest4" element={<Quest4 phaserRef={phaserRef} />} />
         <Route path="/quest5" element={<Quest5 phaserRef={phaserRef} />} />
-        <Route path="/page14" element={<Page14 showPage14={showPage14} />} />
+        <Route path="/page14" element={<Page14 showPage14={showPage14} loadingVideo = {loadingVideo}/>} />
         <Route path="/page15" element={<Page15 />} />
       </Routes>
-      <NavHanderler phaserRef={phaserRef} />
       <NavBarColorHandler />
 
-      <LanguageContainer />
+      {/* <LanguageContainer /> */}
     </div>
   );
 }
@@ -66,7 +70,7 @@ function NavHanderler({ phaserRef }) {
 
   // detech current path
   const location = useLocation();
-
+  const nav = useNavigate();
   const path = location.pathname;
   useEffect(() => {
     window.setPhaser = (value) => {
@@ -78,11 +82,15 @@ function NavHanderler({ phaserRef }) {
     if (_phaser && phaserRef.current) {
       // current path name
       const path = window.location.pathname;
+      phaserRef.current.scene.start("landing");
+
       if (path === "/") {
-        phaserRef.current.scene.start("landing");
+        // quests landing
+        // phaserRef.current.scene.start("quests");
       } else {
+        nav("/");
         // route to the /
-        window.location.href = "/";
+        // window.location.href = "/";
       }
     }
   }, [_phaser]);

@@ -4,7 +4,7 @@ import { Button } from "./components";
 import { useStore } from "../store";
 
 const Page14 = (props) => {
-  const { showPage14 } = props;
+  const { showPage14 , loadingVideo} = props;
   const [_showPage14, setShowPage14] = useState(false);
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
     useState(false);
@@ -39,7 +39,11 @@ const Page14 = (props) => {
   };
 
   return (
-    <Wraper style={{ position: "relative" }}>
+    <>
+        <LoadingVideo loadingVideo = {loadingVideo}/>
+
+
+        <Wraper style={{ position: "relative" }}>
       <div
         style={{
           position: "absolute",
@@ -255,6 +259,7 @@ const Page14 = (props) => {
         />
       </div>
     </Wraper>
+    </>
   );
 };
 
@@ -404,12 +409,16 @@ const PopUp = ({
   );
 };
 
-const LoadingVideo = () => {
+const LoadingVideo = ({loadingVideo}) => {
+  
   return (
     <div
       id="loadingVideo"
       style={{
         position: "absolute",
+        left: 0,
+        top: 0,
+        opacity: loadingVideo ? 1 : 0,
         width: "100svw",
         height: "100svh",
         zIndex: 100,
@@ -418,7 +427,7 @@ const LoadingVideo = () => {
         justifyContent: "center",
         alignItems: "center",
         transition: "0.5s ease-in-out",
-        pointerEvents: "all",
+        pointerEvents: loadingVideo ? "auto" : "none",
       }}
     >
       <div className="dotContainer">
