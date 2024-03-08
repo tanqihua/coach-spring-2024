@@ -242,7 +242,13 @@ const Page14 = (props) => {
           <Button
             backgroundColor="#f4b404"
             name={"shopCollection"}
-            onClick={() => {}}
+            onClick={() => {
+              // https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24
+              window.open(
+                "https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24",
+                "_blank"
+              );
+            }}
           >
             {language.page14.shopcollection.split("\n").map((item, key) => {
               return (
