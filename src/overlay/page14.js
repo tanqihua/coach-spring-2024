@@ -176,31 +176,38 @@ const Page14 = (props) => {
             name={"saveVideo"}
             onClick={async () => {
               let video;
-
+              let videoLink;
               switch (info?.bagColor) {
                 case "blackVideo":
                   video = "/Black_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FBlack_FullVideo.mp4?alt=media&token=8e97c325-0e7d-48b8-97af-b50a7611f07d";
                   break;
                 case "purpleVideo":
                   video = "/Purple_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPurple_FullVideo.mp4?alt=media&token=648bfbcc-68a3-49e9-9863-b9416e2e2442";
                   break;
                 case "yellowVideo":
                   video = "/Yellow_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
                   break;
                 case "tyeDyeVideo":
                   video = "/TyeDye_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FTyeDye_FullVideo.mp4?alt=media&token=65ee334b-74d4-46c1-a37f-923a0939bb25"
                   break;
                 case "denimVideo":
                   video = "/Denim_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FDenim_FullVideo.mp4?alt=media&token=e1b11352-49bb-44f0-8144-3fb68e866521"
                   break;
 
                 default:
                   video = "/Yellow_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
                   break;
               }
 
+
               var blob = await fetch(
-                "https://test.conten.tech/spring_potrait" + video
+                videoLink
               ).then((r) => r.blob());
               if (navigator.share) {
                 navigator

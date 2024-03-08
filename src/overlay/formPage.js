@@ -76,7 +76,7 @@ const FormPage = (props) => {
             }));
           }}
         />
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -102,7 +102,7 @@ const FormPage = (props) => {
               }));
             }}
           />
-        </div>
+        </div> */}
         <Input
           placeholder={language.formPage.email}
           onChange={(e) => {
@@ -122,12 +122,12 @@ const FormPage = (props) => {
           onClick={() => {
             window.scrollTo(0, 0);
             // check if all fields are filled
-            if (info.FIRSTNAME && info.LASTNAME && info.MOBILE && info.terms) {
+            if (info.FIRSTNAME && info.LASTNAME && info.EMAIL && info.terms) {
               // if mobile is not valid
-              if (info.MOBILE.length < 6) {
-                alert("Please enter a valid mobile number");
-                return;
-              }
+              // if (info.MOBILE.length < 6) {
+              //   alert("Please enter a valid mobile number");
+              //   return;
+              // }
 
               window.FIRSTNAME = info.FIRSTNAME;
               setInfo({

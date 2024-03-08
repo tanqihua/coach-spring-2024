@@ -18,7 +18,7 @@ const SvgComponent = (props) => {
                 width={1000}
                 height={1000}
             />
-            <motion.path
+            <path
             d="m120 138.78 739.57 692.61"
             style={{
                 fill: "#fff",
@@ -26,20 +26,8 @@ const SvgComponent = (props) => {
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
                 strokeWidth: 85,
+                opacity : ismuted === "false" ? 0 : 1
             }}
-
-            initial={{
-                opacity : 0
-            }}
-
-            animate={
-                ismuted ? {
-                    opacity : 1
-                } : 
-                {
-                    opacity : 0
-                }
-            }
             />
         </g>
       </svg>
@@ -48,16 +36,16 @@ const SvgComponent = (props) => {
 
 
 const Speaker = ()=>{
-    const [ismuted, setIsMuted] = useState(false)
+    const [isMuted, setIsMuteddd] = useState(false)
     return <div className="svgContainer"
         onClick={()=>{
-            if(ismuted){
+            if(isMuted){
                 window.resumeAudio()
             }
             else{
                 window.closeAllAudio()            
             }
-            setIsMuted(!ismuted)
+            setIsMuteddd(!isMuted)
         }}
         style={{
             width : "3.5svh",
@@ -65,10 +53,10 @@ const Speaker = ()=>{
             position : "absolute",
             top : "1.5svh",
             left : "1.5svh",
-            zIndex : 1
+            zIndex : 10
         }}
     >
-        <SvgComponent ismuted = {ismuted}/>
+        <SvgComponent ismuted = {isMuted.toString()}/>
     </div>
 }
 export default Speaker

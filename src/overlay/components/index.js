@@ -151,7 +151,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             fontSize: "0.54rem",
             textAlign: "left",
             lineHeight: "1.2",
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.08rem",
           }}
         >
           {language.formPage.term}
@@ -160,9 +160,27 @@ export function Terms({ terms = false, setInfo = () => {} }) {
               textDecoration: "underline",
               fontSize: "0.54rem",
             }}
+
+            onClick={() => {
+              window.open("https://coachaustralia.com/footer-content/terms.html", "_blank");
+            }}
           >
             {" "}
             {language.formPage.termLink}
+          </span>
+
+          <span
+            style={{
+              textDecoration: "underline",
+              fontSize: "0.54rem",
+            }}
+
+            onClick={() => {
+              window.open("https://coachaustralia.com/footer-content/privacy-policy.html", "_blank");
+            }}
+          >
+            {" "}
+            {language.formPage.privacyLink}
           </span>
           .
         </p>
@@ -431,7 +449,7 @@ export const PreloadingPage = ({ preload = false }) => {
         width: "100vw",
         height: "100vh",
         position: "absolute",
-        zIndex: 10,
+        zIndex: 11,
         backgroundColor: "white",
         opacity: preload ? 0 : 1,
         pointerEvents: preload ? "none" : "all",
