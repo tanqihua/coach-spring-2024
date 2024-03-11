@@ -20,7 +20,7 @@ export const language = {
     quest1: {
       title1:
         "Instead of chatting\none-on-one at parties,\nyou find a way to bring\n everyone together.",
-      left: "Couldn’\ntbe me",
+      left: "Couldn’t\nbe me",
       right: "Me to a T",
     },
 
@@ -28,7 +28,7 @@ export const language = {
       title1:
         "Do you start your day\nwith a to-do list, or \nleave it open to stay\n open to surprises?",
       left: `Love\na list`,
-      right: `Send me\nsurprise`,
+      right: `Send me\nsurprises`,
     },
 
     quest3: {

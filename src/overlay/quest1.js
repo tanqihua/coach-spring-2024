@@ -51,19 +51,28 @@ const Quest1 = (props) => {
             color: "#faf3e3",
           }}
         >
-          {language.quest1.title1.split("\n").map((item, key) => {
-            return (
-              <span
-                key={key}
-                style={{
-                  fontSize: "inherit",
-                }}
-              >
-                {item}
-                <br />
-              </span>
-            );
-          })}
+          {
+            language.type === "en" ? <>
+              Instead of chatting<br/>one-on-one at parties,<br/>you find a way to bring<br/> <span style={{fontStyle : "italic" , fontSize : "inherit"}}>everyone</span> together.
+            </> : <>
+            {language.quest1.title1.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {
+                    item
+                  }
+                  <br />
+                </span>
+                );
+              })}
+            </>
+          }
+          
         </h1>
       </div>
 
