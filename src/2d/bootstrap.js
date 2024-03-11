@@ -48,7 +48,7 @@ export class Bootstrap extends Phaser.Scene {
     this.load.image("tapicon", "/2d/tapicon.png");
 
     // load sfx
-    this.load.audio("bgsound", "/CoachSpringBGM.mp3");
+    // this.load.audio("bgsound", "/CoachSpringBGM.mp3");
 
     // load video end sound
     this.load.audio("endSound", "/endSound.mp3");
@@ -73,7 +73,7 @@ export class Bootstrap extends Phaser.Scene {
   create() {
     window?.setPhaser(true);
     // play sound
-    this.sound.play("bgsound", { loop: true });
+    // this.sound.play("bgsound", { loop: true });
     window.closeAllAudio = this.closeAllAudio.bind(this);
     window.resumeAudio = this.resumeAudio.bind(this);
     //     this.sound.play("bgsound", { loop: true }); stop sound
