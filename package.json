@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pikabobalex/superfan-module": "^1.0.0",
+    "@pikabobalex/superfan-module": "^1.0.4",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.11",
