@@ -162,7 +162,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             }}
 
             onClick={() => {
-              window.open(" https://coachaustralia.com/footer-content/privacy-policy.html", "_blank");
+              window.open(" https://coachaustralia.com/footer-content/terms.html", "_blank");
             }}
           >
             {" "}
