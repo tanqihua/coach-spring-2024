@@ -403,7 +403,7 @@ export const DesktopBlock = () => {
         }}
       >
         <img
-          src="/2d/qrcode.png"
+          src="/2d/QR.jpg"
           style={{
             height: "100%",
           }}
