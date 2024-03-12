@@ -171,6 +171,15 @@ export function Terms({ terms = false, setInfo = () => {} }) {
 
           <span
             style={{
+              fontSize: "0.54rem",
+            }}
+          >
+            {" "}
+            {language.formPage.and}
+          </span>
+
+          <span
+            style={{
               textDecoration: "underline",
               fontSize: "0.54rem",
             }}
