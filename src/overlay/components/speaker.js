@@ -53,7 +53,9 @@ const Speaker = ()=>{
             position : "absolute",
             top : "1.5svh",
             left : "1.5svh",
-            zIndex : 10
+            zIndex : 10,
+            opacity : 0,
+            pointerEvents : "none"
         }}
     >
         <SvgComponent ismuted = {isMuted.toString()}/>
