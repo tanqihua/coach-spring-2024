@@ -8,9 +8,9 @@ export const useStore = create((set) => ({
     })),
 
   info: {
-    firstName: "",
-    bagColor: "",
-    url: undefined,
+    bagColor: "purpleVideo",
+    tagType: "/2d/T_lover.png",
+    name : "test"
   },
 
   setInfo: (_info) =>

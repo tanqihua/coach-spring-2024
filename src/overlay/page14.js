@@ -98,14 +98,42 @@ const Page14 = (props) => {
           }}
         >
           <div
-            className="imgContainer"
             style={{
               height: "55svh",
               margin: "auto",
+              position: "relative",
+              width : "80svw"
               // boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
-            <img src={info?.url ?? "/asset/test.jpg"} alt="Gift" />
+            <div
+              className="imgContainer"
+              style={{height : "8%" , width : "fit-content" , margin : "auto"}}
+            >
+              <img src={"/asset/logo.png"} alt="Gift" />
+            </div>
+
+            <div style={{height : "7%"}}/>
+
+            <h1
+              style={{
+                textAlign: "left",
+                fontSize: "7svh",
+              }}
+            >
+              {info?.name.toUpperCase()}<br/>
+              YOU<br/>
+              ARE A
+            </h1>
+
+            <div style={{height : "1%"}}/>
+
+            <div
+              className="imgContainer"
+              style={{height : "51%" , margin : "auto"}}
+            >
+              <img src={info.tagType} alt="Gift" />
+            </div>
           </div>
 
           <div

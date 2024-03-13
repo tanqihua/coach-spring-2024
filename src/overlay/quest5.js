@@ -197,17 +197,27 @@ const Index = (props) => {
           );
 
           let videoType = null;
-
+          let tagType = null;
           if (totalPoint <= 23) {
             videoType = "blackVideo";
+            // T_activist
+            tagType = "/2d/T_activist.png";
           } else if (totalPoint <= 23 * 2) {
             videoType = "purpleVideo";
+            // T_visionary
+            tagType = "/2d/T_visionary.png";
           } else if (totalPoint <= 23 * 3) {
             videoType = "yellowVideo";
+            // T_creative
+            tagType = "/2d/T_creative.png";
           } else if (totalPoint <= 23 * 4) {
             videoType = "tyeDyeVideo";
+            // T_lover
+            tagType = "/2d/T_lover.png";
           } else {
             videoType = "denimVideo";
+            // T_explorer
+            tagType = "/2d/T_explorer.png";
           }
 
           let tt = {
@@ -220,21 +230,23 @@ const Index = (props) => {
 
           setInfo({
             bagColor: videoType,
+            tagType: tagType,
+            name : info.firstName
           });
 
-          axios
-            .get("https://coachspring-backendhandle.onrender.com", {
-              params: {
-                name: info.firstName ?? "undefined",
-                color: videoType,
-              },
-            })
-            .then((res) => {
-              setInfo({
-                url: res.data.url,
-              });
-            })
-            .catch((err) => console.log(err));
+          // axios
+          //   .get("https://coachspring-backendhandle.onrender.com", {
+          //     params: {
+          //       name: info.firstName ?? "undefined",
+          //       color: videoType,
+          //     },
+          //   })
+          //   .then((res) => {
+          //     setInfo({
+          //       url: res.data.url,
+          //     });
+          //   })
+          //   .catch((err) => console.log(err));
 
           addPoint(_currentPoint, "5");
 
