@@ -119,6 +119,7 @@ const FormPage = (props) => {
         <div className="block" style={{ height: "2%" }} />
         <ButtonRound
           name={"submitForm"}
+          id={"submitForm"}
           onClick={() => {
             window.scrollTo(0, 0);
             // check if all fields are filled

@@ -50,6 +50,7 @@ const Page1 = (props) => {
       />
       <ButtonRound
         name={"startButton"}
+        id={"startButton"}
         onClick={() => {
           phaserRef.current.scene.scenes[2].playAnimation();
           setTimeout(() => {
