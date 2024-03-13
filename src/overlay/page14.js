@@ -102,7 +102,7 @@ const Page14 = (props) => {
             style={{
               height: "55svh",
               margin: "auto",
-              boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
+              // boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
             <img src={info?.url ?? "/asset/test.jpg"} alt="Gift" />
