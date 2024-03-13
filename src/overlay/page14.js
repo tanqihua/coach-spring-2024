@@ -102,7 +102,7 @@ const Page14 = (props) => {
               height: "55svh",
               margin: "auto",
               position: "relative",
-              width : "80svw"
+              width : "76svw"
               // boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
