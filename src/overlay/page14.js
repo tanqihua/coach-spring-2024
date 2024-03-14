@@ -117,20 +117,29 @@ const Page14 = (props) => {
 
             <h1
               style={{
-                textAlign: "left",
+                textAlign: "center",
                 fontSize: "7svh",
+                lineHeight: "1",
               }}
             >
-              {info?.name.toUpperCase()}<br/>
-              YOU<br/>
-              ARE A
+              {info?.name.toUpperCase()} < br/>      
             </h1>
 
-            <div style={{height : "1%"}}/>
+            <h2
+              style={{
+                textAlign: "center",
+                fontSize: "4svh",
+                lineHeight: "1",
+              }}
+            >
+              YOU ARE A
+            </h2>
+
+            <div style={{height : "3%"}}/>
 
             <div
               className="imgContainer"
-              style={{height : "51%" , margin : "auto"}}
+              style={{height : "65%" , margin : "auto" }}
             >
               <img src={info.tagType} alt="Gift" />
             </div>
