@@ -4,6 +4,7 @@ import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
+
 const Quest1 = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
