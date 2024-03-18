@@ -45,7 +45,7 @@ function App() {
       <NavHanderler phaserRef={phaserRef} />
       <NavBarColorHandler />
 
-      <LanguageContainer />
+      {/* <LanguageContainer /> */}
     </div>
   );
 }
