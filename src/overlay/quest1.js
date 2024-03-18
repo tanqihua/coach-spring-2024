@@ -88,6 +88,8 @@ const Quest1 = (props) => {
           <p
             style={{
               textAlign: "center",
+              fontSize: "0.78rem",
+
             }}
           >
             {
@@ -165,6 +167,8 @@ const Quest1 = (props) => {
           <p
             style={{
               width: "fit-content",
+              fontSize: "0.78rem",
+
             }}
           >
             {

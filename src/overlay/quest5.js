@@ -89,6 +89,8 @@ const Index = (props) => {
           <p
             style={{
               textAlign: "center",
+              fontSize: "0.78rem",
+
             }}
           >
             {language.quest5.left.split("\n").map((item, key) => {
@@ -164,6 +166,8 @@ const Index = (props) => {
           <p
             style={{
               width: "fit-content",
+              // marginRight: "10px",
+              fontSize: "0.78rem",
             }}
           >
             {language.quest5.right.split("\n").map((item, key) => {

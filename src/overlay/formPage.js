@@ -1,5 +1,5 @@
 import { Wraper } from "./helper";
-import { Button, ButtonRound, Input, Terms } from "./components";
+import { Button, ButtonRound, Input, Terms , TermsKR} from "./components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
@@ -59,15 +59,6 @@ const FormPage = (props) => {
         <div className="block" style={{ height: "3%" }} />
 
         <Input
-          placeholder={language.formPage.firstName}
-          onChange={(e) => {
-            addInfo((prevInfo) => ({
-              ...prevInfo,
-              FIRSTNAME: e.target.value,
-            }));
-          }}
-        />
-        <Input
           placeholder={language.formPage.lastName}
           onChange={(e) => {
             addInfo((prevInfo) => ({
@@ -76,6 +67,17 @@ const FormPage = (props) => {
             }));
           }}
         />
+        
+        <Input
+          placeholder={language.formPage.firstName}
+          onChange={(e) => {
+            addInfo((prevInfo) => ({
+              ...prevInfo,
+              FIRSTNAME: e.target.value,
+            }));
+          }}
+        />
+        
         <div
           style={{
             display: "flex",
@@ -83,7 +85,8 @@ const FormPage = (props) => {
           }}
         >
           <Input
-            placeholder="+60"
+            // placeholder="+60"
+            placeholder={language.formPage.countryCode}
             size="20%"
             onChange={(e) => {
               addInfo((prevInfo) => ({
@@ -103,7 +106,7 @@ const FormPage = (props) => {
             }}
           />
         </div>
-        <Input
+        {/* <Input
           placeholder={language.formPage.email}
           onChange={(e) => {
             addInfo((prevInfo) => ({
@@ -111,10 +114,13 @@ const FormPage = (props) => {
               EMAIL: e.target.value,
             }));
           }}
-        />
+        /> */}
 
         <div className="block" style={{ height: "3%" }} />
-        <Terms terms={info?.terms ?? false} setInfo={addInfo} />
+
+        {
+          language.type === "kr" ? <TermsKR terms={info?.terms ?? false} setInfo={addInfo} /> :  <Terms terms={info?.terms ?? false} setInfo={addInfo} />
+        } 
 
         <div className="block" style={{ height: "2%" }} />
         <ButtonRound

@@ -480,3 +480,82 @@ export const PreloadingPage = ({ preload = false }) => {
     </div>
   );
 };
+
+
+export function TermsKR({ terms = false, setInfo = () => {} }) {
+  const { language } = useStore();
+  return (
+    <section
+      style={{
+        display: "flex",
+      }}
+      className="terms dontwantBold"
+    >
+      <div
+        onClick={() => {
+          setInfo((prev) => {
+            return {
+              ...prev,
+              terms: !prev.terms,
+            };
+          });
+        }}
+      >
+        <div
+          id="terms"
+          style={{
+            width: "1.2rem",
+            height: "1.2rem",
+            backgroundColor: "#fff",
+            borderRadius: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "none",
+            marginRight: "1rem",
+          }}
+        >
+          <div
+            style={{
+              width: "1.2svh",
+              height: "1.2svh",
+              backgroundColor: !terms ? "#fff" : "#a3a3a3",
+              borderRadius: 0,
+              border: "none",
+            }}
+          />
+        </div>
+      </div>
+
+      <div>
+        <p
+          style={{
+            color: "white",
+            fontSize: "0.50rem",
+            textAlign: "left",
+            lineHeight: "1.4",
+            letterSpacing: "0.1rem",
+          }}
+        >
+          상기 제공한 정보를 마케팅 목적의 수집 및 이용에 대해 동의합니다.<br />COACH는 고객님의 개인정보를 안전하게 보호하고 있습니다. 고객님의<br />개인정보는 COACH 프로모션 이벤트 안내 및 고객 조사 외에 다흔 목적<br />으로 사용되지 않습니다. 개인정보는 COACH<br />
+          <a style={{
+            color: "white",
+            fontSize: "0.50rem",
+            textAlign: "left",
+            lineHeight: "1.4",
+            letterSpacing: "0.1rem",
+          }} href=''>(CONTACTUS@COACH.COM)</a>에 이메일로 신청하여 조회, 변경 또는<br />삭제 할 수 있습니다. 개인정보처리방침에 대한 자세한 내용은 코치 코리<br />아 홈페이지를 참조하십시오.
+          {/* <span
+            style={{
+              // textDecoration: "underline",
+              fontSize: "0.54rem",
+            }}
+          >
+            {" "}
+          </span> */}
+          {/* . */}
+        </p>
+      </div>
+    </section>
+  );
+}

@@ -262,7 +262,23 @@ const PopUp = ({
   isPrizeContainerVisible = false,
   setPrizeContainerVisibility,
 }) => {
-  const [buttonText, setButtonText] = useState("STAFF REDEEM");
+    const { info, language } = useStore();
+
+  const [buttonText, setButtonText] = useState(() =>
+  language.page14.buttonText.split("\n").map((item, key) => (
+    <span
+      key={key}
+      style={{
+        fontSize: "inherit",
+      }}
+    >
+      {item}
+      <br />
+    </span>
+  ))
+);
+  // const [buttonText, setButtonText] = useState("STAFF REDEEM");
+
   const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
   const [redeemTime, setRedeemTime] = useState(new Date());
 
@@ -327,8 +343,18 @@ const PopUp = ({
       <div className="block" style={{ height: "6%" }} />
 
       <h4 style={{ wordSpacing: "0.1rem" }}>
-        HERE’S YOUR <br />
-        TREAT
+        {language.page14.title2.split("\n").map((item, key) => (
+    <span key={key} style={{ fontSize: "inherit" }}>
+      {item}
+      <br />
+    </span>
+  ))}
+  {language.page14.shopcollection.split("\n").map((item, key) => (
+    <span key={key} style={{ fontSize: "inherit" }}>
+      {item}
+      <br />
+    </span>
+  ))}
       </h4>
 
       <div className="block" style={{ height: "6%" }} />
@@ -346,9 +372,12 @@ const PopUp = ({
       <div className="block" style={{ height: "12%" }} />
 
       <h5>
-        Don’t tap the button below!
-        <br />
-        Present it to staff to redeem.
+      {language.page14.instruction.split("\n").map((item, key) => (
+    <span key={key} style={{ fontSize: "inherit" }}>
+      {item}
+      <br />
+    </span>
+  ))}
       </h5>
 
       <div className="block" style={{ height: "3%" }} />
