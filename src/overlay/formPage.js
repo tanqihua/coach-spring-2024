@@ -58,25 +58,34 @@ const FormPage = (props) => {
 
         <div className="block" style={{ height: "3%" }} />
 
-        <Input
-          placeholder={language.formPage.lastName}
-          onChange={(e) => {
-            addInfo((prevInfo) => ({
-              ...prevInfo,
-              LASTNAME: e.target.value,
-            }));
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
           }}
-        />
-        
-        <Input
-          placeholder={language.formPage.firstName}
-          onChange={(e) => {
-            addInfo((prevInfo) => ({
-              ...prevInfo,
-              FIRSTNAME: e.target.value,
-            }));
-          }}
-        />
+        >
+          <Input
+            placeholder={language.formPage.lastName}
+            onChange={(e) => {
+              addInfo((prevInfo) => ({
+                ...prevInfo,
+                LASTNAME: e.target.value,
+              }));
+            }}
+          />
+          
+          <Input
+            placeholder={language.formPage.firstName}
+            onChange={(e) => {
+              addInfo((prevInfo) => ({
+                ...prevInfo,
+                FIRSTNAME: e.target.value,
+              }));
+            }}
+          />
+
+        </div>
+
         
         <div
           style={{

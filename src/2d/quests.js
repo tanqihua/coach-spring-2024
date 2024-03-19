@@ -108,6 +108,11 @@ export class Quests extends Phaser.Scene {
       "blackVideo",
       "denimVideo",
       "tyeDyeVideo",
+      "purpleVideokr",
+      "yellowVideokr",
+      "blackVideokr",
+      "denimVideokr",
+      "tyeDyeVideokr",
     ].forEach((video) => {
       this[video] = this.add.video(
         this.game.config.width / 2,

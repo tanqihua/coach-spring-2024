@@ -225,6 +225,10 @@ const Index = (props) => {
             tagType = "/2d/T_explorer.png";
           }
 
+          if(language.type === "kr"){
+            videoType = videoType + "kr";
+          }
+
           let tt = {
             ...point,
             total: totalPoint,

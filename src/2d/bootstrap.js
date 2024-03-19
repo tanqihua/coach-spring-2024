@@ -46,7 +46,11 @@ export class Bootstrap extends Phaser.Scene {
     this.load.video("blackVideo", "/2d/Black_FullVideo.mp4");
     this.load.video("tyeDyeVideo", "/2d/TyeDye_FullVideo.mp4");
     this.load.video("denimVideo", "/2d/Denim_FullVideo.mp4");
-
+    this.load.video("purpleVideokr", "/2d/KR_EXPORT_Purple_FullVideo.mp4");
+    this.load.video("yellowVideokr", "/2d/KR_EXPORT_Yellow_FullVideo.mp4");
+    this.load.video("blackVideokr", "/2d/KR_EXPORT_Black_FullVideo.mp4");
+    this.load.video("tyeDyeVideokr", "/2d/KR_EXPORT_TyeDye_FullVideo.mp4");
+    this.load.video("denimVideokr", "/2d/KR_EXPORT_Denim_FullVideo.mp4");
     // laod audio
 
     this.load.image("tapicon", "/2d/tapicon.png");
@@ -66,7 +70,7 @@ export class Bootstrap extends Phaser.Scene {
   create() {
     window?.setPhaser(true);
     // play sound
-    this.sound.play("bgsound", { loop: true });
+    // this.sound.play("bgsound", { loop: true });
 
     //     this.sound.play("bgsound", { loop: true }); stop sound
     // this.scene.start("landing");
