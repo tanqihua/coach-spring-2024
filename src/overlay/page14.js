@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import { useStore } from "../store";
-
+import { useSuperfan } from "@pikabobalex/superfan-module";
 const Page14 = (props) => {
   const { showPage14 , loadingVideo} = props;
   const [_showPage14, setShowPage14] = useState(false);
@@ -16,27 +16,6 @@ const Page14 = (props) => {
 
   const { info, language } = useStore();
 
-  const handleSaveVideoClick = () => {
-    handleShare();
-  };
-
-  const handleShare = () => {
-    // Check if the navigator.share API is available
-    if (navigator.share) {
-      navigator
-        .share({
-          title: "Share Video",
-          text: "Check out this amazing video!",
-          url: "https://example.com", // Replace with the actual URL of the saved video
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.error("Error sharing:", error));
-    } else {
-      // Fallback for devices/browsers that don't support navigator.share
-      // Implement your custom sharing functionality here
-      console.log("navigator.share not supported. Implement custom sharing.");
-    }
-  };
 
   return (
     <>
@@ -399,7 +378,7 @@ const PopUp = ({
   const [buttonText, setButtonText] = useState(language.page14.buttonText);
   const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
   const [redeemTime, setRedeemTime] = useState(new Date());
-
+  const {recordCustomKey} = useSuperfan();
   const handleStaffRedeemClick = () => {
     switch (buttonText) {
       case language.page14.buttonText:
@@ -411,6 +390,7 @@ const PopUp = ({
         setButtonBackgroundColor("#9b9696");
         break;
       case language.page14.confirmedText:
+        recordCustomKey("redeemTime" , new Date());
         break;
       default:
         break;
@@ -515,19 +495,8 @@ const PopUp = ({
       <Button
         backgroundColor={buttonBackgroundColor}
         fontSize="2svh"
-        name= {language.page14.buttonText.split("\n").map((item, key) => {
-              return (
-                <span
-                  key={key}
-                  style={{
-                    fontSize: "inherit",
-                  }}
-                >
-                  {item}
-                  <br />
-                </span>
-              );
-            })}
+        id={"staffRedeemButton"}
+        name= {"staffRedeemButton"}
         onClick={() => {
           handleStaffRedeemClick();
           if (buttonText === language.page14.confirmText) {
