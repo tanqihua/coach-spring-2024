@@ -60,6 +60,14 @@ export const language = {
       buttonText: "STAFF REDEEM",
       title2: " HERE’S YOUR\nTREAT",
       instruction: "Don’t tap the button below!\nPresent it to staff to redeem.",
+      greeting: "YOU ARE A",
+      greeting2: "입니다!", // change
+      redeemHeader: "HERE’S YOUR\nGIFT",
+      confirmText: "CONFIRM",
+      confirmedText: "REDEEMED",
+
+
+
     },
   },
 
@@ -119,6 +127,11 @@ export const language = {
       buttonText: "직원 확인",
       title2: "팝업 매장에서 선물을\n수령하실 수 있습니다.",
       instruction: "선물 수령 전 아래 버튼을 누르지 마세요!\n팝업 매장 직원에게 보여주시면 확인 후 선물을\n드립니다.",
+      greeting: "당신은",
+      greeting2: "입니다!",
+      confirmText: "확인 완료",
+      confirmedText: "수령 완료",
+
     },
   },
 };

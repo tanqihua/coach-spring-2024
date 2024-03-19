@@ -95,6 +95,7 @@ const Page14 = (props) => {
             height: "90svh",
             width: "fit-content",
             margin: "auto",
+            // maxWidth: "100%"
           }}
         >
           <div
@@ -117,33 +118,80 @@ const Page14 = (props) => {
 
             <h1
               style={{
-                textAlign: "center",
+                textAlign: "left", // center
                 fontSize: "7svh",
-                lineHeight: "1",
+                lineHeight: "1.2", // 1
               }}
             >
-              {info?.name.toUpperCase()} < br/>      
+              {info?.name.toUpperCase()} 님, < br/>      
             </h1>
 
             <h2
               style={{
-                textAlign: "center",
-                fontSize: "4svh",
+                textAlign: "left", //center
+                fontSize: "6svh",
                 lineHeight: "1",
               }}
-            >
-              YOU ARE A
+              >
+                
+                {language.page14.greeting.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+                })}
+                
+              
             </h2>
 
             <div style={{height : "3%"}}/>
 
-            <div
-              className="imgContainer"
-              style={{height : "65%" , margin : "auto" }}
-            >
-              <img src={info.tagType} alt="Gift" />
+                <div
+                className="imgContainer"
+                style={{
+                  height: "65%",
+                  margin: "auto",
+                  maxWidth: "100%",
+                }}
+              >
+                <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} />
+              </div>
             </div>
-          </div>
+            
+            <div style={{height : "1%"}}/>
+
+            <h2
+              style={{
+                textAlign: "right", //center
+                fontSize: "6svh",
+                lineHeight: "1",
+                marginTop: "-10%" // add
+              }}
+              >
+                
+                {language.page14.greeting2.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+                })}
+                
+              
+            </h2>
 
           <div
             style={{
@@ -282,8 +330,7 @@ const Page14 = (props) => {
             onClick={() => {
               // https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24
               window.open(
-                "https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24",
-                "_blank"
+                "https://korea.coach.com/m/main.html"
               );
             }}
           >
@@ -316,22 +363,24 @@ const Page14 = (props) => {
 const PopUp = ({
   isPrizeContainerVisible = false,
   setPrizeContainerVisibility,
+  
 }) => {
-  const [buttonText, setButtonText] = useState("STAFF REDEEM");
+  const { info, language } = useStore();
+  const [buttonText, setButtonText] = useState(language.page14.buttonText);
   const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
   const [redeemTime, setRedeemTime] = useState(new Date());
 
   const handleStaffRedeemClick = () => {
     switch (buttonText) {
-      case "STAFF REDEEM":
-        setButtonText("CONFIRM");
+      case language.page14.buttonText:
+        setButtonText(language.page14.confirmText);
         setButtonBackgroundColor("#efa906");
         break;
-      case "CONFIRM":
-        setButtonText("REDEEMED");
+      case language.page14.confirmText:
+        setButtonText(language.page14.confirmedText);
         setButtonBackgroundColor("#9b9696");
         break;
-      case "REDEEMED":
+      case language.page14.confirmedText:
         break;
       default:
         break;
@@ -339,11 +388,11 @@ const PopUp = ({
   };
 
   useEffect(() => {
-    if (buttonText === "REDEEMED") {
+    if (buttonText === language.page14.confirmedText) {
       const newTime = new Date();
       setRedeemTime(newTime);
     }
-  }, [buttonText]);
+  }, [buttonText, language]);
 
   return (
     <div
@@ -381,9 +430,20 @@ const PopUp = ({
       </div>
       <div className="block" style={{ height: "6%" }} />
 
-      <h3 style={{ wordSpacing: "0.1rem" }}>
-        HERE’S YOUR <br />
-        GIFT
+      <h3 style={{ wordSpacing: "0.1rem", fontSize: "3.5svh",}}>
+        {language.page14.title2.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
       </h3>
 
       <div className="block" style={{ height: "1%" }} />
@@ -395,15 +455,29 @@ const PopUp = ({
           margin: "auto",
         }}
       >
-        <img src="/2d/tag.png" alt="Activist" />
+        {/* <img src="/2d/tag.png" alt="Activist" /> */}
+
+        <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} />
+
+
       </div>
 
       <div className="block" style={{ height: "3%" }} />
 
-      <h5>
-        Don’t tap the button below!
-        <br />
-        Present it to staff to redeem.
+      <h5 style={{ fontSize: "1.5svh" }}>
+       {language.page14.instruction.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
       </h5>
 
       <div className="block" style={{ height: "3%" }} />
@@ -411,11 +485,23 @@ const PopUp = ({
       <Button
         backgroundColor={buttonBackgroundColor}
         fontSize="2svh"
-        name="staffRedeem"
+        name= {language.page14.buttonText.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
         onClick={() => {
           handleStaffRedeemClick();
-          if (buttonText === "CONFIRM") {
-          } else if (buttonText === "REDEEMED") {
+          if (buttonText === language.page14.confirmText) {
+          } else if (buttonText === language.page14.confirmedText) {
             setPrizeContainerVisibility(false);
           }
         }}
