@@ -93,7 +93,7 @@ function NavHanderler({ phaserRef }) {
 }
 
 const LanguageContainer = (props) => {
-  const [language, setLanguage_content] = React.useState("en");
+  const [language, setLanguage_content] = React.useState("kr");
   const { setLanguage } = useStore();
   const location = useLocation();
   const path = location.pathname;
