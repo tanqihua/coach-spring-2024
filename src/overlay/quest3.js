@@ -5,10 +5,14 @@ import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
+import { useSuperfan } from "@pikabobalex/superfan-module";
+import { convertRange } from "./helper";
 
 const Index = (props) => {
   const { phaserRef } = props;
+  const {recordQuiz} = useSuperfan();
   const nav = useNavigate();
+
   let _currentPoint = 11;
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
@@ -34,7 +38,7 @@ const Index = (props) => {
       <div
         className="block"
         style={{
-          height: "25%",
+          height: language.type === "kr" ? "27%" : "25%",
         }}
       />
       <div
@@ -191,6 +195,15 @@ const Index = (props) => {
         onClick={() => {
           addPoint(_currentPoint, "3");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "c");
+
+          let t = language.quest3.title1.replaceAll("\n" , " ");
+          let p = convertRange(_currentPoint);
+
+          recordQuiz("3", {
+            question: t,
+            answer: p,
+          });
+
           nav("/quest4");
         }}
       >

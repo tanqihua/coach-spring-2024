@@ -25,3 +25,11 @@ export const Wraper = (props) => {
       </motion.section>
   );
 };
+
+
+export function convertRange(value) {
+  let _value = parseInt(value);
+  if(_value <= 7) return "A"
+  else if(_value <= 14) return "B"
+  else return "C"
+}

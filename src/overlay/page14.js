@@ -3,6 +3,7 @@ import { Wraper } from "./helper";
 import { Button } from "./components";
 import { useStore } from "../store";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+
 const Page14 = (props) => {
   const { showPage14 , loadingVideo} = props;
   const [_showPage14, setShowPage14] = useState(false);
@@ -140,7 +141,7 @@ const Page14 = (props) => {
                   maxWidth: "100%",
                 }}
               >
-                <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} />
+                <img src={info.tagType + language.type + ".png"} alt="Gift" style={{ width: "100%", height: "auto" }} />
               </div>
             </div>
             
@@ -367,10 +368,10 @@ const Page14 = (props) => {
           </Button>
         </div>
 
-        <PopUp
+        {/* <PopUp
           isPrizeContainerVisible={isPrizeContainerVisible}
           setPrizeContainerVisibility={setPrizeContainerVisibility}
-        />
+        /> */}
       </div>
     </Wraper>
     </>
@@ -475,7 +476,7 @@ const PopUp = ({
       >
         {/* <img src="/2d/tag.png" alt="Activist" /> */}
 
-        <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} />
+        {/* <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} /> */}
       </div>
 
       <div className="block" style={{ height: "3%" }} />

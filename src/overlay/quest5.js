@@ -7,8 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import axios from "axios";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+import { convertRange } from "./helper";
+
 const Index = (props) => {
   const { recordGameData } = useSuperfan();
+  const {recordQuiz} = useSuperfan();
   const { phaserRef } = props;
   const nav = useNavigate();
   let _currentPoint = 11;
@@ -198,29 +201,38 @@ const Index = (props) => {
             0
           );
 
+          let t = language.quest5.title1.replaceAll("\n" , " ");
+          let p = convertRange(_currentPoint);
+
+          recordQuiz("5", {
+            question: t,
+            answer: p,
+          });
+
+
           let videoType = null;
 
           let tagType = null;
           if (totalPoint <= 23) {
             videoType = "blackVideo";
             // T_activist
-            tagType = "/2d/T_activist.png";
+            tagType = "/2d/T_activist";
           } else if (totalPoint <= 23 * 2) {
             videoType = "purpleVideo";
             // T_visionary
-            tagType = "/2d/T_visionary.png";
+            tagType = "/2d/T_visionary";
           } else if (totalPoint <= 23 * 3) {
             videoType = "yellowVideo";
             // T_creative
-            tagType = "/2d/T_creative.png";
+            tagType = "/2d/T_creative";
           } else if (totalPoint <= 23 * 4) {
             videoType = "tyeDyeVideo";
             // T_lover
-            tagType = "/2d/T_lover.png";
+            tagType = "/2d/T_lover";
           } else {
             videoType = "denimVideo";
             // T_explorer
-            tagType = "/2d/T_explorer.png";
+            tagType = "/2d/T_explorer";
           }
 
           if(language.type === "kr"){
@@ -233,7 +245,7 @@ const Index = (props) => {
             videoType: videoType,
           };
 
-          recordGameData("recordGmaeData", tt);
+          recordGameData("result", tt);
 
           setInfo({
             bagColor: videoType,
