@@ -103,7 +103,7 @@ export const language = {
     },
     quest3: {
       title1:
-        "여행을 할때 나의 모습은?",
+        "여행을 할때 \n나의 모습은?",
       left: "핫플레이스\n위주로",
       right: "걸음이 닿는\n대로",
     },
