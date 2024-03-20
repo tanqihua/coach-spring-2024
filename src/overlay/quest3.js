@@ -38,7 +38,7 @@ const Index = (props) => {
       <div
         className="block"
         style={{
-          height: language.type === "kr" ? "27%" : "25%",
+          height: language.type === "kr" ? "25%" : "25%",
         }}
       />
       <div
