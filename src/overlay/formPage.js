@@ -72,7 +72,10 @@ const FormPage = (props) => {
                 LASTNAME: e.target.value,
               }));
             }}
-          />
+            style={{ 
+              order : language.type === "kr" ? 1 : 2
+             }}
+          />  
           
           <Input
             placeholder={language.formPage.firstName}
@@ -82,6 +85,10 @@ const FormPage = (props) => {
                 FIRSTNAME: e.target.value,
               }));
             }}
+
+            style={{ 
+              order : language.type === "kr" ? 2 : 1
+             }}
           />
 
         </div>

@@ -177,6 +177,7 @@ export function Input({
   type = "text",
   maxLength = 4,
   onChange,
+  style = {},
 }) {
   return (
     <input
@@ -198,6 +199,7 @@ export function Input({
         paddingTop: "1rem",
         margin: "0.5rem 0",
         borderRadius: "0",
+        ...style
       }}
       onChange={onChange}
     />

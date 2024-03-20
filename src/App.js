@@ -73,7 +73,7 @@ function NavHanderler({ phaserRef }) {
 
   useMemo(() => {
     if (_phaser && phaserRef.current) {
-      // current path name
+      // current path name landing quest
       const path = window.location.pathname;
       if (path === "/") {
         phaserRef.current.scene.start("landing");

@@ -102,7 +102,7 @@ const Page14 = (props) => {
                 lineHeight: "1.2", // 1
               }}
             >
-              {info?.name.toUpperCase().slice(0,3)} 님, < br/>      
+              {info[language.type === "kr" ? "name" : "firstName"]?.toUpperCase().slice(0,4) ?? ""} {language.type === "kr" ? "님," : ""} < br/>      
             </h1>
 
             <h2
@@ -189,7 +189,8 @@ const Page14 = (props) => {
           <div className="block" style={{ height: "4svh" }} />
           <h4
             style={{
-              fontSize : language.type === "kr" ? "1.1rem" : "1.8rem",
+              fontSize : language.type === "kr" ? "1.1rem" : "1.1rem",
+              lineHeight : language.type === "kr" ? "1.3" : "1.2",
             }}
           >
             {language.page14.title1.split("\n").map((item, key) => {

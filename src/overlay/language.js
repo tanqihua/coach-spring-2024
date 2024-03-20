@@ -53,7 +53,7 @@ export const language = {
     },
 
     page14: {
-      title1: "Tap to redeem your treat!",
+      title1: "Screenshot this page to redeem your price, \nin person, at the Seongsu Pop-Up",
       redeem: "REDEEM",
       saveresultvideo: "SAVE RESULT VIDEO",
       shopcollection: "SHOP COLLECTION",
@@ -61,7 +61,7 @@ export const language = {
       title2: " HERE’S YOUR\nTREAT",
       instruction: "Don’t tap the button below!\nPresent it to staff to redeem.",
       greeting: "YOU ARE A",
-      greeting2: "입니다!", // change
+      greeting2: "", // change
       redeemHeader: "HERE’S YOUR\nGIFT",
       confirmText: "CONFIRM",
       confirmedText: "REDEEMED",
@@ -98,7 +98,7 @@ export const language = {
     quest2: {
       title1:
         "평소 하루 일과를 시작할\n때 나의 모습은?",
-      left: "계획 없는\n날도 계획한다",
+      left: "계획 없는\n날도 계획\n한다",
       right: "즉흥적으로\n움직인다",
     },
     quest3: {

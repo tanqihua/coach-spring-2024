@@ -73,6 +73,6 @@ export class Bootstrap extends Phaser.Scene {
     // this.sound.play("bgsound", { loop: true });
 
     //     this.sound.play("bgsound", { loop: true }); stop sound
-    // this.scene.start("landing");
+    // this.scene.start("quests");
   }
 }
