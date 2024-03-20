@@ -4,11 +4,9 @@ import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
-
 const Quest1 = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
-
   let _currentPoint = 11;
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
@@ -88,8 +86,7 @@ const Quest1 = (props) => {
           <p
             style={{
               textAlign: "center",
-              fontSize: "0.78rem",
-
+              fontSize: language.type === "kr" ? "0.81rem" : "0.78rem",
             }}
           >
             {
@@ -167,8 +164,7 @@ const Quest1 = (props) => {
           <p
             style={{
               width: "fit-content",
-              fontSize: "0.78rem",
-
+              fontSize: language.type === "kr" ? "0.81rem" : "0.78rem",
             }}
           >
             {

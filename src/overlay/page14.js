@@ -102,7 +102,7 @@ const Page14 = (props) => {
                 lineHeight: "1.2", // 1
               }}
             >
-              {info?.name.toUpperCase()} 님, < br/>      
+              {info?.name.toUpperCase().slice(0,3)} 님, < br/>      
             </h1>
 
             <h2
@@ -130,7 +130,7 @@ const Page14 = (props) => {
               
             </h2>
 
-            <div style={{height : "3%"}}/>
+              {/* <div style={{height : "3%"}}/> */}
 
                 <div
                 className="imgContainer"
@@ -187,7 +187,11 @@ const Page14 = (props) => {
           />
 
           <div className="block" style={{ height: "4svh" }} />
-          <h4>
+          <h4
+            style={{
+              fontSize : language.type === "kr" ? "1.1rem" : "1.8rem",
+            }}
+          >
             {language.page14.title1.split("\n").map((item, key) => {
               return (
                 <span
@@ -203,7 +207,8 @@ const Page14 = (props) => {
             })}
           </h4>
           <div className="block" style={{ height: "2svh" }} />
-          <Button
+
+          {/* <Button
             name={"redeem"}
             backgroundColor="#6da5e2"
             onClick={handleRedeemButtonClick}
@@ -234,8 +239,10 @@ const Page14 = (props) => {
             >
               <img src="/asset/gift_icon.png" />
             </div>
-          </Button>
-          <Button
+          </Button> */}
+
+
+            <Button
             backgroundColor="#f4b404"
             name={"saveVideo"}
             onClick={async () => {
@@ -468,8 +475,6 @@ const PopUp = ({
         {/* <img src="/2d/tag.png" alt="Activist" /> */}
 
         <img src={info.tagType} alt="Gift" style={{ width: "100%", height: "auto" }} />
-
-
       </div>
 
       <div className="block" style={{ height: "3%" }} />

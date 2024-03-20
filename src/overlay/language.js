@@ -20,7 +20,7 @@ export const language = {
     quest1: {
       title1:
         "Instead of chatting\none-on-one at parties,\nyou find a way to bring\n everyone together.",
-      left: "Couldn’\ntbe me",
+      left: "Couldn’t\ntbe me",
       right: "Me to a T",
     },
 
@@ -76,7 +76,7 @@ export const language = {
     page1: {
       title1: "FIND YOUR COURAGE",
       p1: "다음 질문들에 대해 점을 움직여 답변을 입력\n해주세요. 질문을 모두 답변하시면 당신의 숨겨\n진 슈퍼파워를 알려드립니다.",
-      btn1: "LET’S GO",
+      btn1: "갑시다",
     },
     formPage: {
       title1: "게임 시작 전 당신에\n대해 알려주세요.",
@@ -120,7 +120,7 @@ export const language = {
       right: "내가\n선구자다",
     },
     page14: {
-      title1: "탭하여 선물을 수령하세요.",
+      title1: "성수팝업에서 직접 상품을 교환하기 위해 \n이 페이지를 스크린샷했습니다.",
       redeem: "선물 수령",
       saveresultvideo: "결과 영상 저장",
       shopcollection: "제품 둘러보기",
