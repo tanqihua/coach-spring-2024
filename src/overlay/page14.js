@@ -326,6 +326,10 @@ const Page14 = (props) => {
                   })
                   .catch(console.error);
               }
+
+              else{
+                window.alert("Your browser does not support video sharing");
+              }
             }}
           >
             {language.page14.saveresultvideo.split("\n").map((item, key) => {
