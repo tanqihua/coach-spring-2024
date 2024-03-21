@@ -64,9 +64,9 @@ export const language = {
   kr: {
     type: "kr",
     page1: {
-      title1: "용기를 찾아라",
-      p1: "각 질문에 답하기 위해 점을 이동하세요.\n퀴즈가 끝나면 당신의 비밀 슈퍼파\n워를 공개합니다.",
-      btn1: "시작하기",
+      title1: "FIND YOUR COURAGE",
+      p1: "다음 질문들에 대해 점을 움직여 답변을 입력\n해주세요. 질문을 모두 답변하시면 당신의 숨겨\n진 슈퍼파워를 알려드립니다.",
+      btn1: "LET’S GO",
     },
     formPage: {
       title1: "시작하기 전에,\n당신에 대해 알려주세요",
@@ -118,3 +118,4 @@ export const language = {
     },
   },
 };
+

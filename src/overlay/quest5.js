@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Wraper } from "./helper";
+import { Wraper , convertRange} from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
 // nav
@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import axios from "axios";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+
+
 const Index = (props) => {
   const { recordGameData } = useSuperfan();
   const { phaserRef } = props;
   const nav = useNavigate();
   let _currentPoint = 11;
+  const {recordQuiz} = useSuperfan();
+
+
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
@@ -196,34 +201,40 @@ const Index = (props) => {
             0
           );
 
+          let t = language.quest5.title1.replaceAll("\n" , " ");
+          let p = convertRange(_currentPoint);
+
+          recordQuiz("5", {
+            question: t,
+            answer: p,
+          });
+
+
           let videoType = null;
           let tagType = null;
+
           if (totalPoint <= 23) {
             videoType = "blackVideo";
-            // T_activist
-            tagType = "/2d/T_activist.png";
+            tagType = "/2d/T_activist";
           } else if (totalPoint <= 23 * 2) {
             videoType = "purpleVideo";
-            // T_visionary
-            tagType = "/2d/T_visionary.png";
+            tagType = "/2d/T_visionary";
           } else if (totalPoint <= 23 * 3) {
             videoType = "yellowVideo";
-            // T_creative
-            tagType = "/2d/T_creative.png";
+            tagType = "/2d/T_creative";
           } else if (totalPoint <= 23 * 4) {
             videoType = "tyeDyeVideo";
-            // T_lover
-            tagType = "/2d/T_lover.png";
+            tagType = "/2d/T_lover";
           } else {
             videoType = "denimVideo";
-            // T_explorer
-            tagType = "/2d/T_explorer.png";
+            tagType = "/2d/T_explorer";
           }
 
           let tt = {
             ...point,
             total: totalPoint,
             videoType: videoType,
+
           };
 
           recordGameData("recordGmaeData", tt);
@@ -231,22 +242,21 @@ const Index = (props) => {
           setInfo({
             bagColor: videoType,
             tagType: tagType,
-            name : info.firstName
           });
 
-          // axios
-          //   .get("https://coachspring-backendhandle.onrender.com", {
-          //     params: {
-          //       name: info.firstName ?? "undefined",
-          //       color: videoType,
-          //     },
-          //   })
-          //   .then((res) => {
-          //     setInfo({
-          //       url: res.data.url,
-          //     });
-          //   })
-          //   .catch((err) => console.log(err));
+          axios
+            .get("https://coachspring-backendhandle.onrender.com", {
+              params: {
+                name: info.firstName ?? "undefined",
+                color: videoType,
+              },
+            })
+            .then((res) => {
+              setInfo({
+                url: res.data.url,
+              });
+            })
+            .catch((err) => console.log(err));
 
           addPoint(_currentPoint, "5");
 

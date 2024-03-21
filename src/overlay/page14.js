@@ -122,7 +122,7 @@ const Page14 = (props) => {
                 lineHeight: "1",
               }}
             >
-              {info?.name.toUpperCase()} < br/>      
+              {info?.name?.toUpperCase() ?? ""} < br/>      
             </h1>
 
             <h2
@@ -141,7 +141,7 @@ const Page14 = (props) => {
               className="imgContainer"
               style={{height : "65%" , margin : "auto" }}
             >
-              <img src={info.tagType} alt="Gift" />
+              <img src={info.tagType + ".png"} alt="Gift" />
             </div>
           </div>
 
