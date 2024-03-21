@@ -4,7 +4,7 @@ import { Button } from "./components";
 import { useStore } from "../store";
 
 const Page14 = (props) => {
-  const { showPage14 } = props;
+  const { showPage14 , loadingVideo} = props;
   const [_showPage14, setShowPage14] = useState(false);
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
     useState(false);
@@ -39,7 +39,11 @@ const Page14 = (props) => {
   };
 
   return (
-    <Wraper style={{ position: "relative" }}>
+    <>
+        <LoadingVideo loadingVideo = {loadingVideo}/>
+
+
+        <Wraper style={{ position: "relative" }}>
       <div
         style={{
           position: "absolute",
@@ -94,14 +98,51 @@ const Page14 = (props) => {
           }}
         >
           <div
-            className="imgContainer"
             style={{
               height: "55svh",
               margin: "auto",
-              boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
+              position: "relative",
+              width : "76svw"
+              // boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
             }}
           >
-            <img src={info?.url ?? "/asset/test.jpg"} alt="Gift" />
+            <div
+              className="imgContainer"
+              style={{height : "8%" , width : "fit-content" , margin : "auto"}}
+            >
+              <img src={"/asset/logo.png"} alt="Gift" />
+            </div>
+
+            <div style={{height : "7%"}}/>
+
+            <h1
+              style={{
+                textAlign: "left",
+                fontSize: "7svh",
+                lineHeight: "1",
+              }}
+            >
+              {info?.name?.toUpperCase() ?? ""} < br/>      
+            </h1>
+
+            <h2
+              style={{
+                textAlign: "left",
+                fontSize: "4svh",
+                lineHeight: "1",
+              }}
+            >
+              YOU ARE A
+            </h2>
+
+            <div style={{height : "3%"}}/>
+
+            <div
+              className="imgContainer"
+              style={{height : "65%" , margin : "auto" }}
+            >
+              <img src={info.tagType + ".png"} alt="Gift" />
+            </div>
           </div>
 
           <div
@@ -172,32 +213,39 @@ const Page14 = (props) => {
             name={"saveVideo"}
             onClick={async () => {
               let video;
-
+              let videoLink;
               switch (info?.bagColor) {
                 case "blackVideo":
                   video = "/Black_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FBlack_FullVideo.mp4?alt=media&token=8e97c325-0e7d-48b8-97af-b50a7611f07d";
                   break;
                 case "purpleVideo":
                   video = "/Purple_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPurple_FullVideo.mp4?alt=media&token=648bfbcc-68a3-49e9-9863-b9416e2e2442";
                   break;
                 case "yellowVideo":
                   video = "/Yellow_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
                   break;
                 case "tyeDyeVideo":
                   video = "/TyeDye_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FTyeDye_FullVideo.mp4?alt=media&token=65ee334b-74d4-46c1-a37f-923a0939bb25"
                   break;
                 case "denimVideo":
                   video = "/Denim_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FDenim_FullVideo.mp4?alt=media&token=e1b11352-49bb-44f0-8144-3fb68e866521"
                   break;
 
                 default:
                   video = "/Yellow_FullVideo.mp4";
+                  videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
                   break;
               }
 
-              var blob = await fetch("/spring_potrait" + video).then((r) =>
-                r.blob()
-              );
+
+              var blob = await fetch(
+                videoLink
+              ).then((r) => r.blob());
               if (navigator.share) {
                 navigator
                   .share({
@@ -231,7 +279,13 @@ const Page14 = (props) => {
           <Button
             backgroundColor="#f4b404"
             name={"shopCollection"}
-            onClick={() => {}}
+            onClick={() => {
+              // https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24
+              window.open(
+                "https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24",
+                "_blank"
+              );
+            }}
           >
             {language.page14.shopcollection.split("\n").map((item, key) => {
               return (
@@ -255,6 +309,7 @@ const Page14 = (props) => {
         />
       </div>
     </Wraper>
+    </>
   );
 };
 
@@ -326,24 +381,24 @@ const PopUp = ({
       </div>
       <div className="block" style={{ height: "6%" }} />
 
-      <h4 style={{ wordSpacing: "0.1rem" }}>
+      <h3 style={{ wordSpacing: "0.1rem" }}>
         HERE’S YOUR <br />
-        TREAT
-      </h4>
+        GIFT
+      </h3>
 
-      <div className="block" style={{ height: "6%" }} />
+      <div className="block" style={{ height: "1%" }} />
 
       <div
         className="imgContainer"
         style={{
-          height: "16svh",
+          height: "28svh",
           margin: "auto",
         }}
       >
-        <img src="/asset/treat1.webp" alt="Activist" />
+        <img src="/2d/tag.png" alt="Activist" />
       </div>
 
-      <div className="block" style={{ height: "12%" }} />
+      <div className="block" style={{ height: "3%" }} />
 
       <h5>
         Don’t tap the button below!
@@ -404,12 +459,16 @@ const PopUp = ({
   );
 };
 
-const LoadingVideo = () => {
+const LoadingVideo = ({loadingVideo}) => {
+  
   return (
     <div
       id="loadingVideo"
       style={{
         position: "absolute",
+        left: 0,
+        top: 0,
+        opacity: loadingVideo ? 1 : 0,
         width: "100svw",
         height: "100svh",
         zIndex: 100,
@@ -418,7 +477,7 @@ const LoadingVideo = () => {
         justifyContent: "center",
         alignItems: "center",
         transition: "0.5s ease-in-out",
-        pointerEvents: "all",
+        pointerEvents: loadingVideo ? "auto" : "none",
       }}
     >
       <div className="dotContainer">
