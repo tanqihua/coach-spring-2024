@@ -122,7 +122,7 @@ const Page14 = (props) => {
                 lineHeight: "1",
               }}
             >
-              {info?.name?.toUpperCase() ?? ""} < br/>      
+              {info?.firstName?.toUpperCase() ?? ""} < br/>      
             </h1>
 
             <h2

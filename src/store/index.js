@@ -10,7 +10,7 @@ export const useStore = create((set) => ({
   info: {
     bagColor: "purpleVideo",
     tagType: "/2d/T_lover.png",
-    name : "test"
+    name : ""
   },
 
   setInfo: (_info) =>
