@@ -4,10 +4,11 @@ import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
-
+import { useSuperfan } from "@pikabobalex/superfan-module";
 const Quest1 = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
+  const {recordQuiz} = useSuperfan();
 
   let _currentPoint = 11;
   const handleSliderChange = (event) => {
@@ -196,6 +197,7 @@ const Quest1 = (props) => {
         onClick={() => {
           addPoint(_currentPoint, "1");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "o");
+
           nav("/quest2");
         }}
       >
