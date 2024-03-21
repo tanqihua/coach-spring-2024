@@ -154,15 +154,36 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             letterSpacing: "0.1rem",
           }}
         >
-          {language.formPage.term}
+
+BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW
+{" "}
+
           <span
             style={{
               textDecoration: "underline",
               fontSize: "0.54rem",
             }}
+            onClick={() => {
+              window.open("https://korea.coach.com/shop/page.html?id=9", "_blank");
+            }}
           >
+            TERMS
+          </span>
+          {" "}
+            &
             {" "}
-            {language.formPage.termLink}
+
+          <span
+            style={{
+              textDecoration: "underline",
+              fontSize: "0.54rem",
+            }}
+
+            onClick={() => {
+              window.open("https://korea.coach.com/shop/page.html?id=8", "_blank");
+            }}
+          >
+            PRIVACY
           </span>
           .
         </p>
@@ -539,7 +560,7 @@ export function TermsKR({ terms = false, setInfo = () => {} }) {
             letterSpacing: "0.1rem",
           }}
         >
-          상기 제공한 정보를 마케팅 목적의 수집 및 이용에 대해 동의합니다.COACH는 고객님의 개인정보를 안전하게 보호하고 있습니다. 고객님의개인정보는 COACH 프로모션 이벤트 안내 및 고객 조사 외에 다흔 목적으로 사용되지 않습니다. 개인정보는 COACH
+          상기 제공한 정보를 마케팅 목적의 수집 및 이용에 대해 동의합니다.COACH는 고객님의 개인정보를 안전하게 보호하고 있습니다. 고객님의개인정보는 COACH 프로모션 이벤트 안내 및 고객 조사 외에 다른 목적으로 사용되지 않습니다. 개인정보는 COACH
           <a style={{
             color: "white",
             fontSize: "inherit",

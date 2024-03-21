@@ -52,7 +52,9 @@ const Quest1 = (props) => {
             color: "#faf3e3",
           }}
         >
-          {language.quest1.title1.split("\n").map((item, key) => {
+          {
+          language.type === "kr" ?
+          language.quest1.title1.split("\n").map((item, key) => {
             return (
               <span
                 key={key}
@@ -64,7 +66,19 @@ const Quest1 = (props) => {
                 <br />
               </span>
             );
-          })}
+          })
+          
+          :
+
+          <>
+            Instead of chatting<br/>
+            one-on-one at parties,<br/> you find a way to bring <br/><span style={{
+              font : "inherit",
+              fontStyle : "italic",
+            }}>everyone</span> together.
+          </>
+          
+          }
         </h1>
       </div>
 
@@ -105,6 +119,7 @@ const Quest1 = (props) => {
                   </span>
                 );
               }) // Add a class for styling
+
             }
           </p>
         </div>
