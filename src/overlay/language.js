@@ -120,7 +120,7 @@ export const language = {
       right: "내가\n선구자다",
     },
     page14: {
-      title1: "성수팝업에서 직접 상품을 교환하기 위해 \n이 페이지를 스크린샷했습니다.",
+      title1: "리워드 수령4월 5일 오픈하는 코치 성수 \n팝업에서 본 페이지의 스크린 샷을 보여주시면 \n특별한 선물을 드립니다. \n(2층 모노그래밍 서비스를 찾아주세요!)",
       redeem: "선물 수령",
       saveresultvideo: "결과 영상 저장",
       shopcollection: "제품 둘러보기",

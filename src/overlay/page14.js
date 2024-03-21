@@ -254,7 +254,7 @@ const Page14 = (props) => {
                 case "blackVideo":
                   video = "/Black_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Black_FullVideo.mp4?alt=media&token=41db27c2-51ba-4903-8bbd-059385df31a4"
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Black_FullVideo.mp4?alt=media&token=8b1a0630-40ee-48be-85b0-0c4fc175510e"
                   }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FBlack_FullVideo.mp4?alt=media&token=8e97c325-0e7d-48b8-97af-b50a7611f07d";
@@ -263,7 +263,7 @@ const Page14 = (props) => {
                 case "purpleVideo":
                   video = "/Purple_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Purple_FullVideo.mp4?alt=media&token=f59fd3b1-a59d-4ba0-90f1-449d262eace1"
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Purple_FullVideo.mp4?alt=media&token=550ed4c5-6009-421d-8d54-3d291e055b7c"
                   }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPurple_FullVideo.mp4?alt=media&token=648bfbcc-68a3-49e9-9863-b9416e2e2442";
@@ -272,7 +272,7 @@ const Page14 = (props) => {
                 case "yellowVideo":
                   video = "/Yellow_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Yellow_FullVideo.mp4?alt=media&token=fe7d6320-fc6a-4ece-b902-855238512990"
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Yellow_FullVideo.mp4?alt=media&token=ab8edb3e-c581-4c69-9d9a-916e080dd90c"
                   }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
@@ -281,7 +281,7 @@ const Page14 = (props) => {
                 case "tyeDyeVideo":
                   video = "/TyeDye_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Tyedye_FullVideo.mp4?alt=media&token=7ad6d70e-976d-4db8-8df6-dc081e608465"
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Tyedye_FullVideo.mp4?alt=media&token=fa6e0324-71c0-441d-b073-22167c1e09b8"
                   }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FTyeDye_FullVideo.mp4?alt=media&token=65ee334b-74d4-46c1-a37f-923a0939bb25"
@@ -290,7 +290,7 @@ const Page14 = (props) => {
                 case "denimVideo":
                   video = "/Denim_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Denim_FullVideo.mp4?alt=media&token=2d9d065f-a896-4130-be57-3f8852d0c5df"
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Denim_FullVideo.mp4?alt=media&token=a27c5af8-43c3-4213-9032-0b622dff1eae"
                   }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FDenim_FullVideo.mp4?alt=media&token=e1b11352-49bb-44f0-8144-3fb68e866521"
@@ -300,8 +300,8 @@ const Page14 = (props) => {
                 default:
                   video = "/Yellow_FullVideo.mp4";
                   if(language.type === "kr"){
-                    videoLink = "https://firebasestorage.googleapis.com/v0/b/superfan-3a794.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Yellow_FullVideo.mp4?alt=media&token=fe7d6320-fc6a-4ece-b902-855238512990"
-                  }
+                    videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FPORTRAIT_KR_EXPORT_Yellow_FullVideo.mp4?alt=media&token=ab8edb3e-c581-4c69-9d9a-916e080dd90c"
+                    }
                   else{
                     videoLink = "https://firebasestorage.googleapis.com/v0/b/testerdemo-888a3.appspot.com/o/coachSpring%2FYellow_FullVideo.mp4?alt=media&token=4a2687f2-d3f8-4384-b3e7-a0ad54463ba6"
                   }
