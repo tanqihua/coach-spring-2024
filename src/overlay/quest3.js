@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Wraper } from "./helper";
+import { Wraper , convertRange} from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
+import { useSuperfan } from "@pikabobalex/superfan-module";
 
 const Index = (props) => {
   const { phaserRef } = props;
   const nav = useNavigate();
   let _currentPoint = 11;
+  const {recordQuiz} = useSuperfan();
+
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
@@ -189,6 +192,15 @@ const Index = (props) => {
         onClick={() => {
           addPoint(_currentPoint, "3");
           phaserRef.current.scene.scenes[1].setNextQuestion("blue", "c");
+          let t = language.quest3.title1.replaceAll("\n" , " ");
+          let p = convertRange(_currentPoint);
+
+          recordQuiz("3", {
+            question: t,
+            answer: p,
+          });
+
+
           nav("/quest4");
         }}
       >

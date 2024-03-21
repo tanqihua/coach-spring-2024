@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Wraper } from "./helper";
+import { Wraper , convertRange} from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
 // nav
@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import axios from "axios";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+
+
 const Index = (props) => {
   const { recordGameData } = useSuperfan();
   const { phaserRef } = props;
   const nav = useNavigate();
   let _currentPoint = 11;
+  const {recordQuiz} = useSuperfan();
+
+
   const handleSliderChange = (event) => {
     let _temp = event.target.value;
     if (_temp >= 20) _temp = 45;
@@ -195,6 +200,15 @@ const Index = (props) => {
             (a, b) => parseInt(a) + parseInt(b),
             0
           );
+
+          let t = language.quest5.title1.replaceAll("\n" , " ");
+          let p = convertRange(_currentPoint);
+
+          recordQuiz("5", {
+            question: t,
+            answer: p,
+          });
+
 
           let videoType = null;
 
