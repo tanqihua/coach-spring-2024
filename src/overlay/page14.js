@@ -117,7 +117,7 @@ const Page14 = (props) => {
 
             <h1
               style={{
-                textAlign: "center",
+                textAlign: "left",
                 fontSize: "7svh",
                 lineHeight: "1",
               }}
@@ -127,7 +127,7 @@ const Page14 = (props) => {
 
             <h2
               style={{
-                textAlign: "center",
+                textAlign: "left",
                 fontSize: "4svh",
                 lineHeight: "1",
               }}
