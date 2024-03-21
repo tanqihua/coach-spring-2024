@@ -80,7 +80,7 @@ const Page14 = (props) => {
         >
           <div
             style={{
-              height: "55svh",
+              height: "50svh",
               margin: "auto",
               position: "relative",
               width : "76svw"
@@ -187,7 +187,7 @@ const Page14 = (props) => {
             }}
           />
 
-          <div className="block" style={{ height: "4svh" }} />
+          <div className="block" style={{ height: "6svh" }} />
           <h4
             style={{
               fontSize : language.type === "kr" ? "1.1rem" : "1.1rem",
