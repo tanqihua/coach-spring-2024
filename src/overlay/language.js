@@ -20,7 +20,7 @@ export const language = {
     quest1: {
       title1:
         "Instead of chatting\none-on-one at parties,\nyou find a way to bring\n everyone together.",
-      left: "Couldn’t\ntbe me",
+      left: "Couldn’t\nbe me",
       right: "Me to a T",
     },
 
@@ -28,7 +28,7 @@ export const language = {
       title1:
         "Do you start your day\nwith a to-do list, or \nleave it open to stay\n open to surprises?",
       left: `Love\na list`,
-      right: `Send me\nsurprise`,
+      right: `Send me\nsurprises`,
     },
 
     quest3: {
@@ -104,7 +104,7 @@ export const language = {
     quest3: {
       title1:
         "여행을 할때 \n나의 모습은?",
-      left: "핫플레이스\n위주로",
+      left: "미리 서칭한\n핫플레이스\n위주로",
       right: "걸음이 닿는\n대로",
     },
     quest4: {
@@ -114,13 +114,12 @@ export const language = {
       right: "그날 느낌에\n따라",
     },
     quest5: {
-      title1:
-        "이미 아는 것을 선호하나\n요? 아니면 새로운 것을 선\n호하나요?",
-      left: "아는 맛이\n좋다",
+      title1:"평소 익숙한 것을 선호하나\n요? 아니면 새로운 것을\n 선호하나요?",
+      left: "익숙한\n것이 좋다",
       right: "내가\n선구자다",
     },
     page14: {
-      title1: "리워드 수령4월 5일 오픈하는 코치 성수 \n팝업에서 본 페이지의 스크린 샷을 보여주시면 \n특별한 선물을 드립니다. \n(2층 모노그래밍 서비스를 찾아주세요!)",
+      title1: "리워드 수령 4월 5일 오픈하는 코치 성수 \n팝업에서 본 페이지의 스크린 샷을 보여주시면 \n특별한 선물을 드립니다. \n(2층 모노그래밍 서비스를 찾아주세요!)",
       redeem: "선물 수령",
       saveresultvideo: "결과 영상 저장",
       shopcollection: "제품 둘러보기",
