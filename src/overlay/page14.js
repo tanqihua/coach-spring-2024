@@ -103,7 +103,7 @@ const Page14 = (props) => {
                 lineHeight: "1.2", // 1
               }}
             >
-              {info[language.type === "kr" ? "name" : "firstName"]?.toUpperCase().slice(0,4) ?? ""} {language.type === "kr" ? "님," : ""} < br/>      
+              {info[language.type === "kr" ? "name" : "firstName"]?.toUpperCase().slice(0,6) ?? ""} {language.type === "kr" ? "님," : ""} < br/>      
             </h1>
 
             <h2
