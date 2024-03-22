@@ -76,7 +76,7 @@ export const language = {
     page1: {
       title1: "FIND YOUR COURAGE",
       p1: "다음 질문들에 대해 점을 움직여 답변을 입력\n해주세요. 질문을 모두 답변하시면 당신의 숨겨\n진 슈퍼파워를 알려드립니다.",
-      btn1: "갑시다",
+      btn1: "LET’S GO",
     },
     formPage: {
       title1: "게임 시작 전 당신에\n대해 알려주세요.",
