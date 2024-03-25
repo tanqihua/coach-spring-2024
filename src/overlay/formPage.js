@@ -38,7 +38,7 @@ const FormPage = (props) => {
           boxShadow: "0 0 1rem rgba(0,0,0,0.2)",
         }}
       >
-        <div className="block" style={{ height: "8%" }} />
+        <div className="block" style={{ height: "12%" }} />
 
         <h2>
           {language.formPage.title1.split("\n").map((item, key) => {
@@ -56,10 +56,10 @@ const FormPage = (props) => {
           })}
         </h2>
 
-        <div className="block" style={{ height: "3%" }} />
+        <div className="block" style={{ height: "5%" }} />
 
         <Input
-          placeholder={language.formPage.firstName}
+          placeholder={"NAME"}
           onChange={(e) => {
             addInfo((prevInfo) => ({
               ...prevInfo,
@@ -67,42 +67,7 @@ const FormPage = (props) => {
             }));
           }}
         />
-        <Input
-          placeholder={language.formPage.lastName}
-          onChange={(e) => {
-            addInfo((prevInfo) => ({
-              ...prevInfo,
-              LASTNAME: e.target.value,
-            }));
-          }}
-        />
-        {/* <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Input
-            placeholder="+61"
-            size="20%"
-            onChange={(e) => {
-              addInfo((prevInfo) => ({
-                ...prevInfo,
-                countryCode: e.target.value,
-              }));
-            }}
-          />
-          <Input
-            placeholder={language.formPage.mobile}
-            size="75%"
-            onChange={(e) => {
-              addInfo((prevInfo) => ({
-                ...prevInfo,
-                MOBILE: e.target.value,
-              }));
-            }}
-          />
-        </div> */}
+
         <Input
           placeholder={language.formPage.email}
           onChange={(e) => {
@@ -123,7 +88,7 @@ const FormPage = (props) => {
           onClick={() => {
             window.scrollTo(0, 0);
             // check if all fields are filled
-            if (info.FIRSTNAME && info.LASTNAME && info.EMAIL && info.terms) {
+            if (info.FIRSTNAME && info.EMAIL && info.terms) {
               // if mobile is not valid
               // if (info.MOBILE.length < 6) {
               //   alert("Please enter a valid mobile number");

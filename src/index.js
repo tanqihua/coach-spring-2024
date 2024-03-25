@@ -23,9 +23,10 @@ const firebaseConfig = {
   measurementId: "G-9MNC1K6CRJ",
 };
 
-const collectionId = "coach-au-spring2024";
+const collectionId = "coach-ae-spring2024";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <>
     <MobileView>
