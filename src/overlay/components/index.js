@@ -72,7 +72,7 @@ export function ButtonRound({
       }}
     >
       <button
-        id={id}
+        id={name}
         style={{
           backgroundColor: "rgba(244, 180, 4, 0.7)",
           color: "#fff",
