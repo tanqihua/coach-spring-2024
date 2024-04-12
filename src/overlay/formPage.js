@@ -1,5 +1,5 @@
 import { Wraper } from "./helper";
-import { Button, ButtonRound, Input, Terms } from "./components";
+import { Button, ButtonRound, Input, Terms , DatePickerBOD} from "./components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
@@ -13,7 +13,8 @@ const FormPage = (props) => {
     EMAIL: null,
     FIRSTNAME: null,
     LASTNAME: null,
-    MOBILE: +61,
+    dob: null,
+    MOBILE: "+971",
     countryCode: null,
     terms: null,
   });
@@ -78,6 +79,16 @@ const FormPage = (props) => {
           }}
         />
 
+        {/* date picker */}
+        <DatePickerBOD
+          onChange={(e) => {
+            addInfo((prevInfo) => ({
+                    ...prevInfo,
+                    dob : e.target.value,
+                  }));
+          }}
+        />
+
         <div className="block" style={{ height: "3%" }} />
         <Terms terms={info?.terms ?? false} setInfo={addInfo} />
 
@@ -88,7 +99,7 @@ const FormPage = (props) => {
           onClick={() => {
             window.scrollTo(0, 0);
             // check if all fields are filled
-            if (info.FIRSTNAME && info.EMAIL && info.terms) {
+            if (info.FIRSTNAME && info.EMAIL && info.terms && info.dob) {
               // if mobile is not valid
               // if (info.MOBILE.length < 6) {
               //   alert("Please enter a valid mobile number");

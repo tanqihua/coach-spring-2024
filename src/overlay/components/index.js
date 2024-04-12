@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useStore } from "../../store";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+import React from "react";
+
 export function Button({
   children,
   id,
@@ -162,7 +164,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             }}
 
             onClick={() => {
-              window.open(" https://coachaustralia.com/footer-content/terms.html", "_blank");
+              window.open("https://bloomingdales.ae/terms-of-use.html", "_blank");
             }}
           >
             {" "}
@@ -185,7 +187,7 @@ export function Terms({ terms = false, setInfo = () => {} }) {
             }}
 
             onClick={() => {
-              window.open("https://coachaustralia.com/footer-content/privacy-policy.html", "_blank");
+              window.open("https://bloomingdales.ae/privacy.html", "_blank");
             }}
           >
             {" "}
@@ -230,6 +232,78 @@ export function Input({
     />
   );
 }
+
+export function DatePickerBOD({
+  size = "100%",
+  onChange,
+}) {
+  const inputRef = React.useRef(null);
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: size,
+        height : "fit-content"
+      }}
+    >
+      <input
+        type="text"
+        placeholder="DD / MM / YYYY"
+        style={{
+          textAlign: "center",
+          fontFamily: "HelveticaLTPro-Bold",
+          fontSize: "1rem",
+          color: "black",
+          border: "none",
+          backgroundColor: "white",
+          width: size,
+          padding: "0.9rem",
+          paddingTop: "1rem",
+          margin: "0.5rem 0",
+          borderRadius: "0",
+        }}
+        ref={inputRef}
+      />
+      <input
+        type="date"
+        // show dd/mm/yyyy
+        placeholder="dd/mm/yyyy"
+        // but safari not showing placeholder
+        className="datePicker"
+
+        defaultValue={new Date().toISOString().split("T")[0]}
+
+        style={{
+          width : "100%",
+          opacity : 0,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          fontFamily: "HelveticaLTPro-Bold",
+          fontSize: "1rem",
+          color: "black",
+          border: "none",
+          backgroundColor: "white",
+          width: size,
+          padding: "0.9rem",
+          paddingTop: "1rem",
+          margin: "0.5rem 0",
+          borderRadius: "0",
+        }}
+
+        onChange={(e) => {
+          e.preventDefault();
+          console.log(e.target.value);
+          let _value = e.target.value.split("-");
+          let _date = `${_value[2] + " "}/${" " + _value[1] + " "}/${" " + _value[0]}`;
+          inputRef.current.value = _date;
+          onChange(e);
+        }}
+      />
+    </div>
+  );
+}
+
 
 export function AgeRange({ onChange }) {
   return (

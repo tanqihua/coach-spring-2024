@@ -282,7 +282,7 @@ const Page14 = (props) => {
             onClick={() => {
               // https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24
               window.open(
-                "https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24",
+                "https://bloomingdales.ae/coach/",
                 "_blank"
               );
             }}

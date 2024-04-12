@@ -106,3 +106,25 @@ input[type="text"]::-webkit-input-placeholder {
     transform: translateY(-10px);
   }
 }
+
+
+.datePicker{
+  -webkit-appearance: none;
+}
+
+.datePicker::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+
+.datePicker::placeholder {
+  font-family: "HelveticaLTPro-Bold";
+  text-align: center;
+}
+
+/* change font for date picker*/
+input[type="date"] {
+  font-family: "HelveticaLTPro-Bold";
+}
+
+/* text align for input date */
