@@ -32,10 +32,10 @@ export class Bootstrap extends Phaser.Scene {
       frameHeight: 400,
     });
 
-    this.load.spritesheet("r", "/2d/r.webp", {
-      frameWidth: 400,
-      frameHeight: 400,
-    });
+    // this.load.spritesheet("r", "/2d/r.webp", {
+    //   frameWidth: 400,
+    //   frameHeight: 400,
+    // });
 
     this.load.spritesheet("realyou", "/2d/realyou.webp", {
       frameWidth: 400,

@@ -12,6 +12,7 @@ import {
 } from "react-device-detect";
 import { DesktopBlock } from "./overlay/components";
 import { SuperfanProvider } from "@pikabobalex/superfan-module";
+import { HelmetProvider , Helmet } from "react-helmet-async";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvOLqEkE3S0K6NKMW6vIO5MjVdxJ4k0Zw",
@@ -29,27 +30,33 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <MobileView>
-      <SuperfanProvider
-        firebaseConfig={firebaseConfig}
-        collection={collectionId}
-        isDev={false}
-      >
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </SuperfanProvider>
+      <HelmetProvider>
+          <Helmet>
+            {/* csp */}
+            <meta
+              http-equiv="Content-Security-Policy"
+              content="
+                default-src 'self' https://firebase.googleapis.com;
+                img-src 'self' data: blob:;
+                connect-src 'self' https://firebasestorage.googleapis.com https://firestore.googleapis.com https://firebase.googleapis.com https://www.google-analytics.com;
+                script-src-elem 'self' https://www.googletagmanager.com;
+              "
+              />
+          </Helmet>
+          <SuperfanProvider
+            firebaseConfig={firebaseConfig}
+            collection={collectionId}
+            isDev={false}
+          >
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+          </SuperfanProvider>
+      </HelmetProvider>
     </MobileView>
 
     <BrowserView>
-      <SuperfanProvider
-        firebaseConfig={firebaseConfig}
-        collection={collectionId}
-        isDev={false}
-      >
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </SuperfanProvider>
+      <DesktopBlock/>
     </BrowserView>
   </>
 );
