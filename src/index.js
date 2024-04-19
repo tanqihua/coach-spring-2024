@@ -31,30 +31,6 @@ root.render(
   <>
     <MobileView>
       <HelmetProvider>
-          <Helmet>
-            {/* csp */}
-            <meta
-              http-equiv="Content-Security-Policy"
-              content="
-                default-src 'self' https://firebase.googleapis.com;
-                img-src 'self' data: blob:;
-                connect-src 'self' https://firebasestorage.googleapis.com https://firestore.googleapis.com https://firebase.googleapis.com https://www.google-analytics.com;
-                script-src-elem 'self' https://www.googletagmanager.com;
-              "
-              />
-
-              {/* Strict-Transport-Security: max-age=63072000 */}
-              <meta http-equiv="Strict-Transport-Security" content="max-age=63072000" />
-
-              {/* X-Content-Type-Options: nosniff */}
-              <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-
-              {/* X-Frame-Options: DENY */}
-              <meta http-equiv="X-Frame-Options" content="DENY" />
-
-              {/* X-XSS-Protection: 1; mode=block */}
-              <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-          </Helmet>
           <SuperfanProvider
             firebaseConfig={firebaseConfig}
             collection={collectionId}
