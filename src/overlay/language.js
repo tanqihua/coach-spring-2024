@@ -117,5 +117,62 @@ export const language = {
       shopcollection: "쇼핑 컬렉션",
     },
   },
+
+  cn: {
+    type: "cn",
+    page1: {
+      title1: "展開勇氣旅程",
+      p1: "請移動圓點來回答問題。測驗結束後，\n我們會揭曉你的隱藏超能力！",
+      btn1: "LET’S GO",
+    },
+    formPage: {
+      title1: "開始之前，請讓我們更認識你！",
+      firstName: "姓氏",
+      lastName: "名字",
+      mobile: "手機號碼",
+      email: "電子信箱",
+      term: "BY SUBMITTING THIS FORM, YOU AGREE TO RECEIVE RECURRING AUTOMATED PROMOTIONAL AND PERSONALIZED MARKETING TEXT MESSAGES (E.G. CART REMINDERS) FROM COACH AT THE CELL NUMBER USED WHEN SIGNING UP. CONSENT IS NOT A CONDITION OF ANY PURCHASE. REPLY HELP FOR HELP AND STOP TO CANCEL. MSG FREQUENCY VARIES. MSG AND DATA RATES MAY APPLY. VIEW",
+      termLink: "TERMS",
+      and : "&",
+      privacyLink : "PRIVACY.",
+      btn1: "NEXT",
+    },
+    quest1: {
+      title1:
+        "參加聚會時，與其一對一\n聊天，你會想辦法讓大家\n聚在一起聊。",
+      left: "這個人絕對\n不會是我",
+      right: "完全是我會\n做的事",
+    },
+    quest2: {
+      title1:
+        "每天早上，你會事先\n列出當天的待辦事項，\n還是隨心所欲、隨時準備\n迎接驚喜？",
+      left: "列出清單\n是一定要的",
+      right: "我最\n愛驚喜了",
+    },
+    quest3: {
+      title1:
+        "你喜歡去社群平台\n上熱門的景點旅行，還是\n喜歡隨興在地圖上伸手一\n比、指到哪就去哪？",
+      left: "當然是\n社群討論度\n高的景點",
+      right: "地圖拿來！",
+    },
+    quest4: {
+      title1:
+        "參加聚會活動前，\n 你會多次確認衣著規定，\n還是憑直覺挑選合適\n的服裝？",
+      left: "遵守規範",
+      right: "跟著感覺走",
+    },
+    quest5: {
+      title1:
+        "你喜歡固守自己熟悉\n並擅長的事物，\n還是探索未知的領域？",
+      left: "堅守已知",
+      right: "探索未知",
+    },
+    page14: {
+      title1: "點擊領取專屬禮遇",
+      redeem: "即刻領取",
+      saveresultvideo: "儲存心測結果",
+      shopcollection: "探索本季新品",
+    },
+  },
 };
 

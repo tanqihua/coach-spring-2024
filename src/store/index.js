@@ -21,7 +21,7 @@ export const useStore = create((set) => ({
   playAnimation: false,
   setplayAnimation: (value) => set({ playAnimation: value }),
 
-  language: language["en"],
+  language: language["cn"],
 
   setLanguage: (lan) => set({ language: language[lan] }),
 }));

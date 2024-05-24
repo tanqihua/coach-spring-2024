@@ -212,6 +212,7 @@ const LanguageContainer = (props) => {
         >
           <option value="en">ENG</option>
           <option value="kr">한국어</option>
+          <option value="cn">中文</option>
         </select>
       </div>
     </div>
