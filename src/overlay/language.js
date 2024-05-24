@@ -132,6 +132,6 @@ export const language = {
       confirmedText: "수령 완료",
 
     },
-  },
+  }
 };
 

@@ -16,7 +16,6 @@ import {
 } from "./overlay";
 import { useStore } from "./store";
 import { LegerLine, PreloadingPage } from "./overlay/components";
-import { Helmet } from "react-helmet-async";
 
 function App() {
   const phaserRef = useRef(null);
@@ -29,9 +28,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-
       <PhaserScene ref={phaserRef} />
-      {/* <THREESCENE /> */}
         <Routes>
           <Route path="/" element={<Page1 phaserRef={phaserRef} />} />
           <Route path="/formpage" element={<FormPage phaserRef={phaserRef} />} />
