@@ -141,7 +141,7 @@ const Page14 = (props) => {
               className="imgContainer"
               style={{height : "65%" , margin : "auto" , marginTop : "-2svh" }}
             >
-              <img src={info.tagType + ".png"} alt="Gift" />
+              <img src={info.tagType + ".webp"} alt="Gift" />
             </div>
           </div>
 
