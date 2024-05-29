@@ -403,7 +403,7 @@ export const DesktopBlock = () => {
         }}
       >
         <img
-          src="/2d/QR.jpg"
+          src="/2d/TW_-_Coach_Spring.png"
           style={{
             height: "100%",
           }}
