@@ -42,6 +42,11 @@ input[type="text"]::-webkit-input-placeholder {
   font-family: "HelveticaLTPro-Roman";
 }
 
+input[type="number"]::-webkit-input-placeholder {
+  color: #c4c4c4;
+  font-family: "HelveticaLTPro-Roman";
+}
+
 .fade-enter {
   opacity: 0.01;
 }

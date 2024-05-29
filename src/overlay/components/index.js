@@ -507,3 +507,75 @@ export const PreloadingPage = ({ preload = false }) => {
     </div>
   );
 };
+
+
+export function InputMobile({
+  placeholder = "FIRST NAME",
+  size = "100%",
+  type = "text",
+  maxLength = 4,
+  countryCode,
+  addInfo,
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <input
+        placeholder={countryCode}
+        name={countryCode}
+        type={"number"}        
+        style={{
+          textAlign: "center",
+          fontFamily: "HelveticaLTPro-Bold",
+          fontSize: "1rem",
+          color: "black",
+          border: "none",
+          backgroundColor: "white",
+          width: size,
+          padding: "0.9rem",
+          paddingTop: "1rem",
+          margin: "0.5rem 0",
+          borderRadius: "0",
+          width: "25%",
+        }}
+        onChange={(e)=>{
+          addInfo((prevInfo) => ({
+            ...prevInfo,
+            countryCode: e.target.value,
+          }));
+        }}
+      />
+
+      <input
+        placeholder={"手機號碼"}
+        type={"number"}
+        name={"手機號碼"}
+        
+        style={{
+          textAlign: "center",
+          fontFamily: "HelveticaLTPro-Bold",
+          fontSize: "1rem",
+          color: "black",
+          border: "none",
+          backgroundColor: "white",
+          width: size,
+          padding: "0.9rem",
+          paddingTop: "1rem",
+          margin: "0.5rem 0",
+          borderRadius: "0",
+          width: "70%",
+        }}
+        onChange={(e)=>{
+          addInfo((prevInfo) => ({
+            ...prevInfo,
+            MOBILE: e.target.value,
+          }));
+        }}
+      />
+    </div>
+  );
+}

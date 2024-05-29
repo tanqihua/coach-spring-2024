@@ -263,7 +263,7 @@ const Page14 = (props) => {
             onClick={() => {
               // https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24
               window.open(
-                "https://coachaustralia.com/catalog/new/featured/quilted-leather/?start=0&sz=24",
+                "https://taiwan.coach.com/spring/tabby.html",
                 "_blank"
               );
             }}

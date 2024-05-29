@@ -1,5 +1,5 @@
 import { Wraper } from "./helper";
-import { Button, ButtonRound, Input, Terms } from "./components";
+import { Button, ButtonRound, Input, Terms , InputMobile} from "./components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
@@ -28,8 +28,8 @@ const FormPage = (props) => {
     EMAIL: null,
     FIRSTNAME: null,
     LASTNAME: null,
-    MOBILE: +61,
-    countryCode: null,
+    MOBILE: null,
+    countryCode: "+886",
     terms: null,
     code : null,
   });
@@ -98,33 +98,7 @@ const FormPage = (props) => {
             }));
           }}
         />
-        {/* <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Input
-            placeholder="+61"
-            size="20%"
-            onChange={(e) => {
-              addInfo((prevInfo) => ({
-                ...prevInfo,
-                countryCode: e.target.value,
-              }));
-            }}
-          />
-          <Input
-            placeholder={language.formPage.mobile}
-            size="75%"
-            onChange={(e) => {
-              addInfo((prevInfo) => ({
-                ...prevInfo,
-                MOBILE: e.target.value,
-              }));
-            }}
-          />
-        </div> */}
+
         <Input
           placeholder={language.formPage.email}
           onChange={(e) => {
@@ -134,6 +108,8 @@ const FormPage = (props) => {
             }));
           }}
         />
+
+        <InputMobile countryCode = {info?.countryCode} addInfo = {addInfo}/>
 
         <div className="block" style={{ height: "3%" }} />
         <Terms terms={info?.terms ?? false} setInfo={addInfo} />
