@@ -88,7 +88,7 @@ const Page14 = (props) => {
           backgroundPosition: "center",
         }}
       >
-        <div className="block" style={{ height: "6svh" }} />
+        <div className="block" style={{ height: "3svh" }} />
         <div
           className="redeemContainer"
           style={{
@@ -99,7 +99,7 @@ const Page14 = (props) => {
         >
           <div
             style={{
-              height: "55svh",
+              height: "48svh",
               margin: "auto",
               position: "relative",
               width : "76svw"
@@ -132,14 +132,14 @@ const Page14 = (props) => {
                 lineHeight: "1",
               }}
             >
-              YOU ARE A
+              你是一位
             </h2>
 
             <div style={{height : "3%"}}/>
 
             <div
               className="imgContainer"
-              style={{height : "65%" , margin : "auto" }}
+              style={{height : "65%" , margin : "auto" , marginTop : "-2svh" }}
             >
               <img src={info.tagType + ".png"} alt="Gift" />
             </div>
@@ -159,55 +159,36 @@ const Page14 = (props) => {
             }}
           />
 
-          <div className="block" style={{ height: "4svh" }} />
+          <div className="block" style={{ height: "2svh" }} />
+          <h5
+            style={{
+              color : "#A64C02",
+              lineHeight: "1.2",
+            }}
+          >
+            官網結帳輸入:<br/>
+            {info?.code ?? ""}
+          </h5>
+          <div className="block" style={{ height: "2svh" }} />
           <h4>
-            {language.page14.title1.split("\n").map((item, key) => {
-              return (
-                <span
-                  key={key}
-                  style={{
-                    fontSize: "inherit",
-                  }}
-                >
-                  {item}
-                  <br />
-                </span>
-              );
-            })}
+            點擊領取專屬禮遇
           </h4>
           <div className="block" style={{ height: "2svh" }} />
-          <Button
-            name={"redeem"}
-            backgroundColor="#6da5e2"
-            onClick={handleRedeemButtonClick}
+
+          <p
+            style={{
+              fontSize : "0.rem",
+              lineHeight: "1.5",
+            }}
           >
-            {language.page14.redeem.split("\n").map((item, key) => {
-              return (
-                <span
-                  key={key}
-                  style={{
-                    fontSize: "inherit",
-                  }}
-                >
-                  {item}
-                  <br />
-                </span>
-              );
-            })}
-            <div
-              className="imgContainer"
-              style={{
-                height: "2.5svh",
-                margin: "auto",
-                position: "absolute",
-                top: "50%",
-                right: "5%",
-                transform: "translate(-55%,-55%)",
-              }}
-            >
-              <img src="/asset/gift_icon.png" />
-            </div>
-          </Button>
+            1. 兌換/使用期間 : 即日起至YYYY年MM月DD日​<br/>
+            2. 香水、皮件護理產品、數位印製、維修服務及部分商品不適用。<br/>
+            3. 每位會員限使用乙次，單筆消費不可與其他優惠活動併用​<br/>
+            4. 主辦單位保留最終修改活動內容之權利
+          </p>
+
+          <div className="block" style={{ height: "2svh" }} />
+
           <Button
             backgroundColor="#f4b404"
             name={"saveVideo"}

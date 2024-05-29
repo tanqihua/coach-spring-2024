@@ -4,6 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
 import { useSuperfan } from "@pikabobalex/superfan-module";
+function formatDate(date) {
+  let day = date.getDate();
+  let month = date.getMonth() + 1; // Months are zero-based
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  // Pad with leading zeros if necessary
+  day = day < 10 ? '0' + day : day;
+  month = month < 10 ? '0' + month : month;
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+
+  return '' + day + month + hours + minutes;
+}
+
 const FormPage = (props) => {
   const { phaserRef } = props;
   const { submitForm } = useSuperfan();
@@ -16,6 +31,7 @@ const FormPage = (props) => {
     MOBILE: +61,
     countryCode: null,
     terms: null,
+    code : null,
   });
 
   return (
@@ -61,10 +77,16 @@ const FormPage = (props) => {
         <Input
           placeholder={language.formPage.firstName}
           onChange={(e) => {
+            let date = new Date();
             addInfo((prevInfo) => ({
               ...prevInfo,
               FIRSTNAME: e.target.value,
+              code: e.target.value.slice(0, 3) + formatDate(date)
             }));
+
+            setInfo({
+              code: e.target.value.slice(0, 3) + formatDate(date)
+            });
           }}
         />
         <Input

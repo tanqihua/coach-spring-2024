@@ -126,7 +126,7 @@ export const language = {
       btn1: "LET’S GO",
     },
     formPage: {
-      title1: "開始之前，請讓我們更認識你！",
+      title1: "開始之前，請讓我們\n更認識你！",
       firstName: "姓氏",
       lastName: "名字",
       mobile: "手機號碼",

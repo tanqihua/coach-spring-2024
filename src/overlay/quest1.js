@@ -48,7 +48,7 @@ const Quest1 = (props) => {
         <h1
           style={{
             wordSpacing: "0.1rem",
-            lineHeight: "1.95rem",
+            lineHeight: "1.3",
             color: "#faf3e3",
           }}
         >
