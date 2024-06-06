@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useStore } from "../store";
 import * as THREE from "three";
 import { Environment, OrbitControls, useTexture } from "@react-three/drei";
+
 import { motion } from "framer-motion";
 const THREESCENE = React.forwardRef((props, ref) => {
   const { playAnimation, setplayAnimation } = useStore();

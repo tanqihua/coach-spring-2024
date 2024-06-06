@@ -3,7 +3,7 @@ import { Button, ButtonRound, Input, Terms , InputMobile} from "./components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../context";
 function formatDate(date) {
   let day = date.getDate();
   let month = date.getMonth() + 1; // Months are zero-based
@@ -21,7 +21,7 @@ function formatDate(date) {
 
 const FormPage = (props) => {
   const { phaserRef } = props;
-  const { submitForm } = useSuperfan();
+  const { submitForm , recordCustomKey} = useSuperfan();
   const nav = useNavigate();
   const { setInfo, setplayAnimation, language } = useStore();
   const [info, addInfo] = useState({
@@ -131,9 +131,11 @@ const FormPage = (props) => {
               window.FIRSTNAME = info.FIRSTNAME;
               setInfo({
                 firstName: info.FIRSTNAME,
+                email: info.EMAIL,
               });
 
               submitForm(info);
+              recordCustomKey("email" , info.EMAIL);
               // setplayAnimation(true);
               phaserRef.current.scene.scenes[2].scene.start("quests");
               nav("/quest1");

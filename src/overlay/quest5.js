@@ -6,7 +6,7 @@ import Quest from "./quest";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import axios from "axios";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../context";
 
 
 const Index = (props) => {

@@ -11,7 +11,7 @@ import {
   isMobile,
 } from "react-device-detect";
 import { DesktopBlock } from "./overlay/components";
-import { SuperfanProvider } from "@pikabobalex/superfan-module";
+import { SuperfanProvider } from "./context";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvOLqEkE3S0K6NKMW6vIO5MjVdxJ4k0Zw",

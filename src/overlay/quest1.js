@@ -4,7 +4,7 @@ import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../context";
 const Quest1 = (props) => {
   const { phaserRef } = props;
   const {recordQuiz} = useSuperfan();
