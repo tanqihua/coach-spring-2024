@@ -342,7 +342,7 @@ const Page14 = (props) => {
         <PopUp
           isPrizeContainerVisible={isPrizeContainerVisible}
           setPrizeContainerVisibility={setPrizeContainerVisibility}
-          imgsrc = {info.tagType + ".webp"}
+          imgsrc = {"/2d/gift.png"}
         />
       </div>
     </Wraper>
