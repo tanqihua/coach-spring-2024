@@ -221,7 +221,7 @@ const Page14 = (props) => {
                     fontSize: "inherit",
                   }}
                 >
-                  {isRedeemed ? "REDEEMED" : item}
+                  {isRedeemed ? "已兌換" : item}
                   <br />
                 </span>
               );
@@ -378,6 +378,20 @@ const PopUp = ({
     }
   };
 
+  const convert = (text)=>{
+    switch (text) {
+      case "STAFF REDEEM":
+        return "店鋪核銷 ";
+      case "CONFIRM":
+        return "確認兌換";
+      case "REDEEMED":
+        return "已兌換 ";
+      default:
+        return "已兌換 ";
+        break;
+    }
+  }
+
   useEffect(() => {
     if (buttonText === "REDEEMED") {
       const newTime = new Date();
@@ -440,9 +454,8 @@ const PopUp = ({
       <div className="block" style={{ height: "3%" }} />
 
       <h5>
-        Don’t tap the button below!
-        <br />
-        Present it to staff to redeem.
+        兌換好禮前，請主動出示此畫面，<br/>
+        由Coach專櫃同仁協助核銷 
       </h5>
 
       <div className="block" style={{ height: "3%" }} />
@@ -460,7 +473,7 @@ const PopUp = ({
           }
         }}
       >
-        {buttonText}
+        {convert(buttonText)}
       </Button>
 
       <div className="block" style={{ height: "3%" }} />
