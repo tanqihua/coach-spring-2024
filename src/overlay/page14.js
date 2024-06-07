@@ -45,9 +45,16 @@ const Page14 = (props) => {
   };
 
   useEffect(() => {
-    if(checkIsClaim(info?.email)){
-      setIsRedeemed(true);
+
+    const main = async () => {
+      let res = await checkIsClaim(info?.email);
+      if(res){
+        setIsRedeemed(true);
+      }
     }
+
+    main();
+
   }, []);
 
   return (
@@ -215,7 +222,7 @@ const Page14 = (props) => {
                     fontSize: "inherit",
                   }}
                 >
-                  {item}
+                  {isRedeemed ? "REDEEMED" : item}
                   <br />
                 </span>
               );

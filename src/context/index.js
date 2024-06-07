@@ -172,6 +172,7 @@ export function SuperfanProvider({ ...props }) {
     const _q = query(col(db, collection), where("dataCollection.EMAIL", "==", email));
     let data = await getDocs(_q);
     let _ = data.docs.map(doc => doc.data());
+    console.log(_);
     return _[0]?.isRedeemed || false;
     }
 
