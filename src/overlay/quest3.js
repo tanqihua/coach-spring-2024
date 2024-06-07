@@ -5,7 +5,7 @@ import Quest from "./quest";
 // nav
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../context";
 
 const Index = (props) => {
   const { phaserRef } = props;

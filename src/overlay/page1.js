@@ -2,9 +2,14 @@ import { Wraper } from "./helper";
 import { Button, ButtonRound } from "./components";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
+import { useEffect } from "react";
+import { collectionGroup, query, where, getDocs , getFirestore} from "firebase/firestore";  
+import { useSuperfan } from "../context";
+
 const Page1 = (props) => {
   const { phaserRef } = props;
   const { setplayAnimation, language } = useStore();
+  const { app } = useSuperfan(); 
   const nav = useNavigate();
 
   return (

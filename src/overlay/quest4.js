@@ -3,7 +3,7 @@ import { Wraper , convertRange} from "./helper";
 import { Button } from "./components";
 import Quest from "./quest";
 import { useStore } from "../store";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../context";
 
 // nav
 import { useNavigate } from "react-router-dom";

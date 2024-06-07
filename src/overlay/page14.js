@@ -1,13 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { Wraper } from "./helper";
 import { Button } from "./components";
 import { useStore } from "../store";
+import { useSuperfan } from "../context";
 
 const Page14 = (props) => {
   const { showPage14 , loadingVideo} = props;
   const [_showPage14, setShowPage14] = useState(false);
+  const [isRedeemed, setIsRedeemed] = useState(false);
   const [isPrizeContainerVisible, setPrizeContainerVisibility] =
     useState(false);
+
+  const { recordCustomKey , checkIsClaim} = useSuperfan();
+
 
   const handleRedeemButtonClick = () => {
     // Add logic here to handle redeeming
@@ -19,6 +24,7 @@ const Page14 = (props) => {
   const handleSaveVideoClick = () => {
     handleShare();
   };
+
 
   const handleShare = () => {
     // Check if the navigator.share API is available
@@ -37,6 +43,12 @@ const Page14 = (props) => {
       console.log("navigator.share not supported. Implement custom sharing.");
     }
   };
+
+  useEffect(() => {
+    if(checkIsClaim(info?.email)){
+      setIsRedeemed(true);
+    }
+  }, []);
 
   return (
     <>
@@ -139,7 +151,7 @@ const Page14 = (props) => {
 
             <div
               className="imgContainer"
-              style={{height : "65%" , margin : "auto" , marginTop : "-2svh" }}
+              style={{height : "55%" , margin : "auto" , marginTop : "-2svh" }}
             >
               <img src={info.tagType + ".webp"} alt="Gift" />
             </div>
@@ -159,17 +171,6 @@ const Page14 = (props) => {
             }}
           />
 
-          <div className="block" style={{ height: "2svh" }} />
-          <h5
-            style={{
-              color : "#A64C02",
-              lineHeight: "1.2",
-            }}
-          >
-            官網結帳輸入:<br/>
-            {info?.code ?? ""}
-          </h5>
-          <div className="block" style={{ height: "2svh" }} />
           <h4>
             點擊領取專屬禮遇
           </h4>
@@ -188,6 +189,54 @@ const Page14 = (props) => {
           </p>
 
           <div className="block" style={{ height: "2svh" }} />
+
+          <Button
+            name={"redeem"}
+            backgroundColor= {isRedeemed ? "#9b9696" : "#6da5e2"}
+            onClick={(e)=>{
+              if(isRedeemed) return;
+              handleRedeemButtonClick(e);
+            }}
+            style={{
+              paddingTop: "0.8rem",
+            }}
+          >
+            <p
+            style={{
+              fontSize : "0.rem",
+              lineHeight: "1.5",
+            }}
+            >
+              {language.page14.redeem.split("\n").map((item, key) => {
+              return (
+                <span
+                  key={key}
+                  style={{
+                    fontSize: "inherit",
+                  }}
+                >
+                  {item}
+                  <br />
+                </span>
+              );
+            })}
+            </p>
+
+            <div
+              className="imgContainer"
+              style={{
+                height: "2.5svh",
+                margin: "auto",
+                position: "absolute",
+                top: "50%",
+                right: "5%",
+                transform: "translate(-55%,-55%)",
+              }}
+            >
+              <img src="/asset/gift_icon.png" />
+            </div>
+
+          </Button>
 
           <Button
             backgroundColor="#f4b404"
@@ -287,6 +336,7 @@ const Page14 = (props) => {
         <PopUp
           isPrizeContainerVisible={isPrizeContainerVisible}
           setPrizeContainerVisibility={setPrizeContainerVisibility}
+          imgsrc = {info.tagType + ".webp"}
         />
       </div>
     </Wraper>
@@ -297,10 +347,13 @@ const Page14 = (props) => {
 const PopUp = ({
   isPrizeContainerVisible = false,
   setPrizeContainerVisibility,
+  imgsrc
 }) => {
+  const { recordCustomKey , checkIsClaim} = useSuperfan();
   const [buttonText, setButtonText] = useState("STAFF REDEEM");
   const [buttonBackgroundColor, setButtonBackgroundColor] = useState("#1eae35");
   const [redeemTime, setRedeemTime] = useState(new Date());
+  const { info, language } = useStore();
 
   const handleStaffRedeemClick = () => {
     switch (buttonText) {
@@ -363,8 +416,7 @@ const PopUp = ({
       <div className="block" style={{ height: "6%" }} />
 
       <h3 style={{ wordSpacing: "0.1rem" }}>
-        HERE’S YOUR <br />
-        GIFT
+        你的專屬好禮
       </h3>
 
       <div className="block" style={{ height: "1%" }} />
@@ -376,7 +428,7 @@ const PopUp = ({
           margin: "auto",
         }}
       >
-        <img src="/2d/tag.png" alt="Activist" />
+        <img src={imgsrc} alt="Activist" />
       </div>
 
       <div className="block" style={{ height: "3%" }} />
@@ -396,6 +448,7 @@ const PopUp = ({
         onClick={() => {
           handleStaffRedeemClick();
           if (buttonText === "CONFIRM") {
+            recordCustomKey("isRedeemed", true);
           } else if (buttonText === "REDEEMED") {
             setPrizeContainerVisibility(false);
           }

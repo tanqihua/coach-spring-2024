@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useStore } from "../../store";
-import { useSuperfan } from "@pikabobalex/superfan-module";
+import { useSuperfan } from "../../context";
+
 export function Button({
   children,
   id,
