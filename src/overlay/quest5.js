@@ -264,7 +264,7 @@ const Index = (props) => {
           nav("/page14");
         }}
       >
-        GET RESULTS
+        揭曉心測結果 
       </Button>
     </Quest>
   );

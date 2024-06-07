@@ -219,7 +219,7 @@ const Quest1 = (props) => {
           nav("/quest2");
         }}
       >
-        NEXT QUESTION
+        第1/5題 
       </Button>
     </Quest>
   );

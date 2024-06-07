@@ -205,7 +205,7 @@ const Index = (props) => {
           nav("/quest5");
         }}
       >
-        NEXT QUESTION
+        第4/5題 
       </Button>
     </Quest>
   );

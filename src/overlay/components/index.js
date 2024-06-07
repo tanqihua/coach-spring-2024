@@ -11,7 +11,7 @@ export function Button({
   width = "25svh",
   height = "5.5svh",
   backgroundColor = "transparent",
-  fontSize = "1.8svh",
+  fontSize = "1.215rem",
   borderRadius = "4px",
   name = null,
   style = {},
@@ -42,6 +42,7 @@ export function Button({
           fontFamily: "HelveticaLTPro-Bold",
           lineHeight: "1",
           position: "relative",
+          letterSpacing : "0.15rem",
           ...style,
         }}
         onClick={() => {

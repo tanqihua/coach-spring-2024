@@ -203,7 +203,7 @@ const Index = (props) => {
           nav("/quest3");
         }}
       >
-        NEXT QUESTION
+        第2/5題 
       </Button>
     </Quest>
   );
