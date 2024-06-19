@@ -193,16 +193,16 @@ const Page14 = (props) => {
           <h5
             style={{
               color : "#A64C02",
-              fontSize: "1.5rem",
+              fontSize: "1.8rem",
             }}
           >
             專屬禮遇 NT$800 購物金<br/>
-            <span style={{fontSize : "1rem"}}>官網結帳輸入【REALYOU800】</span>
+            <span style={{fontSize : "1.3rem"}}>官網結帳輸入【REALYOU800】</span>
           </h5>
           <div className="block" style={{ height: "1.5svh" }} />
           <p
             style={{
-              fontSize : "0.8rem",
+              fontSize : "0.9rem",
               lineHeight: "1.5",
               letterSpacing: "0.05rem",
             }}
