@@ -178,71 +178,43 @@ const Page14 = (props) => {
             }}
           />
 
-          <h4>
-            點擊領取專屬禮遇
-          </h4>
-          <div className="block" style={{ height: "2svh" }} />
-          <p
+          <div
+              className="imgContainer"
+              style={{
+                height: "3.5svh",
+                margin: "auto",
+                marginTop: "-3svh",
+              }}
+            >
+              <img src="/Gift.webp" />
+          </div>
+          <div className="block" style={{ height: "1.5svh" }} />
+
+          <h5
             style={{
-              fontSize : "0.rem",
-              lineHeight: "1.5",
+              color : "#A64C02",
+              fontSize: "1.5rem",
             }}
           >
-            1. 兌換期間 : 即日起至YYYY年MM月DD日​​<br/>
-            2. 香水、皮件護理產品、數位印製、維修服務及部分商品不適用<br/>
-            3. 每位會員限使用乙次，單筆消費不可與其他優惠活動併用​<br/>
-            4. 主辦單位保留最終修改活動內容之權利
+            專屬禮遇 NT$800 購物金<br/>
+            <span style={{fontSize : "1rem"}}>官網結帳輸入【REALYOU800】</span>
+          </h5>
+          <div className="block" style={{ height: "1.5svh" }} />
+          <p
+            style={{
+              fontSize : "0.8rem",
+              lineHeight: "1.5",
+              letterSpacing: "0.05rem",
+            }}
+          >
+            1. 兌換期間：即日起至2024年08月31日<br/>
+            2. 限使用於直營專門店、Outlet 暢貨中心及 Coach 官網<br/>
+            3. 香水、皮件護理產品、數位印製、維修服務及部分商品不適用​<br/>
+            4. 每位會員限使用乙次，單筆消費不可與其他優惠活動併用<br/>
+            5. 主辦單位保留最終修改活動內容之權利 
           </p>
 
           <div className="block" style={{ height: "2svh" }} />
-
-          <Button
-            name={"redeem"}
-            backgroundColor= {isRedeemed ? "#9b9696" : "#6da5e2"}
-            onClick={(e)=>{
-              if(isRedeemed) return;
-              handleRedeemButtonClick(e);
-            }}
-            style={{
-              paddingTop: "0.8rem",
-            }}
-          >
-            <p
-            style={{
-              fontSize : "0.rem",
-              lineHeight: "1.5",
-            }}
-            >
-              {language.page14.redeem.split("\n").map((item, key) => {
-              return (
-                <span
-                  key={key}
-                  style={{
-                    fontSize: "inherit",
-                  }}
-                >
-                  {isRedeemed ? "REDEEMED" : item}
-                  <br />
-                </span>
-              );
-            })}
-            </p>
-
-            <div
-              className="imgContainer"
-              style={{
-                height: "2.5svh",
-                margin: "auto",
-                position: "absolute",
-                top: "50%",
-                right: "5%",
-                transform: "translate(-55%,-55%)",
-              }}
-            >
-              <img src="/asset/gift_icon.png" />
-            </div>
-
-          </Button>
 
           <Button
             backgroundColor="#f4b404"
@@ -337,6 +309,31 @@ const Page14 = (props) => {
               );
             })}
           </Button>
+
+          <div style={{height : "1.5svh"}}/>
+
+          <h5
+            style={{
+              fontSize: "1rem",
+              textDecoration: "underline",
+              textShadow: "0 0 0.5rem rgba(0,0,0,0.3)",
+            }}
+
+            onClick={() => {
+              // share the link
+              if (navigator.share) {
+                navigator.share({
+                  // title: 'Quiz Title',
+                  // text: 'Check out this awesome quiz!',
+                  url: window.location.origin,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+              }
+            }}
+            >
+            SHARE THE QUIZ
+          </h5>
         </div>
 
         <PopUp
