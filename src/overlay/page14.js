@@ -336,7 +336,8 @@ const Page14 = (props) => {
             <div style={{height : "1svh"}}/>
           <h5 style={{
             textDecoration : "underline",
-            filter : "drop-shadow(2px 2px 0.2rem rgba(0,0,0,0.3))"
+            filter : "drop-shadow(2px 2px 0.2rem rgba(0,0,0,0.3))",
+            display : "none"
           }}
             onClick={()=>{
               if (navigator.share) {
