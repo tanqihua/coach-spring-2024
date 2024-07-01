@@ -130,7 +130,7 @@ const FormPage = (props) => {
 
               window.FIRSTNAME = info.FIRSTNAME;
               setInfo({
-                firstName: info.FIRSTNAME,
+                firstName: info.LASTNAME,
                 email: info.EMAIL,
               });
 

@@ -6,6 +6,11 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "HelveticaLTPro-Black";
+  src: url("/public/font/HelveticaLTPro-Black.ttf") format("truetype");
+}
 @font-face {
   font-family: "HelveticaLTPro-Light";
   src: url("/public/font/HelveticaLTPro-Light.woff") format("woff2");

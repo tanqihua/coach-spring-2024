@@ -49,7 +49,7 @@ const Page14 = (props) => {
     const main = async () => {
       let res = await checkIsClaim(info?.email);
       if(res){
-        setIsRedeemed(true);
+        // setIsRedeemed(true);
       }
     }
 
@@ -127,7 +127,11 @@ const Page14 = (props) => {
           >
             <div
               className="imgContainer"
-              style={{height : "8%" , width : "fit-content" , margin : "auto"}}
+              style={{
+                height : "8%" , 
+                width : "fit-content" , 
+                margin : "auto",
+              }}
             >
               <img src={"/asset/logo.png"} alt="Gift" />
             </div>
@@ -178,29 +182,20 @@ const Page14 = (props) => {
             }}
           />
 
+          <div className="block" style={{ height: "6svh" }} />
+
+
           <h4>
             點擊領取專屬禮遇
-          </h4>
-          <div className="block" style={{ height: "2svh" }} />
-          <p
-            style={{
-              fontSize : "0.rem",
-              lineHeight: "1.5",
-            }}
-          >
-            1. 兌換期間 : 即日起至YYYY年MM月DD日​​<br/>
-            2. 香水、皮件護理產品、數位印製、維修服務及部分商品不適用<br/>
-            3. 每位會員限使用乙次，單筆消費不可與其他優惠活動併用​<br/>
-            4. 主辦單位保留最終修改活動內容之權利
-          </p>
+          </h4>          
 
-          <div className="block" style={{ height: "2svh" }} />
+          <div className="block" style={{ height: "3svh" }} />
 
           <Button
             name={"redeem"}
             backgroundColor= {isRedeemed ? "#9b9696" : "#6da5e2"}
             onClick={(e)=>{
-              if(isRedeemed) return;
+              // if(isRedeemed) return;
               handleRedeemButtonClick(e);
             }}
             style={{
@@ -406,10 +401,9 @@ const PopUp = ({
         backgroundImage: "url(/asset/popup22.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        padding: "0 3rem",
         borderRadius: "10px",
         width: "85%",
-        height: "90svh",
+        height: "40rem",
         boxShadow: "0 0 2rem rgba(0,0,0,0.3)",
         position: "absolute",
         top: "50%",
@@ -425,89 +419,122 @@ const PopUp = ({
       <div className="block" style={{ height: "5%" }} />
 
       <div
+        style={{
+          position: "absolute",
+          right: "1.5rem",
+          height: "1.2rem",
+        }}
+        className="imgContainer"
+        onClick={()=>{
+          setPrizeContainerVisibility(false);
+        }}
+      >
+        <img src="/asset/closeIcon.png"/>
+      </div>
+
+      <div
         className="imgContainer"
         style={{
-          height: "4.5svh",
+          height: "2.5rem",
           margin: "auto",
         }}
       >
         <img src="/asset/logo.png" alt="Logo" />
       </div>
-      <div className="block" style={{ height: "6%" }} />
-
-      <h3 style={{ wordSpacing: "0.1rem" }}>
-        你的專屬好禮
-      </h3>
-
-      <div className="block" style={{ height: "1%" }} />
+      {/* ///// */}
+      <div className="block" style={{ height: "4%" }} />
 
       <div
         className="imgContainer"
         style={{
-          height: "28svh",
+          height: "3rem",
           margin: "auto",
         }}
       >
-        <img src={imgsrc} alt="Activist" />
+        <img src="/asset/gift_icon.png" alt="Logo" />
       </div>
-
+      
       <div className="block" style={{ height: "3%" }} />
 
-      <h5>
-        兌換好禮前，請主動出示此畫面，<br/>
-        由Coach專櫃同仁協助核銷 
-      </h5>
+      {/* ///// */}
+      <h4>
+        結帳前出示此畫面截圖<br/>
+        或於官網結帳輸入
+      </h4>
 
-      <div className="block" style={{ height: "3%" }} />
+      <div className="block" style={{ height: "4%" }} />
 
-      <Button
-        backgroundColor={buttonBackgroundColor}
-        fontSize="2svh"
-        name="staffRedeem"
-        onClick={() => {
-          handleStaffRedeemClick();
-          if (buttonText === "CONFIRM") {
-            recordCustomKey("isRedeemed", true);
-          } else if (buttonText === "REDEEMED") {
-            setPrizeContainerVisibility(false);
-          }
-        }}
-      >
-        {convert(buttonText)}
-      </Button>
+      <section>
+        <div
+          style={{
+            display : "flex",
+            alignItems : "center",
+            width : "fit-content",
+            margin : "auto",
+            padding : "0.8rem 1.5rem",
+            backgroundColor : "#fff",
+            borderRadius : "0.3rem",
+          }}
+        >
+          <h4 
+            onClick={()=>{
+              navigator.clipboard.writeText("REALYOU800");
+              alert("Copied to clipboard");
+            }}
+          style={{fontFamily : "HelveticaLTPro-Black" ,color : "#A64C02" , paddingTop : "0.2rem",fontSize : "1rem" , lineHeight : "1"}}>REALYOU800</h4>
+          <div style={{width : "1.5rem"}}/>
+          <div
+            className="svgContainer"
+            style={{
+              height : "1.2rem"
+            }}
+          >
+            <CopyBox/>
+          </div>
+        </div>
+      </section> 
 
-      <div className="block" style={{ height: "3%" }} />
-
+      <div className="block" style={{ height: "4%" }} />
       <h5
+        style={{fontSize : "1.5rem"}}
+      >
+        現享 NT$800 專屬優惠
+      </h5>
+      <div className="block" style={{ height: "4%" }} />
+      {/* //// */}
+      <h6
         style={{
-          width: "80%",
-          margin: "auto",
-          fontSize: "0.9rem",
-          lineHeight: "1.2",
+          fontSize : "1rem",
         }}
       >
-        {redeemTime
-          .toLocaleString("en-US", {
-            weekday: "short",
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            second: "numeric",
-            hour12: false,
-            timeZoneName: "long",
-          })
-          .replace(/,/g, "")
-          .toUpperCase()}{" "}
-        (
-        {redeemTime
-          .toLocaleString(undefined, { timeZoneName: "short" })
-          .split(" ")
-          .pop()
-          .toUpperCase()}
-        )
-      </h5>
+        【注意事項】
+      </h6>
+      <div className="block" style={{ height: "3%" }} />
+      <p
+        style={{
+          fontSize : "0.8rem",
+          lineHeight: "1.8",
+          // filter : "drop-shadow(2px 2px 0.2rem rgba(0,0,0,0.3))"
+        }}
+      >
+        1. 兌換期間 : 即日起至2024年08月31日<br/>
+        2. 限使用於全台直營專門店、Outlet 及 Coach 官網<br/>
+        3. 香水、皮件護理產品、數位印製、維修服務及部分商品不適用<br/>
+        4. 每位會員限使用乙次，單筆消費不可與其他優惠活動併用<br/>
+        5. Coach 台灣保留最終活動調整之權利
+      </p>
+
+      <p
+        style={{
+          fontSize : "0.7rem",
+          position: "absolute",
+          bottom: "1.5%",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+        }}
+      >
+        Terms & Conditions apply
+      </p>
     </div>
   );
 };
@@ -541,5 +568,35 @@ const LoadingVideo = ({loadingVideo}) => {
     </div>
   );
 };
+
+const CopyBox = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 10 13"
+      fill="none"
+      style={{
+        height : "100%"
+      }}
+      {...props}
+    >
+      <rect
+        width={6.786}
+        height={9.651}
+        x={0.574}
+        y={2.682}
+        fill="#A64C02"
+        rx={1}
+      />
+      <path
+        stroke="#A64C02"
+        strokeLinecap="round"
+        strokeWidth={0.7}
+        d="M3.285 1.074h4.429a1 1 0 0 1 1 1v7.043"
+      />
+    </svg>
+  )
+}
+
 
 export default Page14;
