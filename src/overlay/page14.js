@@ -158,11 +158,11 @@ const Page14 = (props) => {
               你是一位
             </h2>
 
-            <div style={{height : "12%"}}/>
+            <div style={{height : "10%"}}/>
 
             <div
               className="imgContainer"
-              style={{height : "55%" , margin : "auto" , marginTop : "-2svh" }}
+              style={{height : "65%" , margin : "auto" , marginTop : "-2svh" }}
             >
               <img src={info.tagType + ".webp"} alt="Gift" />
             </div>
@@ -182,14 +182,14 @@ const Page14 = (props) => {
             }}
           />
 
-          <div className="block" style={{ height: "6svh" }} />
+          <div className="block" style={{ height: "7svh" }} />
 
 
           <h4>
             點擊領取專屬禮遇
           </h4>          
 
-          <div className="block" style={{ height: "3svh" }} />
+          <div className="block" style={{ height: "1svh" }} />
 
           <Button
             name={"redeem"}
@@ -204,8 +204,8 @@ const Page14 = (props) => {
           >
             <p
             style={{
-              fontSize : "0.rem",
-              lineHeight: "1.5",
+              fontSize : "1.215rem",
+              lineHeight: "1.2",
             }}
             >
               {language.page14.redeem.split("\n").map((item, key) => {
@@ -501,7 +501,17 @@ const PopUp = ({
               navigator.clipboard.writeText("REALYOU800");
               alert("Copied to clipboard");
             }}
-          style={{fontFamily : "HelveticaLTPro-Black" ,color : "#A64C02" , paddingTop : "0.2rem",fontSize : "1rem" , lineHeight : "1"}}>REALYOU800</h4>
+            style={{
+              fontFamily : "HelveticaLTPro-Black",
+              color : "#A64C02" , 
+              paddingTop : "0.2rem",
+              fontSize : "1.2rem" ,
+              lineHeight : "1",
+              letterSpacing : "0.01rem",
+            }}
+          >
+            REALYOU800
+          </h4>
           <div style={{width : "1.5rem"}}/>
           <div
             className="svgContainer"
@@ -532,8 +542,9 @@ const PopUp = ({
       <div className="block" style={{ height: "3%" }} />
       <p
         style={{
-          fontSize : "0.8rem",
+          fontSize : "0.9rem",
           lineHeight: "1.8",
+          letterSpacing: "0rem",
           // filter : "drop-shadow(2px 2px 0.2rem rgba(0,0,0,0.3))"
         }}
       >
