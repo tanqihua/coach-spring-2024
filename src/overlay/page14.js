@@ -158,7 +158,7 @@ const Page14 = (props) => {
               你是一位
             </h2>
 
-            <div style={{height : "3%"}}/>
+            <div style={{height : "12%"}}/>
 
             <div
               className="imgContainer"
@@ -332,6 +332,26 @@ const Page14 = (props) => {
               );
             })}
           </Button>
+
+            <div style={{height : "1svh"}}/>
+          <h5 style={{
+            textDecoration : "underline",
+            filter : "drop-shadow(2px 2px 0.2rem rgba(0,0,0,0.3))"
+          }}
+            onClick={()=>{
+              if (navigator.share) {
+                navigator.share({
+                  title: '展開勇氣旅程',
+                  text: '請移動圓點來回答問題。測驗結束後，我們會揭曉你的隱藏超能力！',
+                  url: window.location.origin,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+              } else {
+                console.log('Share not supported on this browser, consider copying the link manually.');
+              }
+            }}
+          >立即分享心測</h5>
         </div>
 
         <PopUp

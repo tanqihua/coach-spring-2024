@@ -97,7 +97,6 @@ const Quest1 = (props) => {
           <p
             style={{
               textAlign: "center",
-              fontSize: language.type === "kr" ? "0.81rem" : "0.78rem",
             }}
           >
             {
@@ -175,7 +174,6 @@ const Quest1 = (props) => {
           <p
             style={{
               width: "fit-content",
-              fontSize: language.type === "kr" ? "0.81rem" : "0.78rem",
             }}
           >
             {
