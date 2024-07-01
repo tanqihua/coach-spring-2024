@@ -209,7 +209,6 @@ const Index = (props) => {
             answer: p,
           });
 
-
           let videoType = null;
           let tagType = null;
 
