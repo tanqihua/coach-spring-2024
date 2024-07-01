@@ -214,20 +214,20 @@ const Index = (props) => {
           let tagType = null;
 
           if (totalPoint <= 23) {
-            videoType = "blackVideo";
-            tagType = "/2d/T_activist";
-          } else if (totalPoint <= 23 * 2) {
-            videoType = "purpleVideo";
-            tagType = "/2d/T_visionary";
-          } else if (totalPoint <= 23 * 3) {
-            videoType = "yellowVideo";
-            tagType = "/2d/T_creative";
-          } else if (totalPoint <= 23 * 4) {
             videoType = "tyeDyeVideo";
             tagType = "/2d/T_lover";
-          } else {
+            } else if (totalPoint <= 23 * 2) {
+            videoType = "yellowVideo";
+            tagType = "/2d/T_creative";
+            } else if (totalPoint <= 23 * 3) {
+            videoType = "blackVideo";
+            tagType = "/2d/T_activist";
+            } else if (totalPoint <= 23 * 4) {
             videoType = "denimVideo";
             tagType = "/2d/T_explorer";
+            } else {
+            videoType = "purpleVideo";
+            tagType = "/2d/T_visionary";
           }
 
           let tt = {
