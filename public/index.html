@@ -17,24 +17,38 @@
 
 
     <title>WHAT’S YOUR COURAGE</title>
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        script-src 'self' 'unsafe-eval' https://www.googletagmanager.com/ https://www.google-analytics.com 'nonce-givemepass1' 'nonce-givemepass2' 'nonce-givemepass3' 'nonce-givemepass4';
+        img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com;
+        worker-src 'self' blob:;
+        object-src 'none';
+          "
+    /> -->
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-999YHDX5F2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-999YHDX5F2');
-    </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LY1RWSWMF9" nonce="givemepass1"></script>
+  <script nonce="givemepass2">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LY1RWSWMF9');
+  </script>
 
     <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script nonce="givemepass3">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MSTBD5P2');</script>
+    })(window,document,'script','dataLayer','GTM-MDST34XM');</script>
     <!-- End Google Tag Manager -->
+
+
+
     <style>
       * {
         margin: 0;
@@ -63,25 +77,11 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSTBD5P2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+      <!-- Google Tag Manager (noscript) -->
+    <noscript nonce="givemepass4"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDST34XM"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>
 
 
-<!-- <meta http-equiv="Content-Security-Policy" content=`default-src 'self'
-https://firestore.googleapis.com; object-src 'none'; base-uri
-'self';script-src 'self' https://www.googletagmanager.com blob:
-'unsafe-eval';connect-src 'self' https://ipapi.co
-https://api.ipify.orghttps://storage.googleapis.com https://www.gstatic.com
-https://www.google-analytics.com https://firestore.googleapis.com
-https://ajax.googleapis.com blob: 'unsafe-eval'; img-src 'self'
-https://www.googletagmanager.com https://storage.googleapis.com
-https://firebasestorage.googleapis.com data: blob:; frame-src 'self' data:
-blob: ;style-src 'self' https://rsms.me/inter/inter.css
-https://fonts.googleapis.com
-'sha256-KPdfeABJpXzTA0DblQud1b/wJj7rSnNqn0Ke8QLSS1Q='
-'sha256-xEuAyRG+Y5UWAhzxEumfb9ywEoYCzRa3jTpIDQvXnDA='
-'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='` /> -->
