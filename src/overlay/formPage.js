@@ -48,8 +48,8 @@ const FormPage = (props) => {
           backgroundColor: "#f4b404",
           padding: "0 3rem", // Adjust the padding as needed
           borderRadius: "15px", // Optional: Add border-radius for rounded corners
-          width: "90%", // Adjust the width as needed
-          height: "80svh", // Adjust the height as needed
+          width: window.innerWidth * 0.9, // Adjust the width as needed
+          height: "45rem", // Adjust the height as needed
           position: "relative",
           boxShadow: "0 0 1rem rgba(0,0,0,0.2)",
         }}
